@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Responsive Div Positioning</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .left-div {
+            flex: 1;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .right-div {
+            flex: 1;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-div,
+            .right-div {
+                flex: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-div">
+            <h2>Left Div</h2>
+            <p>Content goes here...</p>
+        </div>
+        <div class="right-div">
+            <h2>Right Div</h2>
+            <p>Content goes here...</p>
+        </div>
+    </div>
+</body>
+
+</html>
