@@ -36,10 +36,8 @@ if (isset($_POST['submit'])) {
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="all-apps.html">Softwares</a></li>
-                    <li><a href="https://skillfolio.rf.gd/" target="_blank">About</a></li>
+                    <li><a href="https://www.skillfolio.rf.gd/" target="_blank">About</a></li>
                     <li><a class="active" href="#">Contact</a></li>
-                    <li><a href="clients/index.php">Clients</a></li>
-                    <li><a href="freelancers/index.php">Freelancers</a></li>
                 </ul>
             </nav>
         </div>
