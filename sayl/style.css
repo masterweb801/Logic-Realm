@@ -1,4 +1,6 @@
-/* style.css */
+html {
+    scroll-behavior: smooth;
+}
 
 /* General Styling */
 body {

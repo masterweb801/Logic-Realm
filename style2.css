@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -198,42 +202,112 @@ a {
     color: #999;
 }
 
-/* Services Section */
-#services {
-    padding: 40px 0;
-}
-
-#services h2 {
-    margin-bottom: 20px;
-    font-size: 28px;
-}
-
 /* Open Source Section */
 #open-source {
-    height: 89vh;
+    height: 100vh;
     background-image: url("img/open.jpg");
     background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100vw;
 }
 
-#open-source h2 {
-    margin-bottom: 20px;
-    font-size: 28px;
+#open-source .jin {
+    position: relative;
+    height: 90vh;
+    width: auto;
 }
 
-#open-source .cta-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
-    background-color: #333;
+#open-source .jin span {
+    position: absolute;
+    color: #000;
+    left: 60%;
+    top: 35vh;
+    padding: 0 1rem;
+    font-weight: bold;
+}
+
+#open-source .jin img {
+    position: relative;
+    height: 90vh;
+    transform: scaleX(-1);
+}
+
+.seperator {
+    height: 90vh;
+    width: 7%;
+}
+
+#open-source .features-group {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(235, 235, 235, 0.8);
+    height: 90vh;
+    width: 40vw;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px 5px;
+}
+
+#open-source .features-group .features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#open-source .features-group .features .feature {
+    background-color: rgb(41, 41, 41, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    padding: 10px;
+    margin: 7px;
+    width: 16vw;
+    height: 140px;
+    border-radius: 5px 25px;
 }
 
-#open-source .cta-button:hover {
-    background-color: #555;
+#open-source .features-group .features .feature span {
+    font-size: 30px;
+}
+
+@media (max-width: 972px) {
+    #open-source {
+        padding: 40px 0;
+        flex-direction: column;
+        height: auto;
+    }
+
+    #open-source .jin,
+    #open-source .jin img {
+        height: 50vh;
+    }
+
+    #open-source .jin span {
+        top: 13vh;
+        font-size: small;
+    }
+
+    .seperator {
+        height: 7vh;
+    }
+
+    #open-source .features-group {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        padding: 20px 0;
+    }
+
+    #open-source .features-group .features .feature {
+        width: 60vw;
+    }
+
 }
 
 /* Contact Section */
