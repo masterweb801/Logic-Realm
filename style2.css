@@ -229,6 +229,35 @@ a {
     font-weight: bold;
 }
 
+#open-source .jin span a {
+    padding: 10px 20px;
+    border-radius: 0 25px;
+    cursor: pointer;
+    align-items: center;
+    background-clip: padding-box;
+    background-color: #4D4AE8;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    min-height: 3rem;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+
 #open-source .jin img {
     position: relative;
     height: 90vh;
@@ -293,6 +322,11 @@ a {
         font-size: small;
     }
 
+    #open-source .jin span a {
+        position: absolute;
+        margin-top: 30px;
+    }
+
     .seperator {
         height: 7vh;
     }
@@ -307,8 +341,102 @@ a {
     #open-source .features-group .features .feature {
         width: 60vw;
     }
-
 }
+
+/* Softweres Section */
+#softwares-section {
+    height: 100vh;
+    width: 100vw;
+    flex-direction: row;
+    background-image: url("img/open.jpg");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.jin-2 {
+    height: 90vh;
+    width: auto;
+}
+
+.jin-2 img {
+    height: 90vh;
+}
+
+.softwares-group {
+    position: relative;
+    display: flex;
+    flex-direction: co;
+    background-color: rgba(235, 235, 235, 0.8);
+    height: 90vh;
+    width: 40vw;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px 5px;
+}
+
+.softwares-group .headline {
+    position: absolute;
+    top: 10px;
+    font-size: 20px;
+}
+
+.softwares-group .softwares {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.softwares-group .softwares .software {
+    background-color: rgb(41, 41, 41, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 10px;
+    margin: 7px;
+    width: 16vw;
+    height: 140px;
+    border-radius: 5px 25px;
+}
+
+.softwares-group .softwares .software img {
+    width: 80px;
+    border-radius: 20px;
+}
+
+@media (max-width: 972px) {
+    #softwares-section {
+        padding: 40px 0;
+        flex-direction: column-reverse;
+        height: auto;
+    }
+
+    #softwares-section .jin-2,
+    #softwares-section .jin-2 img {
+        height: 50vh;
+    }
+
+    .softwares-group {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .softwares-group .softwares .software {
+        width: 60vw;
+    }
+
+    .softwares-group .headline {
+        position: relative;
+    }
+}
+
 
 /* Contact Section */
 #contact {
