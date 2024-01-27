@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logic Realm | Contact</title>
+  <link rel="icon" type="image/x-icon" href="img/icon.ico" />
+  <link rel="stylesheet" type="text/css" href="style2.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Logic Realm</h1>
+      <div class="menu-toggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="all-apps.html">Softwares</a></li>
+          <li>
+            <a href="https://www.skillfolio.rf.gd/" target="_blank">About</a>
+          </li>
+          <li><a class="active" href="#">Wish</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id="contact">
+    <div class="cont-form">
+      <h2>Contact Us</h2>
+      <p>
+        Tell Us about your wish. We will do our best to work with perfection.
+      </p>
+      <form method="post" id="contact-form">
+        <label for="cnt-name">Your Full Name:-</label>
+        <input type="text" placeholder="Name" id="cnt-name" required />
+        <label for="cnt-email">Your Email Address:-</label>
+        <input type="email" placeholder="Email" id="cnt-email" required />
+        <label for="cnt-drop">Wish Category:-</label>
+        <select id="cnt-drop">
+          <option value="" selected>- Select Your Category -</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Software Development">Software Development</option>
+          <option value="Graphics Design">Graphics Design</option>
+          <option value="Web Design">Web Design</option>
+          <option value="Video Editing">Video Editing</option>
+          <option value="SEO">SEO</option>
+        </select>
+        <label for="cnt-msg">Wish Details:-</label>
+        <textarea placeholder="Give the full description of your work in order to achieve perfection." id="cnt-msg"
+          required></textarea>
+        <button name="submit" type="submit">Send</button>
+      </form>
+    </div>
+    <div class="jin">
+      <img src="img/jin-2.png" alt="Image of a Jin">
+    </div>
+  </section>
+
+  <footer>
+    <div class="cont">
+      <p>&copy; 2023 Logic Realm. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    let drop = document.getElementById("cnt-drop");
+    if (drop.value != "") {
+      let name = document.getElementById("cnt-name");
+      let email = document.getElementById("cnt-email");
+      let msg = document.getElementById("cnt-msg");
+    } else {
+      alert("Please Select a Category")
+    }
+  });
+</script>
+
+</html>
