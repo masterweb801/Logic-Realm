@@ -1,3 +1,36 @@
+<?php
+require "_config.php";
+
+if (isset($_POST['submit'])) {
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $budget = $_POST['budget'];
+  $category = $_POST['category'];
+  $details = $_POST['details'];
+  $sql = "INSERT INTO `Orders`(`category`, `name`, `email`, `budget`, `details`) VALUES ('" . $category . "','" . $name . "','" . $email . "'," . $budget . ",'" . $details . "')";
+  mysqli_query($conn, $sql);
+  $sql2 = 'SELECT * FROM `Orders` WHERE `email`="' . $email . '" AND `category`="' . $category . '" AND `budget`="' . $budget . '" AND `status`="open"';
+  $data = mysqli_query($conn, $sql2);
+  $total = mysqli_num_rows($data);
+  if ($total == 1) {
+    $result = mysqli_fetch_assoc($data);
+    echo "<script>alert('Your Wish Has Been Submited Successfuly. And Your Wish ID Is:- " . $result['id'] . "');</script";
+  } elseif ($total > 1) {
+    $a = 1;
+    while ($a <= $total) {
+      $result = mysqli_fetch_assoc($data);
+      if ($a == $total) {
+        echo "<script>alert('Your Wish Has Been Submited Successfuly. And Your Wish ID Is:- " . $result['id'] . "');</script";
+      }
+      $a++;
+    }
+  } else {
+    echo "<script>alert('Internal Server Error')</script>";
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -40,11 +73,11 @@
       </p>
       <form method="post" id="contact-form">
         <label for="cnt-name">Your Full Name:-</label>
-        <input type="text" placeholder="Name" id="cnt-name" required />
+        <input type="text" placeholder="Name" name="name" id="cnt-name" required />
         <label for="cnt-email">Your Email Address:-</label>
-        <input type="email" placeholder="Email" id="cnt-email" required />
+        <input type="email" placeholder="Email" name="email" id="cnt-email" required />
         <label for="cnt-drop">Wish Category:-</label>
-        <select id="cnt-drop">
+        <select id="cnt-drop" name="category" required>
           <option value="" selected>- Select Your Category -</option>
           <option value="Web Development">Web Development</option>
           <option value="Software Development">Software Development</option>
@@ -54,11 +87,11 @@
           <option value="SEO">SEO</option>
         </select>
         <label for="budget">Your Budget:- &nbsp; (USD)</label>
-        <input type="number" placeholder="Your Budget" id="budget" required>
+        <input type="number" placeholder="Your Budget" name="budget" id="budget" min required>
         <label for="cnt-msg">Wish Details:-</label>
-        <textarea placeholder="Give the full description of your work in order to achieve perfection." id="cnt-msg"
-          required></textarea>
-        <button name="submit" type="submit">Send</button>
+        <textarea placeholder="Give the full description of your work in order to achieve perfection." name="details"
+          id="cnt-msg" required></textarea>
+        <button name="submit" id="form-submit" type="submit">Send</button>
       </form>
     </div>
     <div class="jin">
@@ -72,30 +105,6 @@
     </div>
   </footer>
 </body>
-
-<script>
-  document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    let name = document.getElementById("cnt-name");
-    let email = document.getElementById("cnt-email");
-    let drop = document.getElementById("cnt-drop");
-    let budget = document.getElementById("budget");
-    let msg = document.getElementById("cnt-msg");
-    if (name.value == "") {
-      alert("Please Write Your Name!");
-    } else if (email.value == "") {
-      alert("Please Write Your Email Address!");
-    } else if (drop.value == "") {
-      alert("Please Select a Category!");
-    } else if (budget.value == "") {
-      alert("Please Give Your Budget!");
-    } else if (msg.value == "") {
-      alert("Please Write About Your Wish!");
-    } else if (budget.value < 20) {
-      alert("Please Write Your Email Address!");
-    }
-  });
-</script>
 <script src="script.js"></script>
 
 </html>
