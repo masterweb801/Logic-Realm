@@ -105,7 +105,6 @@ nav ul li a.active {
 @media (max-width: 768px) {
     .container {
         flex-wrap: wrap;
-        padding-left: 0;
     }
 
     .menu-toggle {
@@ -124,8 +123,6 @@ nav ul li a.active {
     nav.open {
         max-height: 800px;
         background-color: #333;
-        margin-left: auto;
-        margin-right: auto;
         z-index: 9999999;
     }
 
@@ -443,6 +440,9 @@ a {
 
 /* Contact Section */
 #contact {
+    background-image: url("img/wish.jpg");
+    background-size: cover;
+    background-origin: inherit;
     height: auto;
     margin-top: auto;
     margin-bottom: auto;
@@ -452,32 +452,42 @@ a {
     align-items: center;
     justify-content: center;
     gap: 50px;
+    padding: 25px 0;
 }
 
 #contact .jin {
-    height: 70vh;
+    height: 80vh;
 }
 
 #contact .jin img {
-    height: 70vh;
+    height: 80vh;
 }
 
 #contact .cont-form {
     display: flex;
     flex-direction: column;
     width: 40vw;
+    background-color: #000000be;
+    padding: 30px;
 }
 
 #contact .cont-form h2 {
     margin: 0;
+    font-weight: 900;
+    font-size: 30px;
+    color: rgb(243, 75, 75);
+    text-decoration: underline;
 }
 
 #contact .cont-form p {
     font-size: 16px;
+    color: #fff;
 }
 
 #contact .cont-form form label {
     font-size: 14px;
+    color: #fff;
+    padding-bottom: 5px;
 }
 
 #contact .cont-form form {
@@ -486,9 +496,16 @@ a {
 }
 
 form input,
-form textarea,
+form textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 form select {
-    width: 100%;
+    width: 99%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -513,7 +530,6 @@ form button[type="submit"] {
         calc(var(--_i, -1)*-0.08em) .01em 2px #0004;
     outline-offset: .1em;
     transition: 0.3s;
-    width: 25vw;
     align-self: center;
 }
 
@@ -540,7 +556,8 @@ form button[type="submit"] {
 
 @media (max-width: 972px) {
     #contact {
-        margin-left: -5%;
+        background-image: none;
+        margin: 0;
     }
 
     #contact .jin {
@@ -548,7 +565,21 @@ form button[type="submit"] {
     }
 
     #contact .cont-form {
-        width: 80vw;
+        width: 90vw;
+        background-color: white;
+        padding: 0;
+    }
+
+    #contact .cont-form h2,
+    #contact .cont-form p,
+    #contact .cont-form form label {
+        color: #000;
+    }
+
+    form input,
+    form textarea,
+    form select {
+        width: 90%;
     }
 }
 

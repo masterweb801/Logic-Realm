@@ -7,6 +7,7 @@
   <title>Logic Realm | Contact</title>
   <link rel="icon" type="image/x-icon" href="img/icon.ico" />
   <link rel="stylesheet" type="text/css" href="style2.css" />
+
 </head>
 
 <body>
@@ -33,7 +34,7 @@
   </header>
   <section id="contact">
     <div class="cont-form">
-      <h2>Contact Us</h2>
+      <h2>Wish Us</h2>
       <p>
         Tell Us about your wish. We will do our best to work with perfection.
       </p>
@@ -52,6 +53,8 @@
           <option value="Video Editing">Video Editing</option>
           <option value="SEO">SEO</option>
         </select>
+        <label for="budget">Your Budget:- &nbsp; (USD)</label>
+        <input type="number" placeholder="Your Budget" id="budget" required>
         <label for="cnt-msg">Wish Details:-</label>
         <textarea placeholder="Give the full description of your work in order to achieve perfection." id="cnt-msg"
           required></textarea>
@@ -73,15 +76,26 @@
 <script>
   document.getElementById("contact-form").addEventListener("submit", function (e) {
     e.preventDefault();
+    let name = document.getElementById("cnt-name");
+    let email = document.getElementById("cnt-email");
     let drop = document.getElementById("cnt-drop");
-    if (drop.value != "") {
-      let name = document.getElementById("cnt-name");
-      let email = document.getElementById("cnt-email");
-      let msg = document.getElementById("cnt-msg");
-    } else {
-      alert("Please Select a Category")
+    let budget = document.getElementById("budget");
+    let msg = document.getElementById("cnt-msg");
+    if (name.value == "") {
+      alert("Please Write Your Name!");
+    } else if (email.value == "") {
+      alert("Please Write Your Email Address!");
+    } else if (drop.value == "") {
+      alert("Please Select a Category!");
+    } else if (budget.value == "") {
+      alert("Please Give Your Budget!");
+    } else if (msg.value == "") {
+      alert("Please Write About Your Wish!");
+    } else if (budget.value < 20) {
+      alert("Please Write Your Email Address!");
     }
   });
 </script>
+<script src="script.js"></script>
 
 </html>
