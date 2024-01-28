@@ -1,36 +1,3 @@
-<?php
-require "_config.php";
-
-if (isset($_POST['submit'])) {
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $budget = $_POST['budget'];
-  $category = $_POST['category'];
-  $details = $_POST['details'];
-  $sql = "INSERT INTO `Orders`(`category`, `name`, `email`, `budget`, `details`) VALUES ('" . $category . "','" . $name . "','" . $email . "'," . $budget . ",'" . $details . "')";
-  mysqli_query($conn, $sql);
-  $sql2 = 'SELECT * FROM `Orders` WHERE `email`="' . $email . '" AND `category`="' . $category . '" AND `budget`="' . $budget . '" AND `status`="open"';
-  $data = mysqli_query($conn, $sql2);
-  $total = mysqli_num_rows($data);
-  if ($total == 1) {
-    $result = mysqli_fetch_assoc($data);
-    echo "<script>alert('Your Wish Has Been Submited Successfuly. And Your Wish ID Is:- " . $result['id'] . "');</script";
-  } elseif ($total > 1) {
-    $a = 1;
-    while ($a <= $total) {
-      $result = mysqli_fetch_assoc($data);
-      if ($a == $total) {
-        echo "<script>alert('Your Wish Has Been Submited Successfuly. And Your Wish ID Is:- " . $result['id'] . "');</script";
-      }
-      $a++;
-    }
-  } else {
-    echo "<script>alert('Internal Server Error')</script>";
-  }
-}
-
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -105,6 +72,31 @@ if (isset($_POST['submit'])) {
     </div>
   </footer>
 </body>
+<script>
+  document.getElementById("contact-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let name = document.getElementById("cnt-name").value;
+    let email = document.getElementById("cnt-email").value;
+    let category = document.getElementById("cnt-drop").value;
+    let budget = document.getElementById("budget").value;
+    let details = document.getElementById("cnt-msg").value;
+    const url = "http://localhost/LR_API/order/newOrder.php";
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, email, budget, category, details })
+      });
+      const json = await response.json();
+      console.log(json)
+    } catch (error) {
+      console.log(error);
+    }
+  })
+</script>
 <script src="script.js"></script>
 
 </html>
