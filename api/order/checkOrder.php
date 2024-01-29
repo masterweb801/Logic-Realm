@@ -16,8 +16,12 @@ if ($data !== null) {
     $sql = 'SELECT * FROM `Orders` WHERE `id`=' . $code;
     $data = mysqli_query($conn, $sql);
     $total = mysqli_num_rows($data);
-    $result = mysqli_fetch_assoc($data);
-    response(200, "Succesfull", $result);
+    if ($total > 0) {
+        $result = mysqli_fetch_assoc($data);
+        response(200, "Succesfull", $result);
+    } else {
+        response(404, "No Wishes Found", null);
+    }
 } else {
     response(400, "Bad Request", null);
 }

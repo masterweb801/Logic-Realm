@@ -70,7 +70,11 @@ document.getElementById("code-form").addEventListener("submit", async (e) => {
         });
         const json = await response.json();
         let data = json['response_data'];
-        wishDetails(data['id'], data["title"], data['email'], data['budget'], data['status'])
+        if (data != null) {
+            wishDetails(data['id'], data["title"], data['email'], data['budget'], data['status'])
+        } else {
+            wishDetails(null, null, "Wish Not Found", null, null)
+        }
     } catch (error) {
         console.log(error);
     }
