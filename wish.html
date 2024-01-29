@@ -7,7 +7,7 @@
   <title>Logic Realm | Contact</title>
   <link rel="icon" type="image/x-icon" href="img/icon.ico" />
   <link rel="stylesheet" type="text/css" href="style2.css" />
-
+  <script src="https://kit.fontawesome.com/171e689b28.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -32,8 +32,9 @@
       </nav>
     </div>
   </header>
+
   <section id="contact">
-    <div class="cont-form">
+    <div id="cont-form" class="cont-form">
       <h2>Wish Us</h2>
       <p>
         Tell Us about your wish. We will do our best to work with perfection.
@@ -61,7 +62,17 @@
         <button name="submit" id="form-submit" type="submit">Send</button>
       </form>
     </div>
-    <div class="jin">
+
+    <div id="popup" class="popup">
+      <span id="gicon" class="gift-icon">
+        <i class="fa-solid fa-gift"></i>
+      </span>
+      <h3 id="result-msg"></h3>
+      <p id="order-id"></p>
+      <button id="msg-close" onclick="closeMessage();">Close</button>
+    </div>
+
+    <div id="jin" class="jin">
       <img src="img/jin-2.png" alt="Image of a Jin">
     </div>
   </section>
@@ -91,11 +102,48 @@
         body: JSON.stringify({ name, email, budget, category, details })
       });
       const json = await response.json();
-      console.log(json)
+      message(json['response_desc'], json['order_id'])
     } catch (error) {
-      console.log(error);
+      message("Something is Wrong", null)
     }
   })
+
+  function message(msg, orderId) {
+    let popup = document.getElementById("popup");
+    let gicon = document.getElementById("gicon");
+    let jin = document.getElementById("jin");
+    let form = document.getElementById("cont-form");
+
+    jin.classList.add("blur-filter");
+    form.classList.add("blur-filter");
+    popup.classList.remove("popup");
+    popup.classList.add("poped-msg");
+    gicon.classList.remove("gift-icon");
+    gicon.classList.add("poped-gift");
+    document.getElementById("msg-close").style.visibility = "visible";
+    document.getElementById("result-msg").innerText = msg;
+    if (orderId !== null) {
+      document.getElementById("order-id").innerText = "Your Order ID is " + orderId;
+      document.getElementById("contact-form").reset();
+    }
+  }
+
+  function closeMessage() {
+    let popup = document.getElementById("popup");
+    let gicon = document.getElementById("gicon");
+    let jin = document.getElementById("jin");
+    let form = document.getElementById("cont-form");
+
+    document.getElementById("msg-close").style.visibility = "hidden";
+    document.getElementById("result-msg").innerText = "";
+    document.getElementById("order-id").innerText = "";
+    popup.classList.remove("poped-msg");
+    popup.classList.add("popup");
+    gicon.classList.remove("poped-gift");
+    gicon.classList.add("gift-icon");
+    jin.classList.remove("blur-filter");
+    form.classList.remove("blur-filter");
+  }
 </script>
 <script src="script.js"></script>
 
