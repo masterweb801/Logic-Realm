@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Logic Realm | Contact</title>
+  <title>Logic Realm | Wish</title>
   <link rel="icon" type="image/x-icon" href="img/icon.ico" />
   <link rel="stylesheet" type="text/css" href="style2.css" />
   <script src="https://kit.fontawesome.com/171e689b28.js" crossorigin="anonymous"></script>
@@ -40,11 +40,8 @@
         Tell Us about your wish. We will do our best to work with perfection.
       </p>
       <form id="contact-form">
-        <label for="cnt-name">Your Full Name:-</label>
         <input type="text" placeholder="Name" name="name" id="cnt-name" required />
-        <label for="cnt-email">Your Email Address:-</label>
         <input type="email" placeholder="Email" name="email" id="cnt-email" required />
-        <label for="cnt-drop">Wish Category:-</label>
         <select id="cnt-drop" name="category" required>
           <option value="" selected>- Select Your Category -</option>
           <option value="Web Development">Web Development</option>
@@ -54,9 +51,8 @@
           <option value="Video Editing">Video Editing</option>
           <option value="SEO">SEO</option>
         </select>
-        <label for="budget">Your Budget:- &nbsp; (USD)</label>
-        <input type="number" placeholder="Your Budget" name="budget" id="budget" min required>
-        <label for="cnt-msg">Wish Details:-</label>
+        <input type="text" placeholder="Tile of Your Wish" name="title" id="cnt-title" required>
+        <input type="number" placeholder="Your Budget (USD)" name="budget" id="budget" min="20" required>
         <textarea placeholder="Give the full description of your work in order to achieve perfection." name="details"
           id="cnt-msg" required></textarea>
         <button name="submit" type="submit">Send</button>
@@ -76,12 +72,36 @@
       <img src="img/jin-2.png" alt="Image of a Jin">
     </div>
   </section>
+
   <section id="wish-details">
     <h2>Track Your Wish</h2>
     <form id="code-form">
       <input type="text" name="wish-id" id="wish-id" placeholder="Your Wish ID">
       <button type="submit" name="submit">Check</button>
     </form>
+
+    <div id="wish-code-result">
+      <div class="headline-wish-details">
+        <h2>Wish Details</h2>
+        <button id="wish-details-close" onclick="wishDetailsClose()"><i class="fas fa-x"></i></button>
+      </div>
+      <table id="wish-table">
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Email</th>
+          <th>Budget</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td id="wd-id"></td>
+          <td id="wd-title"></td>
+          <td id="wd-email"></td>
+          <td id="wd-budget"></td>
+          <td id="wd-status"></td>
+        </tr>
+      </table>
+    </div>
   </section>
 
   <footer>

@@ -1,5 +1,11 @@
 <?php
 header("Content-Type:application/json");
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Credentials: true");
+header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+header('Access-Control-Max-Age: 1000');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
+
 $json = file_get_contents('php://input');
 $data = json_decode($json);
 if ($data !== null) {
@@ -9,9 +15,10 @@ if ($data !== null) {
     $email = $data->email;
     $budget = $data->budget;
     $category = $data->category;
+    $title = $data->title;
     $details = $data->details;
 
-    $sql = "INSERT INTO `Orders`(`category`, `name`, `email`, `budget`, `details`) VALUES ('" . $category . "','" . $name . "','" . $email . "'," . $budget . ",'" . $details . "')";
+    $sql = "INSERT INTO `Orders`(`category`, `name`, `email`, `budget`, `title`, `details`) VALUES ('" . $category . "','" . $name . "','" . $email . "'," . $budget . ",'" . $title . "','" . $details . "')";
     mysqli_query($conn, $sql);
 
     $sql2 = 'SELECT * FROM `Orders` WHERE `email`="' . $email . '" AND `category`="' . $category . '" AND `budget`="' . $budget . '" AND `status`="open"';

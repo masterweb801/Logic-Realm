@@ -9,6 +9,7 @@ document.getElementById("contact-form").addEventListener("submit", async (e) => 
     let name = document.getElementById("cnt-name").value;
     let email = document.getElementById("cnt-email").value;
     let category = document.getElementById("cnt-drop").value;
+    let title = document.getElementById("cnt-title").value;
     let budget = document.getElementById("budget").value;
     let details = document.getElementById("cnt-msg").value;
     const url = "https://logicrealm.rf.gd/api/order/newOrder.php";
@@ -19,7 +20,7 @@ document.getElementById("contact-form").addEventListener("submit", async (e) => 
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ name, email, budget, category, details })
+            body: JSON.stringify({ name, email, budget, category, title, details })
         });
         const json = await response.json();
         message(json['response_desc'], json['order_id'])
@@ -56,6 +57,39 @@ function closeMessage() {
 }
 document.getElementById("code-form").addEventListener("submit", async (e) => {
     e.preventDefault();
-    let code = document.getElementById("wish-id");
-    console.log(code.value);
+    let code = document.getElementById("wish-id").value;
+    const url = "https://logicrealm.rf.gd/api/order/checkOrder.php";
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ code })
+        });
+        const json = await response.json();
+        let data = json['response_data'];
+        wishDetails(data['id'], data["title"], data['email'], data['budget'], data['status'])
+    } catch (error) {
+        // message("Something is Wrong", null)
+    }
 })
+
+function wishDetails(id, title, email, budget, status) {
+    document.getElementById("wish-code-result").style.visibility = "visible";
+    document.getElementById("wd-id").innerText = id;
+    document.getElementById("wd-title").innerText = title;
+    document.getElementById("wd-email").innerText = email;
+    document.getElementById("wd-budget").innerText = budget;
+    document.getElementById("wd-status").innerText = status;
+}
+
+function wishDetailsClose() {
+    document.getElementById("wish-code-result").style.visibility = "hidden";
+    document.getElementById("wd-id").innerText = "";
+    document.getElementById("wd-title").innerText = "";
+    document.getElementById("wd-email").value = "";
+    document.getElementById("wd-budget").innerText = "";
+    document.getElementById("wd-status").innerText = "";
+}
