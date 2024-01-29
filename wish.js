@@ -72,7 +72,7 @@ document.getElementById("code-form").addEventListener("submit", async (e) => {
         let data = json['response_data'];
         wishDetails(data['id'], data["title"], data['email'], data['budget'], data['status'])
     } catch (error) {
-        // message("Something is Wrong", null)
+        console.log(error);
     }
 })
 

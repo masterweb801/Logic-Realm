@@ -13,7 +13,7 @@ if ($data !== null) {
 
     $code = $data->code;
 
-    $sql = 'SELECT * FROM `orders` WHERE `id`=' . $code;
+    $sql = 'SELECT * FROM `Orders` WHERE `id`=' . $code;
     $data = mysqli_query($conn, $sql);
     $total = mysqli_num_rows($data);
     $result = mysqli_fetch_assoc($data);
