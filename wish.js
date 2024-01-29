@@ -38,7 +38,7 @@ function message(msg, orderId) {
     document.getElementById("msg-close").style.visibility = "visible";
     document.getElementById("result-msg").innerText = msg;
     if (orderId !== null) {
-        document.getElementById("order-id").innerText = "Your Order ID is " + orderId;
+        document.getElementById("order-id").innerText = "Your Wish ID is " + orderId;
         document.getElementById("contact-form").reset();
     }
 }
@@ -54,3 +54,8 @@ function closeMessage() {
     jin.classList.remove("blur-filter");
     form.classList.remove("blur-filter");
 }
+document.getElementById("code-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let code = document.getElementById("wish-id");
+    console.log(code.value);
+})

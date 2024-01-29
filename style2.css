@@ -559,6 +559,8 @@ a {
     #contact {
         background-image: none;
         margin: 0;
+        background-color: #928888;
+        width: 100vw;
     }
 
     #contact .jin {
@@ -568,19 +570,34 @@ a {
     #contact .cont-form {
         width: 90vw;
         background-color: white;
-        padding: 0;
+        padding: 12px;
+        border-radius: 15px;
+        background-image: url("img/wish.jpg");
     }
 
-    #contact .cont-form h2,
-    #contact .cont-form p,
+    #contact .cont-form h2 {
+        color: #fff;
+        font-family: system-ui, sans-serif;
+        font-weight: 900;
+        -webkit-text-stroke: 2px #000;
+        letter-spacing: 1.5px;
+    }
+
+    #contact .cont-form p {
+        color: #fff;
+        font-family: system-ui, sans-serif;
+        font-weight: 900;
+        -webkit-text-stroke: 1px #000;
+        letter-spacing: 1.5px;
+    }
+
     #contact .cont-form form label {
-        color: #000;
+        display: none;
     }
 
-    #contact .cont-form form input,
-    #contact .cont-form form textarea,
-    #contact .cont-form form select {
-        width: 90%;
+    #contact .cont-form form {
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -661,6 +678,84 @@ a {
     padding: 10px 15px;
     border-radius: 15px 20px 15px 20px;
     font-size: 1rem;
+}
+
+/* Order Checking */
+#wish-details {
+    background-image: url("img/wish2.jpg");
+    background-size: cover;
+    background-origin: inherit;
+    height: auto;
+    min-height: 100vh;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#wish-details h2 {
+    color: white;
+    font-weight: 900;
+    letter-spacing: -.5px;
+    font-family: system-ui, sans-serif;
+    font-size: 30px;
+}
+
+#wish-details #code-form {
+    width: 50vw;
+    background-color: #333;
+    padding: 7px 5px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+#code-form #wish-id {
+    width: 85%;
+    padding: 10px;
+    border-radius: 7px 0 0 7px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: system-ui, sans-serif;
+    font-weight: 500;
+}
+
+#code-form button {
+    width: 15%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #e94100;
+    color: white;
+    border-radius: 0 7px 7px 0;
+    font-size: 16px;
+    font-family: system-ui, sans-serif;
+    font-weight: 500;
+}
+
+#code-form button:hover {
+    background-color: #f05c22;
+}
+
+@media (max-width: 972px) {
+    #wish-details #code-form {
+        width: 85vw;
+        padding: 7px;
+    }
+
+    #code-form #wish-id {
+        font-size: 14px;
+        width: 80%;
+    }
+
+    #code-form button {
+        font-size: 14px;
+        width: 20%;
+    }
 }
 
 /* Footer */
