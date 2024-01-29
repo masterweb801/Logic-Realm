@@ -60,24 +60,24 @@ document.getElementById("code-form").addEventListener("submit", async (e) => {
     let code = document.getElementById("wish-id").value;
     const url = "https://logicrealm.rf.gd/api/order/checkOrder.php";
 
-    try {
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ code })
-        });
-        const json = await response.json();
+    // try {
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ code })
+    });
+    const json = await response.json();
+    if (json['response_code'] != 404) {
         let data = json['response_data'];
-        if (data != null) {
-            wishDetails(data['id'], data["title"], data['email'], data['budget'], data['status'])
-        } else {
-            wishDetails(null, null, "Wish Not Found", null, null)
-        }
-    } catch (error) {
-        console.log(error);
+        wishDetails(data['id'], data["title"], data['email'], data['budget'], data['status'])
+    } else {
+        wishDetails("", "", "Wish Not Found", "", "")
     }
+    // } catch (error) {
+    //     console.log(error);
+    // }
 })
 
 function wishDetails(id, title, email, budget, status) {
