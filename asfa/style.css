@@ -157,7 +157,6 @@ nav ul li a.active {
 
 /* Hero Section */
 #hero {
-    background-color: #f2f2f2;
     padding: 80px 0;
 }
 
@@ -182,6 +181,7 @@ nav ul li a.active {
 
 /* Features Section */
 #features {
+    background-color: #f2f2f2;
     padding: 60px 0;
 }
 
@@ -193,6 +193,30 @@ nav ul li a.active {
 #features ul {
     list-style-type: disc;
     padding-left: 20px;
+}
+
+/* Installation */
+#how-to-use {
+    padding: 60px 0;
+}
+
+#how-to-use ul {
+    list-style: decimal;
+}
+
+.url {
+    text-decoration: underline;
+    color: blue;
+    font-weight: bold;
+}
+
+code {
+    font-family: system-ui, sans-serif;
+    background-color: #999;
+    color: #fff;
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-size: .9em;
 }
 
 /* System Requirements Section */
