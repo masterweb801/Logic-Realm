@@ -76,7 +76,7 @@
   <section id="wish-details">
     <h2>Track Your Wish</h2>
     <form id="code-form">
-      <input type="text" name="wish-id" id="wish-id" placeholder="Your Wish ID">
+      <input type="text" name="wish-id" id="wish-id" placeholder="Your Wish ID" required>
       <button type="submit" name="submit">Check</button>
     </form>
 
@@ -108,7 +108,7 @@
           </tr>
         </tbody>
       </table>
-      <button id="wd-done" onclick="">Wish Fulfilled</button>
+      <button id="wd-done" onclick="closeWish()">Wish Fulfilled</button>
     </div>
   </section>
 

@@ -14,20 +14,18 @@ if ($data !== null) {
 
     $code = $data->code;
 
-    $sql = 'SELECT * FROM `Orders` WHERE `id`=' . $code;
-    $data = mysqli_query($conn, $sql);
-    $total = mysqli_num_rows($data);
-    if ($total > 0) {
-        $result = mysqli_fetch_assoc($data);
-        response(200, "Succesfull", $result);
-    } else {
-        response(404, "No Wishes Found", null);
+    try {
+        $sql = "UPDATE `Orders` SET `status`='done' WHERE `id`=" . $code;
+        mysqli_query($conn, $sql);
+        response(true, 200, "Successfull");
+    } catch (Exception $e) {
+        response($e->getMessage(), 500, $e->getMessage());
     }
 } else {
-    response(400, "Bad Request", null);
+    response(null, 400, "Bad Request");
 }
 
-function response($response_code, $response_desc, $response_data)
+function response($response_data, $response_code, $response_desc)
 {
     $response['response_code'] = $response_code;
     $response['response_desc'] = $response_desc;

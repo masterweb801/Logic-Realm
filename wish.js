@@ -90,7 +90,7 @@ function wishDetails(id, title, email, budget, status, progress) {
     document.getElementById("wd-budget").innerText = budget;
     document.getElementById("wd-status").innerText = status;
     document.getElementById("wd-progress").innerText = progress;
-    if (progress === "100") {
+    if (progress === "100" && status === "checking") {
         document.getElementById("wd-done").style.visibility = "visible";
     }
 }
@@ -106,9 +106,27 @@ function wishDetailsClose() {
     document.getElementById("wd-progress").innerText = "";
 }
 
-function closeWish() {
+async function closeWish() {
     // const url = "https://logicrealm.rf.gd/api/order/closeOrder.php";
     const url = "http://localhost/LR_API/order/closeOrder.php";
     let code = document.getElementById("wish-id").value;
-    console.log(code);
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ code })
+        });
+        const json = await response.json();
+        if (json['response_code'] === 200) {
+            wishDetailsClose();
+        } else {
+            alert("Something Went Wrong!");
+            console.log(json['response_desc']);
+        }
+    } catch (error) {
+        alert("Something Went Wrong!");
+        console.log(error);
+    }
 }
