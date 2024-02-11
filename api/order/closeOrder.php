@@ -15,8 +15,10 @@ if ($data !== null) {
     $code = $data->code;
 
     try {
-        $sql = "UPDATE `Orders` SET `status`='done' WHERE `id`=" . $code;
+        $sql = "UPDATE `Employee` SET `status`='free', `pid`=0 WHERE `pid`=" . $code;
         mysqli_query($conn, $sql);
+        $sql2 = "UPDATE `Orders` SET `status`='done' WHERE `id`=" . $code;
+        mysqli_query($conn, $sql2);
         response(true, 200, "Successfull");
     } catch (Exception $e) {
         response($e->getMessage(), 500, $e->getMessage());
