@@ -12,7 +12,8 @@ document.getElementById("contact-form").addEventListener("submit", async (e) => 
     let title = document.getElementById("cnt-title").value;
     let budget = document.getElementById("budget").value;
     let details = document.getElementById("cnt-msg").value;
-    const url = "https://logicrealm.rf.gd/api/order/newOrder.php";
+    // const url = "https://logicrealm.rf.gd/api/order/newOrder.php";
+    const url = "http://localhost/LR_API/order/newOrder.php";
 
     try {
         const response = await fetch(url, {
@@ -58,7 +59,8 @@ function closeMessage() {
 document.getElementById("code-form").addEventListener("submit", async (e) => {
     e.preventDefault();
     let code = document.getElementById("wish-id").value;
-    const url = "https://logicrealm.rf.gd/api/order/checkOrder.php";
+    // const url = "https://logicrealm.rf.gd/api/order/checkOrder.php";
+    const url = "http://localhost/LR_API/order/checkOrder.php";
 
     try {
         const response = await fetch(url, {
@@ -71,29 +73,42 @@ document.getElementById("code-form").addEventListener("submit", async (e) => {
         const json = await response.json();
         if (json['response_code'] != 404) {
             let data = json['response_data'];
-            wishDetails(data['id'], data["title"], data['email'], data['budget'], data['status'])
+            wishDetails(data['id'], data["title"], data['email'], data['budget'], data['status'], data['stc'])
         } else {
-            wishDetails("", "", "Wish Not Found", "", "")
+            wishDetails("", "", "Wish Not Found", "", "", "")
         }
     } catch (error) {
         console.log(error);
     }
 })
 
-function wishDetails(id, title, email, budget, status) {
+function wishDetails(id, title, email, budget, status, progress) {
     document.getElementById("wish-code-result").style.visibility = "visible";
     document.getElementById("wd-id").innerText = id;
     document.getElementById("wd-title").innerText = title;
     document.getElementById("wd-email").innerText = email;
     document.getElementById("wd-budget").innerText = budget;
     document.getElementById("wd-status").innerText = status;
+    document.getElementById("wd-progress").innerText = progress;
+    if (progress === "100") {
+        document.getElementById("wd-done").style.visibility = "visible";
+    }
 }
 
 function wishDetailsClose() {
     document.getElementById("wish-code-result").style.visibility = "hidden";
+    document.getElementById("wd-done").style.visibility = "hidden";
     document.getElementById("wd-id").innerText = "";
     document.getElementById("wd-title").innerText = "";
     document.getElementById("wd-email").value = "";
     document.getElementById("wd-budget").innerText = "";
     document.getElementById("wd-status").innerText = "";
+    document.getElementById("wd-progress").innerText = "";
+}
+
+function closeWish() {
+    // const url = "https://logicrealm.rf.gd/api/order/closeOrder.php";
+    const url = "http://localhost/LR_API/order/closeOrder.php";
+    let code = document.getElementById("wish-id").value;
+    console.log(code);
 }

@@ -85,22 +85,30 @@
         <h2>Wish Details</h2>
         <button id="wish-details-close" onclick="wishDetailsClose()"><i class="fas fa-x"></i></button>
       </div>
+
       <table id="wish-table">
-        <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Email</th>
-          <th>Budget</th>
-          <th>Status</th>
-        </tr>
-        <tr>
-          <td id="wd-id"></td>
-          <td id="wd-title"></td>
-          <td id="wd-email"></td>
-          <td id="wd-budget"></td>
-          <td id="wd-status"></td>
-        </tr>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Email</th>
+            <th>Budget</th>
+            <th>Status</th>
+            <th style="border-right: none; border-bottom: none;">Progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="wd-id"></td>
+            <td id="wd-title"></td>
+            <td id="wd-email"></td>
+            <td id="wd-budget"></td>
+            <td id="wd-status"></td>
+            <td id="wd-progress" style="border-left: none; border-bottom: none;"></td>
+          </tr>
+        </tbody>
       </table>
+      <button id="wd-done" onclick="">Wish Fulfilled</button>
     </div>
   </section>
 
