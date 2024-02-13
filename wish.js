@@ -12,8 +12,8 @@ document.getElementById("contact-form").addEventListener("submit", async (e) => 
     let title = document.getElementById("cnt-title").value;
     let budget = document.getElementById("budget").value;
     let details = document.getElementById("cnt-msg").value;
-    // const url = "https://logicrealm.rf.gd/api/order/newOrder.php";
-    const url = "http://localhost/LR_API/order/newOrder.php";
+    const url = "/api/order/newOrder.php";
+    // const url = "http://localhost/LR_API/order/newOrder.php";
 
     try {
         const response = await fetch(url, {
@@ -59,8 +59,8 @@ function closeMessage() {
 document.getElementById("code-form").addEventListener("submit", async (e) => {
     e.preventDefault();
     let code = document.getElementById("wish-id").value;
-    // const url = "https://logicrealm.rf.gd/api/order/checkOrder.php";
-    const url = "http://localhost/LR_API/order/checkOrder.php";
+    const url = "/api/order/checkOrder.php";
+    // const url = "http://localhost/LR_API/order/checkOrder.php";
 
     try {
         const response = await fetch(url, {
@@ -107,8 +107,8 @@ function wishDetailsClose() {
 }
 
 async function closeWish() {
-    // const url = "https://logicrealm.rf.gd/api/order/closeOrder.php";
-    const url = "http://localhost/LR_API/order/closeOrder.php";
+    const url = "/api/order/closeOrder.php";
+    // const url = "http://localhost/LR_API/order/closeOrder.php";
     let code = document.getElementById("wish-id").value;
     try {
         const response = await fetch(url, {
