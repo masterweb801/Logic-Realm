@@ -2,9 +2,10 @@
 <html>
 
 <head>
-    <title>Support | LogicRealm</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index">
+    <title>Support | LogicRealm</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="canonical" href="https://www.logicrealm.xyz/support/index.php" />
     <link rel="icon" type="image/x-icon" href="../img/icon.ico" />
