@@ -27,7 +27,7 @@ if (isset($_POST['name'])) {
 <html>
 
 <head>
-    <title>Support | LogicRealm</title>
+    <title>Support | Logic Realm</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -72,10 +72,10 @@ if (isset($_POST['name'])) {
                 <fieldset>
                     <div class="bind">
                         <label for="name"><b>Name:- </b></label>
-                        <input type="text" name="name" id="name" placeholder="Your Name">
+                        <input type="text" name="name" id="name" placeholder="Your Name" required>
                         <label for="description"><b>Description:- </b></label><br>
                         <textarea id="description" name="description" placeholder="Describe Your Problems..."
-                            style="height:150px"></textarea>
+                            style="height:150px" required></textarea>
                         <button type="submit" class="submit" name="submit">Post</button>
                     </div>
                 </fieldset>
