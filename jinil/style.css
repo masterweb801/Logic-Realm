@@ -1,0 +1,358 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1,
+h2,
+p {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.cont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    flex: 1;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+}
+
+h1 {
+    margin: 0;
+    margin-left: 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    border-bottom-color: rgb(8, 0, 255);
+}
+
+/* Active Animation */
+@keyframes activeAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+nav ul li a.active {
+    animation: activeAnimation 0.5s ease-in-out;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    margin-left: 10px;
+    z-index: 9999;
+}
+
+.menu-toggle input {
+    display: none;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .cont {
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease-out;
+    }
+
+    nav.open {
+        max-height: 800px;
+        /* Adjust the maximum height as needed */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 30px;
+    }
+
+    nav ul li:first-child {
+        margin-top: 50px;
+    }
+
+    nav ul li a {
+        padding: 5px;
+        border-bottom: none;
+    }
+}
+
+/* Hero Section */
+#hero {
+    background-color: #f2f2f2;
+    padding: 80px 0;
+}
+
+#hero .container {
+    text-align: center;
+}
+
+#hero .container .main-icon img {
+    height: 220px;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+#hero h1 {
+    margin-top: 0;
+    font-size: 36px;
+}
+
+#hero p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Features Section */
+#features {
+    padding: 60px 0;
+}
+
+#features h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+#features ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* System Requirements Section */
+#system-requirements {
+    background-color: #f2f2f2;
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#system-requirements h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+#system-requirements table {
+    text-align: left;
+    min-width: 60vw;
+    max-width: 100vw;
+    overflow-x: scroll;
+    min-height: 200px;
+    height: auto;
+    border-collapse: collapse;
+    border-radius: 25%;
+    border: 2px solid #3e8e41;
+}
+
+#system-requirements table tr * {
+    padding: 0 10px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+#system-requirements table thead {
+    background-color: #760be0;
+    color: #fff;
+}
+
+#system-requirements table thead th {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#system-requirements table tbody tr td:nth-child(1),
+#system-requirements table thead tr th:nth-child(1) {
+    width: 20%;
+    background-color: #760be0;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border-color: gray;
+    border-right: 2px solid black;
+    padding: 15px 0;
+}
+
+#system-requirements table tbody {
+    background-color: #fff;
+}
+
+#system-requirements table tbody tr td i {
+    border: none;
+}
+
+/* Download Section */
+#download {
+    padding: 60px 0;
+}
+
+#download h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.icons a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    margin: 15px;
+}
+
+.icons i {
+    font-size: 135px;
+    color: rgb(67, 198, 241);
+    margin-bottom: 30px;
+}
+
+.icons span {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.icons span:hover {
+    background-color: #3e8e41;
+}
+
+/* CSS */
+.button-69 {
+    background-color: initial;
+    background-image: linear-gradient(#8614f8 0, #760be0 100%);
+    border-radius: 5px;
+    border-style: none;
+    box-shadow: rgba(245, 244, 247, .25) 0 1px 1px inset;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    height: 60px;
+    line-height: 60px;
+    margin-left: -4px;
+    outline: 0;
+    text-align: center;
+    transition: all .3s cubic-bezier(.05, .03, .35, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: bottom;
+    width: 190px;
+}
+
+.button-69:hover {
+    opacity: .7;
+}
+
+@media screen and (max-width: 1000px) {
+    .button-69 {
+        font-size: 14px;
+        height: 55px;
+        line-height: 55px;
+        width: 150px;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
