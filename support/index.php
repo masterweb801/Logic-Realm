@@ -83,7 +83,7 @@
             <h2>Welcome to Logic Realm Support Forum</h2>
             <p>
                 If you have any questions or issues you can post them here and we will get back to you as soon as
-                possible.
+                possible. Please don't write any unwanted text otherwise we will delete them.
             </p><br>
 
             <label class="rct-txt">
@@ -145,7 +145,7 @@
                 }
                 ;
 
-                if (isset($_POST['name'])) {
+                if (isset($_POST['submit'])) {
                     $name = $_POST['name'];
                     $subject = $_POST['subject'];
                     $description = $_POST['description'];
@@ -164,12 +164,12 @@
                 <fieldset>
                     <div class="bind">
                         <label for="name"><b>Name:- </b></label>
-                        <input type="text" name="name" id="name" placeholder="Your Name">
+                        <input type="text" name="name" id="name" placeholder="Your Name" required>
                         <label for="subject"><b>Subject:- </b></label>
-                        <input type="text" name="subject" id="subject" placeholder="Subject">
+                        <input type="text" name="subject" id="subject" placeholder="Subject" required>
                         <label for="description"><b>Description:- </b></label><br>
                         <textarea id="description" name="description" placeholder="Describe Your Problems..."
-                            style="height:150px"></textarea>
+                            style="height:150px" required></textarea>
                         <button type="submit" class="submit" name="submit">Post</button>
                     </div>
                 </fieldset>
