@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^logicrealm\.rf\.gd$ [NC]
+RewriteRule ^(.*)$ https://www.logicrealm.xyz/$1 [R=301,L]
