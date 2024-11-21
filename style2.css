@@ -220,18 +220,11 @@ a {
     position: relative;
     height: 90vh;
     width: auto;
+    display: flex;
+    flex-direction: column;
 }
 
-#open-source .jin span {
-    position: absolute;
-    color: #000;
-    left: 60%;
-    top: 35vh;
-    padding: 0 1rem;
-    font-weight: bold;
-}
-
-#open-source .jin span a {
+#open-source .jin button {
     padding: 10px 20px;
     border-radius: 0 25px;
     cursor: pointer;
@@ -243,28 +236,27 @@ a {
     box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
     box-sizing: border-box;
     color: #fff;
-    cursor: pointer;
-    display: inline-flex;
-    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
-        Arial, sans-serif;
+    font-family: system-ui, -apple-system, sans-serif;
     font-size: 16px;
     font-weight: 600;
     justify-content: center;
-    line-height: 1.25;
-    min-height: 3rem;
+    line-height: 1.25rem;
+    height: 50px;
     text-decoration: none;
     transition: all 250ms;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    vertical-align: baseline;
-    width: auto;
+    vertical-align: middle;
+    width: 50%;
+    display: flex;
+    align-self: center;
+    margin-top: 15px;
 }
 
 #open-source .jin img {
     position: relative;
-    height: 90vh;
-    transform: scaleX(-1);
+    height: 75vh;
 }
 
 .seperator {
@@ -302,10 +294,6 @@ a {
     width: 16vw;
     height: 140px;
     border-radius: 5px 25px;
-}
-
-#open-source .features-group .features .feature span {
-    font-size: 30px;
 }
 
 @media (max-width: 972px) {
