@@ -1,5 +1,6 @@
 import './Navbar.css'
 import React, { useEffect } from 'react'
+import Logo from '../../assets/icon.png'
 
 const Navbar = () => {
     useEffect(() => {
@@ -14,7 +15,7 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="logo-section">
-                <img className='main-icon' src="/icon.png" />
+                <img className='main-icon' src={Logo} />
                 <div className="logo">
                     <p style={{ color: "var(--accent)" }}>Logic</p>&nbsp;
                     <p style={{ color: "var(--primary)" }}>Realm</p>

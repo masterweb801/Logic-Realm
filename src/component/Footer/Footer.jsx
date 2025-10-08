@@ -11,10 +11,11 @@ const Footer = () => {
         <div className="footer">
             <div className="footer-content">
                 <div className="footer-info">
-                    <h3 className="footer-title">Logic Realm</h3>
+                    <h3 className="footer-title"> &gt; Logic Realm &lt; </h3>
                     <p className="footer-desc">
                         Crafting intelligent, efficient, and scalable software solutions that empower innovation and reliability.
                     </p>
+
                     {/* <div className="footer-contact">
                         <a href="mailto:support@logicrealm.com">support@logicrealm.com</a>
                     </div>
@@ -23,12 +24,13 @@ const Footer = () => {
                         <a href="https://linkedin.com/company/lexaun-limited" target="_blank" rel="noreferrer">LinkedIn</a>
                         <a href="https://x.com/lexaunlimited" target="_blank" rel="noreferrer">X</a>
                     </div> */}
-                </div>
-            </div>
 
-            <button className="back-to-top" onClick={scrollToTop}>
-                ↑ Back to Top
-            </button>
+                </div>
+
+                <button className="back-to-top" onClick={scrollToTop}>
+                    <i className="fas fa-arrow-up"></i> &nbsp; Back to Top
+                </button>
+            </div>
 
             <div className="footer-bottom">
                 <div className="copyr">
@@ -36,8 +38,10 @@ const Footer = () => {
                 </div>
                 <div className="footer-powered">
                     <span>Powered by</span>
-                    <img src={Lexaun} className="footer-logo" />
-                    <span className="footer-company">Lexaun Limited</span>
+                    <a className='l-link' href="http://lexaun.rf.gd/" target='_blank'>
+                        <img src={Lexaun} className="footer-logo" /> &nbsp;
+                        <span className="footer-company">Lexaun Limited</span>
+                    </a>
                 </div>
             </div>
         </div>

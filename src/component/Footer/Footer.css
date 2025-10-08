@@ -12,7 +12,6 @@
 .footer-content {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,7 +31,6 @@
 }
 
 .footer-desc {
-    margin-bottom: 5px;
     color: #718e80;
     line-height: 1.5;
     font-size: 18px;
@@ -68,7 +66,6 @@
 } */
 
 .back-to-top {
-    margin: 16px auto 0;
     display: block;
     background: linear-gradient(90deg, #1f35ff, #98b253);
     background-position: right center;
@@ -116,11 +113,19 @@
     height: 35px;
     width: auto;
     vertical-align: middle;
+    cursor: pointer;
 }
 
 .footer-company {
     font-weight: 500;
     color: #222;
+}
+
+.l-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .copyr {
