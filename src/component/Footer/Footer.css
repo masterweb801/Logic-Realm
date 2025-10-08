@@ -1,0 +1,129 @@
+.footer {
+    width: 100%;
+    background-color: #f8f8f8;
+    /* neutral light gray */
+    border-top: 1px solid #ddd;
+    padding: 24px 0;
+    color: #555;
+    /* neutral dark gray */
+    font-size: 14px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.footer-info {
+    max-width: 600px;
+}
+
+.footer-title {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #7fad00;
+}
+
+.footer-desc {
+    margin-bottom: 5px;
+    color: #718e80;
+    line-height: 1.5;
+    font-size: 18px;
+}
+
+/* .footer-contact a {
+    color: #1f35ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.footer-contact a:hover {
+    opacity: 0.8;
+}
+
+.footer-socials {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.footer-socials a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.footer-socials a:hover {
+    color: #1f35ff;
+} */
+
+.back-to-top {
+    margin: 16px auto 0;
+    display: block;
+    background: linear-gradient(90deg, #1f35ff, #98b253);
+    background-position: right center;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background-size: 200% 200%;
+}
+
+.back-to-top:hover {
+    background-position: left center;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.back-to-top:hover {
+    background-color: #0016e0;
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    border-top: 1px solid #ddd;
+    margin-top: 16px;
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-powered {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: #777;
+}
+
+.footer-logo {
+    height: 35px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.footer-company {
+    font-weight: 500;
+    color: #222;
+}
+
+.copyr {
+    font-size: 16px;
+    color: #888;
+}

@@ -1,0 +1,105 @@
+.navbar {
+  height: 60px;
+  width: 90vw;
+  margin: 0 auto;
+  margin-top: 65px;
+  padding-left: 1em;
+  padding-right: 1em;
+  box-sizing: border-box;
+  display: block;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.15),
+    0px 10px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 9px;
+  position: relative;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.navbar .logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navbar .main-icon {
+    height: 40px;
+    padding-right: 10px;
+}
+
+.navbar .logo {
+  text-transform: uppercase;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
+  font-size: 16pt;
+  font-weight: bold;
+  display: flex;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 4em;
+  display: flex;
+}
+
+.navbar ul li {
+  text-decoration: none;
+}
+
+.navbar ul li a {
+  padding: 0.25em 1em 0.25em 1em;
+  color:  #090909;;
+  text-decoration: none;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+}
+
+.navbar a:hover {
+  color: var(--primary);
+  transition-duration: 0.3s;
+}
+
+/* .navbar ul .toggle {
+ border: 1px solid black;
+} */
+
+.toggle .checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.toggle .checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle .fa-moon {color: #f1c40f;}
+.toggle .fa-sun {color: #f39c12;}
+
+.toggle .checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
