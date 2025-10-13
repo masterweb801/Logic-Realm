@@ -1,11 +1,9 @@
 .footer {
     width: 100%;
     background-color: #f8f8f8;
-    /* neutral light gray */
     border-top: 1px solid #ddd;
     padding: 24px 0 15px 0;
     color: #555;
-    /* neutral dark gray */
     font-size: 14px;
 }
 

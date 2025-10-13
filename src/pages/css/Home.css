@@ -1,0 +1,234 @@
+.homepage {
+    color: var(--text);
+    background-color: var(--background);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+    gap: 2rem;
+    background: linear-gradient(180deg, var(--background), var(--background-grad-2));
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.hero-content p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    color: var(--secondary);
+}
+
+.cta-button {
+    background-color: var(--primary);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--accent);
+}
+
+.cta-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--text), 0 0 0 5px var(--primary);
+}
+
+.hero-image img {
+    height: 100%;
+    max-height: 60vh;
+    width: auto;
+    aspect-ratio: 1.5 / 1;
+    object-fit: contain;
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.03);
+}
+
+.services {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+.services-subtitle {
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.125rem;
+    color: var(--secondary);
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.card {
+    background-color: var(--background);
+    border: 1px solid var(--card-border-subtle);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    padding: 0;
+    overflow: hidden;
+    width: 320px;
+    border-radius: 0.75rem;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    border-color: var(--primary);
+}
+
+.card-illustration {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    object-position: center;
+    border-bottom: 1px solid var(--separator-line);
+    padding: 10px;
+}
+
+.card-content {
+    padding: .5rem;
+}
+
+.card h3 {
+    padding: 1.5rem 2rem 0.5rem 2rem;
+    font-size: 1.5rem;
+    color: var(--text);
+}
+
+.card p {
+    padding: 0 2rem 2rem 2rem;
+    color: var(--secondary);
+    font-size: 1rem;
+}
+
+.why-us {
+    padding: 4rem 2rem;
+    padding-bottom: 1rem;
+}
+
+.why-us h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+}
+
+.why-us ul {
+    list-style: none;
+    padding: 0;
+}
+
+.why-us li {
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+}
+
+.why-us li strong {
+    color: var(--primary);
+}
+
+.portfolio {
+    padding: 4rem 2rem;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.portfolio h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.project {
+    background-color: var(--background);
+    border: 1px solid var(--secondary);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project h4 {
+    margin: 1rem;
+    color: var(--text);
+}
+
+.project p {
+    margin: 0 1rem 1rem;
+    color: var(--secondary);
+}
+
+.contact-cta {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.contact-cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-cta p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    color: var(--secondary);
+}
+
+.even-section {
+    background: linear-gradient(90deg, var(--background-grad-1), var(--background-grad-2));
+    color: var(--text);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image {
+        max-width: 360px;
+        aspect-ratio: 1 / 1;
+    }
+}

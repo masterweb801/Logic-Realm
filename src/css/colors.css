@@ -4,11 +4,20 @@
   --primary: #98b253;
   --secondary: #718e80;
   --accent: #1f35ff;
+  --background-grad-1: #ebf7ff;
+  --background-grad-2: #caffb2;
+  --card-border-subtle: #080a08;
+  --separator-line: #384742;
 }
+
 :root[data-theme="dark"] {
   --text: #eae9fc;
   --background: #010104;
   --primary: #92ac4d;
   --secondary: #718D80;
   --accent: #0016e0;
+  --background-grad-1: #273c49;
+  --background-grad-2: #314628;
+  --card-border-subtle: #f5f6f8;
+  --separator-line: #dfdfdf;
 }
