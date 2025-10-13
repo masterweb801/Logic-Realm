@@ -1,5 +1,9 @@
 import React from 'react'
 import './css/Home.css'
+import SoftDev from '../assets/hero-software-dev.svg'
+import MobileDev from '../assets/mobile-development.svg'
+import EnterpriseSoftware from '../assets/enterprise-software.svg'
+import DesignTeam from '../assets/design-team.svg'
 
 const Home = () => {
   return (
@@ -11,7 +15,7 @@ const Home = () => {
           <button className="cta-button">Start a Project</button>
         </div>
         <div className="hero-image">
-          <img src="/images/hero-software-dev.svg" alt="Software development illustration" />
+          <img src={SoftDev} alt="Software development illustration" />
         </div>
       </section>
 
@@ -21,7 +25,7 @@ const Home = () => {
         <ul className="service-cards">
           <li className="card">
             <img
-              src="/images/mobile-development.svg"
+              src={MobileDev}
               alt="Illustration of a mobile and web application interface"
               className="card-illustration"
             />
@@ -32,7 +36,7 @@ const Home = () => {
           </li>
           <li className="card">
             <img
-              src="/images/enterprise-software.svg"
+              src={EnterpriseSoftware}
               alt="Illustration of robust systems and enterprise software"
               className="card-illustration"
             />
@@ -43,7 +47,7 @@ const Home = () => {
           </li>
           <li className="card">
             <img
-              src="/images/design-team.svg"
+              src={DesignTeam}
               alt="Illustration of a UI/UX design team collaborating"
               className="card-illustration"
             />
@@ -57,10 +61,10 @@ const Home = () => {
 
       <section className="why-us">
         <h2>Why Choose Us</h2>
-        <ul>
-          <li><strong>Agile methodology</strong> - fast iterations, transparent process.</li>
-          <li><strong>Dedicated team</strong> - experienced engineers, designers & QA.</li>
-          <li><strong>Continuous support</strong> - we don`t just build, we maintain & evolve.</li>
+        <ul className="why-us-list">
+          <li><strong>Agile Methodology</strong> - Fast iterations, transparent process.</li>
+          <li><strong>Dedicated Team</strong> - Experienced engineers, designers & QA.</li>
+          <li><strong>Continuous Support</strong> - We don`t just build, we maintain & evolve.</li>
         </ul>
       </section>
 
@@ -70,7 +74,8 @@ const Home = () => {
           <div className="project">
             <img
               src="https://raw.githubusercontent.com/masterweb801/Photo-Point/refs/heads/main/icon.ico"
-              className="icon-illustration"
+              alt="Icon for Photo Point software"
+              className="project-icon"
             />
             <h4>Photo Point</h4>
             <p>A software to convert PPTX to Image.</p>
@@ -78,7 +83,8 @@ const Home = () => {
           <div className="project">
             <img
               src="https://github.com/masterweb801/Typo/blob/main/app/src/main/ic_launcher-playstore.png?raw=true"
-              className="icon-illustration"
+              alt="Icon for Typo mobile app"
+              className="project-icon"
             />
             <h4>Typo</h4>
             <p>A mobile app for wireless typing.</p>
@@ -86,7 +92,8 @@ const Home = () => {
           <div className="project">
             <img
               src="https://github.com/masterweb801/HiFied/raw/main/icon.ico?raw=true"
-              className="icon-illustration"
+              alt="Icon for HiFied software"
+              className="project-icon"
             />
             <h4>HiFied</h4>
             <p>A software to view Wifi Passwords.</p>
