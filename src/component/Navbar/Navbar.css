@@ -1,8 +1,9 @@
 .navbar {
   height: 60px;
   width: 90vw;
-  margin: 0 auto;
-  margin-top: 65px;
+  top: 30px;
+  left: 5vw;
+  margin: auto 0;
   padding-left: 1em;
   padding-right: 1em;
   box-sizing: border-box;
@@ -10,13 +11,12 @@
   box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.15),
     0px 10px 10px rgba(0, 0, 0, 0.1);
   border-radius: 9px;
-  position: relative;
   background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
-  z-index: 2;
+  position: fixed;
+  z-index: 99;
 }
 
 .navbar .logo-section {
