@@ -20,14 +20,14 @@
 }
 
 .navbar .logo-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .navbar .main-icon {
-    height: 40px;
-    padding-right: 10px;
+  height: 40px;
+  padding-right: 10px;
 }
 
 .navbar .logo {
@@ -53,10 +53,16 @@
 
 .navbar ul li a {
   padding: 0.25em 1em 0.25em 1em;
-  color:  #090909;;
+  color: #090909;
+  ;
   text-decoration: none;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
+}
+
+.navbar ul li a.act {
+  color: var(--accent);
+  padding-bottom: 0.23em;
 }
 
 .navbar a:hover {
@@ -86,8 +92,13 @@
   align-items: center;
 }
 
-.toggle .fa-moon {color: #f1c40f;}
-.toggle .fa-sun {color: #f39c12;}
+.toggle .fa-moon {
+  color: #f1c40f;
+}
+
+.toggle .fa-sun {
+  color: #f39c12;
+}
 
 .toggle .checkbox-label .ball {
   background-color: #fff;
@@ -100,6 +111,6 @@
   transition: transform 0.2s linear;
 }
 
-.checkbox:checked + .checkbox-label .ball {
+.checkbox:checked+.checkbox-label .ball {
   transform: translateX(24px);
 }

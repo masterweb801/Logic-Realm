@@ -1,28 +1,27 @@
 import './css/App.css'
 import './css/colors.css'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from './component/Navbar/Navbar';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from './Layout';
 import Home from './pages/Home';
-import Footer from './component/Footer/Footer';
+import Softwares from './pages/Softwares';
+import Support from './pages/Support';
+import About from './pages/About';
 
 function App() {
-  return (
-    <BrowserRouter>
-      <div className="app-container">
-        <header>
-          <Navbar />
-        </header>
-        <main>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-          </Routes>
-        </main>
-        <footer>
-          <Footer />
-        </footer>
-      </div>
-    </BrowserRouter>
-  )
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: "softwares", element: <Softwares /> },
+        { path: "support", element: <Support /> },
+        { path: "about", element: <About /> }
+      ]
+    }
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App

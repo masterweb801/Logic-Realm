@@ -3,7 +3,7 @@
     background-color: #f8f8f8;
     /* neutral light gray */
     border-top: 1px solid #ddd;
-    padding: 24px 0;
+    padding: 24px 0 15px 0;
     color: #555;
     /* neutral dark gray */
     font-size: 14px;
@@ -95,7 +95,7 @@
 .footer-bottom {
     border-top: 1px solid #ddd;
     margin-top: 16px;
-    padding-top: 15px;
+    padding-top: 7px;
     display: flex;
     align-items: center;
     justify-content: space-around;

@@ -1,17 +1,21 @@
 import './Navbar.css'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/icon.png'
 
 const Navbar = () => {
+    const [darkMode, setDarkMode] = useState(false);
+
     useEffect(() => {
-        const checkbox = document.getElementById('checkbox');
-        checkbox.addEventListener('change', () => {
-            document.documentElement.setAttribute(
-                'data-theme',
-                checkbox.checked ? 'dark' : 'light'
-            );
-        });
-    }, []);
+        document.documentElement.setAttribute(
+            'data-theme',
+            darkMode ? 'dark' : 'light'
+        );
+    }, [darkMode]);
+
+    const handleThemeChange = (e) => {
+        setDarkMode(e.target.checked);
+    };
     return (
         <nav className="navbar">
             <div className="logo-section">
@@ -22,12 +26,18 @@ const Navbar = () => {
                 </div>
             </div>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Softwares</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">About</a></li>
+                <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/">Home</NavLink></li>
+                <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/softwares">Softwares</NavLink></li>
+                <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/support">Support</NavLink></li>
+                <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/about">About</NavLink></li>
                 <li className='toggle' id='themeToggle'>
-                    <input type="checkbox" className="checkbox" id="checkbox" />
+                    <input
+                        type="checkbox"
+                        className="checkbox"
+                        id="checkbox"
+                        checked={darkMode}
+                        onChange={handleThemeChange}
+                    />
                     <label htmlFor="checkbox" className="checkbox-label">
                         <i className="fas fa-moon"></i>
                         <i className="fas fa-sun"></i>
