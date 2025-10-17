@@ -12,7 +12,9 @@ const Home = () => {
         <div className="hero-content">
           <h1>We build the software your business deserves</h1>
           <p>Custom software development, modern web & mobile solutions, and ongoing support — we partner with you every step of the way.</p>
-          <button className="cta-button">Start a Project</button>
+          <a href="#contact-sec">
+            <button className="cta-button">Start a Project</button>
+          </a>
         </div>
         <div className="hero-image">
           <img src={SoftDev} alt="Software development illustration" />
@@ -101,10 +103,12 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="contact-cta even-section">
+      <section className="contact-cta even-section" id="contact-sec">
         <h2>Ready to Get Started?</h2>
         <p>Let`s talk about your next project and how we can help you bring it to life.</p>
-        <button className="cta-button">Book a Free Consultation</button>
+        <a href="mailto: masterweb801@gmail.com">
+          <button className="cta-button">Book a Free Consultation</button>
+        </a>
       </section>
     </div>
   )

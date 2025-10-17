@@ -3,6 +3,7 @@
     background-color: var(--background);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    padding-top: 20px;
 }
 
 .hero {
