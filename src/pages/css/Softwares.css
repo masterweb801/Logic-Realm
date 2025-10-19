@@ -1,0 +1,146 @@
+:root[data-theme="light"],
+:root[data-theme="dark"] {
+    --radius: 10px;
+}
+
+.softwares-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text);
+    background: linear-gradient(0deg, var(--background), var(--background-grad-1));
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    padding-top: 100px;
+}
+
+.store-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--separator-line);
+}
+
+.hero-left {
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.title {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.05rem;
+}
+
+.hero-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.search-wrap {
+    position: relative;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.search {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--separator-line);
+    border-radius: var(--radius);
+    background-color: var(--background-alt);
+    color: var(--text);
+    min-width: 260px;
+}
+
+.search-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 1.1rem;
+}
+
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.pagination-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1.5rem 0;
+}
+
+.pg-pages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.pg-btn,
+.pg-num {
+    border: 2px solid var(--separator-line);
+    background-color: var(--background-alt);
+    color: var(--text);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.pg-num.active {
+    background-color: var(--primary);
+    color: #fff;
+    border-color: var(--secondary);
+}
+
+.pg-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pg-btn:hover:not(:disabled),
+.pg-num:hover {
+    background-color: var(--primary);
+    color: var(--background);
+}
+
+.pg-dots {
+    color: var(--secondary);
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+}

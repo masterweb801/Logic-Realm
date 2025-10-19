@@ -1,0 +1,73 @@
+.app-card-modern {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--app-card);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--card-border-subtle);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+    max-width: 300px;
+}
+
+.app-card-modern:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-media {
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent-2));
+}
+
+.app-icon {
+    width: 128px;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+}
+
+.card-body {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--background);
+}
+
+.app-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.app-desc {
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+
+.card-meta {
+    font-size: 0.85rem;
+}
+
+.card-actions {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.btn-primary {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-2);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary);
+}
