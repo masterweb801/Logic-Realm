@@ -18,19 +18,28 @@ const Navbar = () => {
     };
     return (
         <nav className="navbar">
-            <div className="logo-section">
-                <img className='main-icon' src={Logo} />
-                <div className="logo">
-                    <p style={{ color: "var(--accent)" }}>Logic</p>&nbsp;
-                    <p style={{ color: "var(--primary)" }}>Realm</p>
+            <div className="logo-container">
+                <div className="logo-section">
+                    <img className='main-icon' src={Logo} />
+                    <div className="logo">
+                        <p style={{ color: "var(--accent)" }}>Logic</p>&nbsp;
+                        <p style={{ color: "var(--primary)" }}>Realm</p>
+                    </div>
+                </div>
+                <div className="menu-toggle">
+                    <label htmlFor="menuToggle">
+                        <i className="fas fa-bars"></i>
+                    </label>
                 </div>
             </div>
+            <input type="checkbox" name="menuToggle" className="menuToggle" id="menuToggle" />
             <ul>
                 <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/">Home</NavLink></li>
                 <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/softwares">Softwares</NavLink></li>
                 <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/support">Support</NavLink></li>
                 <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/about">About</NavLink></li>
                 <li className='toggle' id='themeToggle'>
+                    <label htmlFor="checkbox" className='modeTogLab'>Toggle Mode</label>
                     <input
                         type="checkbox"
                         className="checkbox"

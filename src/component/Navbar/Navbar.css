@@ -39,6 +39,11 @@
   display: flex;
 }
 
+.navbar .menu-toggle,
+#menuToggle {
+  display: none;
+}
+
 .navbar ul {
   list-style: none;
   margin: 0;
@@ -54,7 +59,6 @@
 .navbar ul li a {
   padding: 0.25em 1em 0.25em 1em;
   color: #090909;
-  ;
   text-decoration: none;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
@@ -70,9 +74,9 @@
   transition-duration: 0.3s;
 }
 
-/* .navbar ul .toggle {
- border: 1px solid black;
-} */
+.modeTogLab {
+  display: none;
+}
 
 .toggle .checkbox {
   opacity: 0;
@@ -113,4 +117,109 @@
 
 .checkbox:checked+.checkbox-label .ball {
   transform: translateX(24px);
+}
+
+@media screen and (max-width: 970px) {
+  .navbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    z-index: 101;
+  }
+
+  .navbar .main-icon {
+    height: 35px;
+  }
+
+  .navbar .logo {
+    font-size: 14pt;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 101;
+  }
+
+  .navbar .menu-toggle {
+    display: block;
+    position: relative;
+    font-size: 16pt;
+    padding: 0 2rem;
+    cursor: pointer;
+    color: #000;
+  }
+
+  .modeTogLab {
+    display: block;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    position: fixed;
+    background: #324400;
+    width: 100vw;
+    margin-left: 0;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 60px);
+    z-index: 100;
+    transform: translate(105%, 55%);
+    transition: transform .5s ease;
+    border-radius: 10px;
+  }
+
+  .navbar ul li {
+    margin: 1.5em 0;
+    max-width: 80vw;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar ul li a,
+  .navbar ul li.toggle {
+    border-radius: 10px;
+    padding: .75rem 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14pt;
+    font-weight: 900;
+    text-align: center;
+    margin-right: -100%;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .navbar ul li a.act,
+  .navbar ul li a:hover {
+    background: none;
+    color: #d6ff65;
+  }
+
+  #menuToggle:checked~ul {
+    transform: translate(0%, 55%);
+  }
+
+  #menuToggle:checked~ul li a {
+    margin-right: 0;
+  }
+
+  #menuToggle:checked~ul li.toggle {
+    margin-right: 0;
+  }
 }
