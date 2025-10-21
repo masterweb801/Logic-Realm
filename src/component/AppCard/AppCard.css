@@ -36,12 +36,12 @@
 }
 
 .app-title {
-    font-size: 1.25rem;
+    font-size: 16pt;
     font-weight: 600;
 }
 
 .app-desc {
-    font-size: 0.95rem;
+    font-size: 12pt;
     flex-grow: 1;
 }
 
@@ -70,4 +70,31 @@
 
 .btn-primary:hover {
     background-color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+    .app-card-modern {
+        max-width: 150px;
+    }
+
+    .app-icon {
+        width: 64px;
+    }
+
+    .app-title {
+        font-size: 12pt;
+        text-align: center;
+    }
+
+    .app-desc {
+        font-size: 10pt;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    .card-actions {
+        margin-top: 0;
+    }
 }
