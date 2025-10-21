@@ -1,0 +1,30 @@
+.contact-form-page {
+    width: 100vw;
+    height: 550px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-bottom: 40px;
+    background: linear-gradient(to right, #c490fc, #25bdbf);
+    color: #fff;
+}
+
+.contact-form-page .contact-page {
+    width: 500px;
+    margin: 0 20px;
+    padding: 20px;
+}
+
+@media (max-width: 720px) {
+    .contact-form-page {
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 0;
+        background: var(--background);
+    }
+
+    .contact-form-page .contact-page {
+        background: linear-gradient(to right, #c490fc, #25bdbf);
+        border-radius: 15px;
+    }
+}

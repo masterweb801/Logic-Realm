@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './css/About.css';
 
 const UsersIcon = (props) => (
@@ -37,6 +37,9 @@ const ValueCard = ({ icon, title, description }) => (
 );
 
 export default function About() {
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [])
     return (
         <div className="about-page">
             <section className="about-hero">

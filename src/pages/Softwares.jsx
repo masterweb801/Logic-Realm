@@ -14,6 +14,7 @@ const Softwares = () => {
     const [appList, setAppList] = useState([])
 
     useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         setAppList([Software])
     }, [])
     return (
@@ -21,10 +22,10 @@ const Softwares = () => {
             <section className="store-hero">
                 <h1 className="title">All Apps</h1>
                 <div className="hero-left">
-                    <p className="subtitle">Discover, try, and install powerful apps for every need.</p>
+                    <label htmlFor='search' className="subtitle">Discover, try, and install powerful apps for every need.</label>
                     <div className="hero-controls">
                         <form className="search-wrap" action="#">
-                            <input className="search" placeholder="Search apps, categories or features" aria-label="Search apps" />
+                            <input className="search" id='search' placeholder="Search apps, categories or features" aria-label="Search apps" />
                             <button type='submit' className="search-btn"><i className="fa fa-search"></i></button>
                         </form>
                     </div>

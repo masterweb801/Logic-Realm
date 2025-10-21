@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './css/Home.css'
 import SoftDev from '../assets/hero-software-dev.svg'
 import MobileDev from '../assets/mobile-development.svg'
 import EnterpriseSoftware from '../assets/enterprise-software.svg'
 import DesignTeam from '../assets/design-team.svg'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [])
   return (
     <div className="homepage">
       <section className="hero">
@@ -74,29 +79,35 @@ const Home = () => {
         <h2>Featured Projects</h2>
         <div className="projects-grid">
           <div className="project">
-            <img
-              src="https://raw.githubusercontent.com/masterweb801/Photo-Point/refs/heads/main/icon.ico"
-              alt="Icon for Photo Point software"
-              className="project-icon"
-            />
+            <div className="img-bg">
+              <img
+                src="https://raw.githubusercontent.com/masterweb801/Photo-Point/refs/heads/main/icon.ico"
+                alt="Icon for Photo Point software"
+                className="project-icon"
+              />
+            </div>
             <h4>Photo Point</h4>
             <p>A software to convert PPTX to Image.</p>
           </div>
           <div className="project">
-            <img
-              src="https://github.com/masterweb801/Typo/blob/main/app/src/main/ic_launcher-playstore.png?raw=true"
-              alt="Icon for Typo mobile app"
-              className="project-icon"
-            />
+            <div className="img-bg">
+              <img
+                src="https://github.com/masterweb801/Typo/blob/main/app/src/main/ic_launcher-playstore.png?raw=true"
+                alt="Icon for Typo mobile app"
+                className="project-icon"
+              />
+            </div>
             <h4>Typo</h4>
             <p>A mobile app for wireless typing.</p>
           </div>
           <div className="project">
-            <img
-              src="https://github.com/masterweb801/HiFied/raw/main/icon.ico?raw=true"
-              alt="Icon for HiFied software"
-              className="project-icon"
-            />
+            <div className="img-bg">
+              <img
+                src="https://github.com/masterweb801/HiFied/raw/main/icon.ico?raw=true"
+                alt="Icon for HiFied software"
+                className="project-icon"
+              />
+            </div>
             <h4>HiFied</h4>
             <p>A software to view Wifi Passwords.</p>
           </div>
@@ -106,9 +117,9 @@ const Home = () => {
       <section className="contact-cta even-section" id="contact-sec">
         <h2>Ready to Get Started?</h2>
         <p>Let`s talk about your next project and how we can help you bring it to life.</p>
-        <a href="mailto: masterweb801@gmail.com">
+        <Link to="/contact">
           <button className="cta-button">Book a Free Consultation</button>
-        </a>
+        </Link>
       </section>
     </div>
   )

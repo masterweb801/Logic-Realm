@@ -245,6 +245,21 @@
     transform: translateY(-2px);
 }
 
+@media screen and (max-width: 970px) {
+    .about-page {
+        padding-top: 0;
+    }
+
+    .about-hero {
+        padding: 0;
+    }
+
+    .about-container {
+        margin-top: 0;
+        padding-left: 0;
+    }
+}
+
 
 @media (min-width: 768px) {
     .about-hero {

@@ -144,3 +144,28 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 768px) {
+    .softwares-page {
+        padding: 1rem;
+        padding-top: 20px;
+    }
+
+    .hero-left {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .hero-controls,
+    .hero-controls form,
+    .hero-controls form .search {
+        width: 100%;
+    }
+
+    .pagination-row {
+        padding: .5rem 0;
+    }
+
+}
