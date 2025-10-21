@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
-function ContactForm() {
+function ContactForm({ isSubmitting, setIsSubmitting, setSuccess, setSubmitClick, setError }) {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         message: ""
     });
-    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setSubmitClick(true);
         setIsSubmitting(true);
 
         try {
@@ -24,16 +24,17 @@ function ContactForm() {
 
             const result = await response.json();
             if (result.success) {
-                alert("Message sent successfully!");
+                setIsSubmitting(false);
+                setSuccess(true)
                 setFormData({ name: "", email: "", message: "" });
             } else {
-                alert("Failed to send message. Please try again.");
+                setIsSubmitting(false);
+                setError(true)
             }
         } catch (error) {
-            console.log(error)
-            alert("An error occurred. Please try again.");
-        } finally {
             setIsSubmitting(false);
+            console.log(error)
+            setError(true)
         }
     };
 
@@ -47,7 +48,7 @@ function ContactForm() {
     return (
         <div className="contact-page">
             <h2>Contact Us</h2>
-            <form onSubmit={handleSubmit} id="contact-form-r">
+            <form onSubmit={handleSubmit}>
                 <div style={{ marginBottom: "15px" }}>
                     <label htmlFor="name">Name:</label>
                     <input
@@ -93,15 +94,15 @@ function ContactForm() {
                     type="submit"
                     disabled={isSubmitting}
                     style={{
-                        background: "#007bff",
+                        background: "var(--accent)",
                         color: "white",
                         padding: "10px 20px",
                         border: "none",
-                        borderRadius: "4px",
+                        borderRadius: "10px",
                         cursor: isSubmitting ? "not-allowed" : "pointer"
                     }}
                 >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    Send Message
                 </button>
             </form>
         </div>
