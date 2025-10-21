@@ -31,33 +31,39 @@ const Home = () => {
         <p className="services-subtitle">We offer a complete suite of services to take your product from concept to launch and beyond.</p>
         <ul className="service-cards">
           <li className="card">
-            <img
-              src={MobileDev}
-              alt="Illustration of a mobile and web application interface"
-              className="card-illustration"
-            />
+            <div className="img-bg-2">
+              <img
+                src={MobileDev}
+                alt="Illustration of a mobile and web application interface"
+                className="card-illustration"
+              />
+            </div>
             <div className="card-content">
               <h3>Web & Mobile Apps</h3>
               <p>Full-stack web applications and native/hybrid mobile apps tailored to your business needs.</p>
             </div>
           </li>
           <li className="card">
-            <img
-              src={EnterpriseSoftware}
-              alt="Illustration of robust systems and enterprise software"
-              className="card-illustration"
-            />
+            <div className="img-bg-2">
+              <img
+                src={EnterpriseSoftware}
+                alt="Illustration of robust systems and enterprise software"
+                className="card-illustration"
+              />
+            </div>
             <div className="card-content">
               <h3>Enterprise Software</h3>
               <p>Robust systems with scalability, integrations, & automation for enterprise-level operations.</p>
             </div>
           </li>
           <li className="card">
-            <img
-              src={DesignTeam}
-              alt="Illustration of a UI/UX design team collaborating"
-              className="card-illustration"
-            />
+            <div className="img-bg-2">
+              <img
+                src={DesignTeam}
+                alt="Illustration of a UI/UX design team collaborating"
+                className="card-illustration"
+              />
+            </div>
             <div className="card-content">
               <h3>UI/UX Design</h3>
               <p>User-centric design that ensures usability, accessibility & delightful experiences.</p>

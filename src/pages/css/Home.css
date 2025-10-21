@@ -117,7 +117,6 @@
     height: 200px;
     object-fit: contain;
     object-position: center;
-    border-bottom: 1px solid var(--separator-line);
     padding: 10px;
 }
 
@@ -225,6 +224,10 @@
 .img-bg {
     padding-top: 1rem;
     background: linear-gradient(to right, #c490fc, #25bdbf);
+}
+
+.img-bg-2 {
+    background: linear-gradient(to bottom, #ccd6e5, var(--accent-2));
 }
 
 .project-icon {
