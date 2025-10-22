@@ -2,8 +2,9 @@
     width: 100vw;
     height: 550px;
     display: flex;
-    align-items: end;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
     padding-bottom: 40px;
     background: linear-gradient(to right, #c490fc, #25bdbf);
     color: #fff;
@@ -15,6 +16,12 @@
     padding: 20px;
 }
 
+.alertmsg {
+    position: absolute;
+    top: 20px;
+    z-index: 999;
+}
+
 .overlay {
     position: fixed;
     top: 0;
@@ -23,8 +30,6 @@
     right: 0;
     background: rgba(0, 0, 0, 0.7);
     transition: opacity 500ms;
-    visibility: visible;
-    opacity: 1;
 }
 
 .popup {
@@ -32,40 +37,15 @@
     margin-left: 50vw;
     padding: 20px;
     background: #fff;
-    border-radius: 5px;
-    width: 30%;
+    border-radius: 15px;
+    width: 10rem;
     position: relative;
     transform: translate(-50%, -50%);
-}
-
-.popup h2 {
-    color: red;
-    font-family: Tahoma, Arial, sans-serif;
-    text-align: center;
-    transform: translateY(300%);
-}
-
-.popup .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    transition: all 200ms;
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: red;
-    border: none;
-    background: none;
-}
-
-.popup .close:hover {
-    color: #a10000;
 }
 
 .popup .content {
     height: 30%;
     overflow: auto;
-    color: #03aa03;
     aspect-ratio: 1/1;
     display: flex;
     flex-direction: column;
@@ -74,39 +54,8 @@
     font-size: 2.5rem;
 }
 
-.popup .content i {
+.popup .content i.fa-circle-notch {
     font-size: 3.5rem;
-}
-
-
-.fa-circle-xmark {
-    color: red;
-    animation: beating 2s ease-in-out infinite;
-}
-
-@keyframes beating {
-    0% {
-        transform: scale(150%);
-    }
-
-    25% {
-        transform: scale(125%);
-    }
-
-    50% {
-        transform: scale(150%);
-    }
-
-    75% {
-        transform: scale(125%);
-    }
-
-    100% {
-        transform: scale(150%);
-    }
-}
-
-.fa-circle-notch {
     animation: spinner .5s linear infinite;
 }
 

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './css/Softwares.css'
 import AppCard from '../component/AppCard/AppCard'
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 const Software = {
     id: 1,
@@ -43,15 +45,9 @@ const Softwares = () => {
             </section>
 
             <section className="pagination-row">
-                <button className="pg-btn" disabled>« Prev</button>
-                <div className="pg-pages">
-                    <button className="pg-num active">1</button>
-                    <button className="pg-num">2</button>
-                    <button className="pg-num">3</button>
-                    <span className="pg-dots">…</span>
-                    <button className="pg-num">10</button>
-                </div>
-                <button className="pg-btn" disabled>Next »</button>
+                <Stack spacing={2}>
+                    <Pagination count={10} variant="outlined" shape="rounded" />
+                </Stack>
             </section>
 
         </div>

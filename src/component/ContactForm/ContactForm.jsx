@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ContactForm({ isSubmitting, setIsSubmitting, setSuccess, setSubmitClick, setError }) {
+function ContactForm({ submitting, setSubmitting, setSuccess, setError }) {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -9,8 +9,7 @@ function ContactForm({ isSubmitting, setIsSubmitting, setSuccess, setSubmitClick
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setSubmitClick(true);
-        setIsSubmitting(true);
+        setSubmitting(true);
 
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
@@ -24,17 +23,22 @@ function ContactForm({ isSubmitting, setIsSubmitting, setSuccess, setSubmitClick
 
             const result = await response.json();
             if (result.success) {
-                setIsSubmitting(false);
-                setSuccess(true)
+                setSubmitting(false);
+                setSuccess(true);
                 setFormData({ name: "", email: "", message: "" });
             } else {
-                setIsSubmitting(false);
-                setError(true)
+                setSubmitting(false);
+                setError(true);
             }
         } catch (error) {
-            setIsSubmitting(false);
-            console.log(error)
-            setError(true)
+            setSubmitting(false);
+            console.log(error);
+            setError(true);
+        } finally {
+            setTimeout(() => {
+                setError(false);
+                setSuccess(false);
+            }, 5000);
         }
     };
 
@@ -92,14 +96,14 @@ function ContactForm({ isSubmitting, setIsSubmitting, setSuccess, setSubmitClick
 
                 <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={submitting}
                     style={{
                         background: "var(--accent)",
                         color: "white",
                         padding: "10px 20px",
                         border: "none",
                         borderRadius: "10px",
-                        cursor: isSubmitting ? "not-allowed" : "pointer"
+                        cursor: submitting ? "not-allowed" : "pointer"
                     }}
                 >
                     Send Message
