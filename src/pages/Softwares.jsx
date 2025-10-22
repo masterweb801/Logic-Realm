@@ -15,7 +15,11 @@ const Softwares = () => {
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        setAppList([Software])
+        setAppList([
+            Software,
+            Software,
+            Software,
+        ])
     }, [])
     return (
         <div className="softwares-page">
