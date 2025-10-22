@@ -17,8 +17,6 @@ const Softwares = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         setAppList([
             Software,
-            Software,
-            Software,
         ])
     }, [])
     return (
