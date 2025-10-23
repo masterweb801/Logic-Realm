@@ -85,6 +85,7 @@
 
 .toggle .checkbox-label {
   background-color: #111;
+  color: #111;
   width: 50px;
   height: 26px;
   border-radius: 50px;
@@ -96,27 +97,31 @@
   align-items: center;
 }
 
-.toggle .fa-moon {
+.toggle svg {
+  width: 1.15rem;
+}
+
+.toggle svg:first-child {
   color: #f1c40f;
 }
 
-.toggle .fa-sun {
+.toggle svg:nth-child(2) {
   color: #f39c12;
 }
 
 .toggle .checkbox-label .ball {
   background-color: #fff;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   position: absolute;
-  left: 2px;
-  top: 2px;
+  left: 4px;
+  top: 3px;
   border-radius: 50%;
   transition: transform 0.2s linear;
 }
 
 .checkbox:checked+.checkbox-label .ball {
-  transform: translateX(24px);
+  transform: translateX(22px);
 }
 
 @media screen and (max-width: 970px) {
@@ -177,7 +182,7 @@
   }
 
   .navbar ul li {
-    margin: 1.5em 0;
+    margin: 1em 0;
     max-width: 80vw;
     width: 100%;
     display: flex;

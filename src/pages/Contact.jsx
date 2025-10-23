@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './css/Contact.css'
 import ContactForm from '../component/ContactForm/ContactForm'
 import SimpleAlert from '../component/Alert/Alert';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Contact = () => {
     const [submitting, setSubmitting] = useState(false);
@@ -20,7 +21,8 @@ const Contact = () => {
             <ContactForm submitting={submitting} setSubmitting={setSubmitting} setSuccess={setSuccess} setError={setError} />
             {submitting ? <div id="popup1" className="overlay">
                 <div className="popup">
-                    <h3 className="content"> <i className="fa-solid fa-circle-notch"></i>
+                    <h3 className="content">
+                        <CircularProgress />
                     </h3>
                 </div>
             </div> : <></>}

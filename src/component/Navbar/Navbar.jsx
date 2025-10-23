@@ -2,6 +2,9 @@ import './Navbar.css'
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/icon.png'
+import MenuIcon from '@mui/icons-material/Menu';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
 const Navbar = () => {
     const [darkMode, setDarkMode] = useState(false);
@@ -28,7 +31,7 @@ const Navbar = () => {
                 </div>
                 <div className="menu-toggle">
                     <label htmlFor="menuToggle">
-                        <i className="fas fa-bars"></i>
+                        <MenuIcon />
                     </label>
                 </div>
             </div>
@@ -38,6 +41,7 @@ const Navbar = () => {
                 <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/softwares">Softwares</NavLink></li>
                 <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/support">Support</NavLink></li>
                 <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/about">About</NavLink></li>
+                <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/contact">Contact</NavLink></li>
                 <li className='toggle' id='themeToggle'>
                     <label htmlFor="checkbox" className='modeTogLab'>Toggle Mode</label>
                     <input
@@ -48,8 +52,8 @@ const Navbar = () => {
                         onChange={handleThemeChange}
                     />
                     <label htmlFor="checkbox" className="checkbox-label">
-                        <i className="fas fa-moon"></i>
-                        <i className="fas fa-sun"></i>
+                        <LightModeIcon />
+                        <DarkModeIcon />
                         <span className="ball"></span>
                     </label>
                 </li>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Footer.css'
 import Lexaun from '../../assets/lexaun.png'
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 const Footer = () => {
     const [Scrolled, setScrolled] = useState(false);
@@ -42,7 +43,7 @@ const Footer = () => {
                 </div>
 
                 <button className={Scrolled ? "back-to-top actop" : "back-to-top"} onClick={scrollToTop}>
-                    <i className="fas fa-arrow-up"></i> &nbsp; Back to Top
+                    <ArrowUpwardIcon /> &nbsp; Back to Top
                 </button>
             </div>
 

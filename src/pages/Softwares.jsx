@@ -3,6 +3,7 @@ import './css/Softwares.css'
 import AppCard from '../component/AppCard/AppCard'
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
+import SearchIcon from '@mui/icons-material/Search';
 
 const Software = {
     id: 1,
@@ -30,7 +31,9 @@ const Softwares = () => {
                     <div className="hero-controls">
                         <form className="search-wrap" action="#">
                             <input className="search" id='search' placeholder="Search apps, categories or features" aria-label="Search apps" />
-                            <button type='submit' className="search-btn"><i className="fa fa-search"></i></button>
+                            <button type='submit' className="search-btn">
+                                <SearchIcon />
+                            </button>
                         </form>
                     </div>
                 </div>

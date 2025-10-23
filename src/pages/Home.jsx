@@ -17,9 +17,9 @@ const Home = () => {
         <div className="hero-content">
           <h1>We build the software your business deserves</h1>
           <p>Custom software development, modern web & mobile solutions, and ongoing support — we partner with you every step of the way.</p>
-          <a href="#contact-sec">
+          <Link to="/contact">
             <button className="cta-button">Start a Project</button>
-          </a>
+          </Link>
         </div>
         <div className="hero-image">
           <img src={SoftDev} alt="Software development illustration" />

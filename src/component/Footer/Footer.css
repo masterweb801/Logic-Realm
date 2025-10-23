@@ -64,7 +64,6 @@
 } */
 
 .back-to-top {
-    display: block;
     background: linear-gradient(90deg, #1f35ff, #98b253);
     background-position: right center;
     color: #fff;
@@ -76,18 +75,21 @@
     font-weight: 500;
     transition: all 0.3s ease;
     background-size: 200% 200%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .back-to-top:hover {
     background-position: left center;
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-
-.back-to-top:hover {
     background-color: #0016e0;
     transform: translateY(-2px);
+}
+
+.back-to-top svg {
+    height: 1.25rem;
 }
 
 .footer-bottom {

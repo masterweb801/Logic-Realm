@@ -54,28 +54,6 @@
     font-size: 2.5rem;
 }
 
-.popup .content i.fa-circle-notch {
-    font-size: 3.5rem;
-    animation: spinner .5s linear infinite;
-}
-
-@keyframes spinner {
-    0% {
-        color: #c5f540;
-        transform: rotate(0deg);
-    }
-
-    50% {
-        color: #00b39b;
-        transform: rotate(180deg);
-    }
-
-    100% {
-        color: #c5f540;
-        transform: rotate(360deg);
-    }
-}
-
 @media screen and (max-width: 700px) {
     .popup {
         width: 70%;
@@ -93,5 +71,6 @@
     .contact-form-page .contact-page {
         background: linear-gradient(to right, #c490fc, #25bdbf);
         border-radius: 15px;
+        width: 87.5vw;
     }
 }
