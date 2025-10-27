@@ -11,12 +11,22 @@ function ContactForm({ submitting, setSubmitting, setSuccess, setError }) {
         event.preventDefault();
         setSubmitting(true);
 
+        const apiKey = import.meta.env.VITE_MAIL_API;
+
+        if (!apiKey) {
+            console.error('MAIL_API is not set');
+            setSubmitting(false);
+            setError(true);
+            setTimeout(() => { setError(false); }, 5000);
+            return;
+        }
+
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    access_key: "6c70d9e1-f517-403d-b963-8918391eb872",
+                    access_key: apiKey,
                     ...formData
                 }),
             });

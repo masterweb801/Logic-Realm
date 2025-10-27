@@ -11,7 +11,7 @@
   --separator-line: #384742;
   --background-alt: #f1f3e9;
   --card-border-subtle-2: #f5f6f8;
-  --separator-line: #dfdfdf;
+  --separator-line-2: #dfdfdf;
   --app-card: #01373f;
 }
 
@@ -28,6 +28,6 @@
   --separator-line: #dfdfdf;
   --background-alt: #0a0e0a;
   --card-border-subtle-2: #080a08;
-  --separator-line: #384742;
+  --separator-line-2: #384742;
   --app-card: #ebf8fa;
 }
