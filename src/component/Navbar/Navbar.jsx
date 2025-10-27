@@ -39,7 +39,6 @@ const Navbar = () => {
             <ul>
                 <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/">Home</NavLink></li>
                 <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/softwares">Softwares</NavLink></li>
-                <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/support">Support</NavLink></li>
                 <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/about">About</NavLink></li>
                 <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/contact">Contact</NavLink></li>
                 <li className='toggle' id='themeToggle'>
