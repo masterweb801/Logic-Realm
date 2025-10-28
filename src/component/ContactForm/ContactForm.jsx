@@ -1,122 +1,108 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react'
+import { useForm, ValidationError } from '@formspree/react';
 
-function ContactForm({ submitting, setSubmitting, setSuccess, setError }) {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        message: ""
-    });
+const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
+    const [state, handleSubmit] = useForm("xovpezen");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        setSubmitting(true);
-
-        const apiKey = import.meta.env.VITE_MAIL_API;
-
-        if (!apiKey) {
-            console.error('MAIL_API is not set');
+    useEffect(() => {
+        if (state.succeeded) {
+            setSuccess(true);
             setSubmitting(false);
-            setError(true);
-            setTimeout(() => { setError(false); }, 5000);
-            return;
-        }
+            setName("");
+            setEmail("");
+            setMessage("");
 
-        try {
-            const response = await fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    access_key: apiKey,
-                    ...formData
-                }),
-            });
-
-            const result = await response.json();
-            if (result.success) {
-                setSubmitting(false);
-                setSuccess(true);
-                setFormData({ name: "", email: "", message: "" });
-            } else {
-                setSubmitting(false);
-                setError(true);
-            }
-        } catch (error) {
-            setSubmitting(false);
-            console.log(error);
-            setError(true);
-        } finally {
             setTimeout(() => {
-                setError(false);
                 setSuccess(false);
             }, 5000);
-        }
-    };
+        } else if (state.errors) {
+            setError(true);
+            setSubmitting(false);
 
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
+            setTimeout(() => {
+                setError(false);
+            }, 5000);
+        }
+    }, [state.succeeded, state.errors, setSuccess, setError, setSubmitting]);
 
     return (
         <div className="contact-page">
             <h2>Contact Us</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={(e) => {
+                setSubmitting(true);
+                handleSubmit(e);
+            }}>
                 <div style={{ marginBottom: "15px" }}>
-                    <label htmlFor="name">Name:</label>
+                    <label htmlFor="name">
+                        Name:
+                    </label>
                     <input
+                        id="name"
                         type="text"
                         name="name"
-                        id="name"
-                        value={formData.name}
-                        onChange={handleChange}
                         required
                         autoComplete="name"
                         style={{ width: "100%", padding: "8px", marginTop: "5px" }}
+                        value={name}
+                        onChange={(e) => { setName(e.target.value) }}
                     />
                 </div>
 
                 <div style={{ marginBottom: "15px" }}>
-                    <label htmlFor="email">Email:</label>
+                    <label htmlFor="email">
+                        Email:
+                    </label>
                     <input
+                        id="email"
                         type="email"
                         name="email"
-                        id="email"
-                        value={formData.email}
-                        onChange={handleChange}
                         required
                         autoComplete="email"
                         style={{ width: "100%", padding: "8px", marginTop: "5px" }}
+                        value={email}
+                        onChange={(e) => { setEmail(e.target.value) }}
+                    />
+                    <ValidationError
+                        prefix="Email"
+                        field="email"
+                        errors={state.errors}
                     />
                 </div>
-
                 <div style={{ marginBottom: "15px" }}>
-                    <label htmlFor="message">Message:</label>
+                    <label htmlFor="message">
+                        Message:
+                    </label>
                     <textarea
-                        name="message"
                         id="message"
-                        value={formData.message}
-                        onChange={handleChange}
+                        name="message"
                         required
                         rows="5"
                         style={{ width: "100%", padding: "8px", marginTop: "5px", resize: "none" }}
+                        value={message}
+                        onChange={(e) => { setMessage(e.target.value) }}
+                    />
+                    <ValidationError
+                        prefix="Message"
+                        field="message"
+                        errors={state.errors}
                     />
                 </div>
-
                 <button
                     type="submit"
-                    disabled={submitting}
+                    disabled={state.submitting}
                     style={{
                         background: "var(--accent)",
                         color: "white",
                         padding: "10px 20px",
                         border: "none",
                         borderRadius: "10px",
-                        cursor: submitting ? "not-allowed" : "pointer"
+                        cursor: state.submitting ? "not-allowed" : "pointer"
                     }}
                 >
-                    Send Message
+                    Submit
                 </button>
             </form>
         </div>

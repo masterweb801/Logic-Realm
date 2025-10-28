@@ -18,7 +18,7 @@ const Contact = () => {
             {error | success ? <div className="alertmsg">
                 <SimpleAlert severity={error ? "error" : success ? "success" : ""} />
             </div> : <></>}
-            <ContactForm submitting={submitting} setSubmitting={setSubmitting} setSuccess={setSuccess} setError={setError} />
+            <ContactForm setSubmitting={setSubmitting} setSuccess={setSuccess} setError={setError} />
             {submitting ? <div id="popup1" className="overlay">
                 <div className="popup">
                     <h3 className="content">
