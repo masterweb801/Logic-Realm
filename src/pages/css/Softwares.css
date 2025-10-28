@@ -8,13 +8,12 @@
     color: var(--text);
     background: linear-gradient(0deg, var(--background), var(--background-grad-1));
     min-height: 100vh;
-    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     gap: 2rem;
-    padding-top: 100px;
+    padding: 120px 2rem;
 }
 
 .store-hero {
@@ -95,53 +94,6 @@
     width: 100%;
 }
 
-.pagination-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    padding: 1.5rem 0;
-}
-
-.pg-pages {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-}
-
-.pg-btn,
-.pg-num {
-    border: 2px solid var(--separator-line);
-    background-color: var(--background-alt);
-    color: var(--text);
-    border-radius: var(--radius);
-    padding: 0.4rem 0.9rem;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.pg-num.active {
-    background-color: var(--primary);
-    color: #fff;
-    border-color: var(--secondary);
-}
-
-.pg-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.pg-btn:hover:not(:disabled),
-.pg-num:hover {
-    background-color: var(--primary);
-    color: var(--background);
-}
-
-.pg-dots {
-    color: var(--secondary);
-}
-
 @media (max-width: 600px) {
     .title {
         font-size: 1.8rem;
@@ -172,11 +124,6 @@
     }
 
     .cards-grid {
-        gap: 0.75rem;
+        gap: 1.3rem;
     }
-
-    .pagination-row {
-        padding: .5rem 0;
-    }
-
 }

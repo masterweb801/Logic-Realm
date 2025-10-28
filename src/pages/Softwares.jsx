@@ -1,26 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import './css/Softwares.css'
 import AppCard from '../component/AppCard/AppCard'
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
 import SearchIcon from '@mui/icons-material/Search';
 
-const Software = {
-    id: 1,
-    name: "Photo Point",
-    desc: "A powerful tool to convert PPT Slides to Images seamlessly.",
-    size: "15 MB",
-    icon: "https://raw.githubusercontent.com/masterweb801/Photo-Point/refs/heads/main/icon.ico"
-}
 
 const Softwares = () => {
     const [appList, setAppList] = useState([])
 
+    const getApps = async () => {
+        let url = `${import.meta.env.VITE_API_URL}/api/routes/getAllApps.php`
+        let response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+        let data = await response.json();
+        console.log(data.response_data)
+        setAppList(data.response_data);
+    }
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        setAppList([
-            Software,
-        ])
+        getApps();
     }, [])
     return (
         <div className="softwares-page">
@@ -46,13 +48,6 @@ const Softwares = () => {
                 ))}
 
             </section>
-
-            <section className="pagination-row">
-                <Stack spacing={2}>
-                    <Pagination count={10} variant="outlined" shape="rounded" />
-                </Stack>
-            </section>
-
         </div>
     )
 }

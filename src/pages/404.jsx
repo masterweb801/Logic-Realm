@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import './css/404.css'
 
+
 const ErrorPage = () => {
     const eyeRef = useRef(null);
     const eyeballRef = useRef(null);
@@ -32,6 +33,8 @@ const ErrorPage = () => {
     };
 
     useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
         document.addEventListener("mousemove", eyeball);
         const eyeballEl = eyeballRef.current;
         if (eyeballEl) {

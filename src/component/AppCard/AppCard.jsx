@@ -1,5 +1,6 @@
 import React from 'react'
 import './AppCard.css'
+import { Link } from 'react-router-dom'
 
 const AppCard = ({ app }) => {
     return (
@@ -7,20 +8,22 @@ const AppCard = ({ app }) => {
             <div className="card-media">
                 <img
                     className="app-icon"
-                    src={app.icon}
+                    src={app.img}
                     alt={`${app.name} App Icon`}
                 />
             </div>
             <div className="card-body">
                 <h3 className="app-title">{app.name}</h3>
                 <p className="app-desc">
-                    {app.desc}
+                    {app.sdesc}
                 </p>
                 <div className="card-actions">
                     <div className="card-meta">
                         <span className="size">{app.size}</span>
                     </div>
-                    <button className="btn-primary">Details</button>
+                    <Link to={`/apps/${app.id}`} >
+                        <button className="btn-primary">Details</button>
+                    </Link>
                 </div>
             </div>
         </article>

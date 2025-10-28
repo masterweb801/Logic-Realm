@@ -7,7 +7,8 @@
     border: 1px solid var(--card-border-subtle);
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
-    max-width: 300px;
+    width: 270px;
+    aspect-ratio: 5/6.25;
 }
 
 .app-card-modern:hover {
@@ -31,6 +32,7 @@
     padding: 1rem 1.5rem;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     gap: 0.5rem;
     color: var(--background);
 }
@@ -74,19 +76,21 @@
 
 @media (max-width: 768px) {
     .app-card-modern {
-        max-width: 160px;
+        width: 200px;
+        aspect-ratio: 5/6.75;
     }
 
     .app-icon {
-        width: 64px;
+        width: 96px;
     }
 
     .app-title {
-        font-size: 12pt;
+        font-size: 14pt;
         text-align: center;
     }
 
     .app-desc {
+        text-align: center;
         font-size: 10pt;
     }
 
