@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react'
 import './css/Softwares.css'
 import AppCard from '../component/AppCard/AppCard'
 import SearchIcon from '@mui/icons-material/Search';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 const Softwares = () => {
     const [appList, setAppList] = useState([])
+    const [loadding, setLoadding] = useState(false)
 
     const getApps = async () => {
+        setLoadding(true);
         let url = `${import.meta.env.VITE_API_URL}/api/routes/getAllApps.php`
         let response = await fetch(url, {
             method: "POST",
@@ -16,8 +19,8 @@ const Softwares = () => {
             }
         });
         let data = await response.json();
-        console.log(data.response_data)
         setAppList(data.response_data);
+        setLoadding(false);
     }
 
     useEffect(() => {
@@ -26,28 +29,30 @@ const Softwares = () => {
     }, [])
     return (
         <div className="softwares-page">
-            <section className="store-hero">
-                <h1 className="title">All Apps</h1>
-                <div className="hero-left">
-                    <label htmlFor='search' className="subtitle">Discover, try, and install powerful apps for every need.</label>
-                    <div className="hero-controls">
-                        <form className="search-wrap" action="#">
-                            <input className="search" id='search' placeholder="Search apps, categories or features" aria-label="Search apps" />
-                            <button type='submit' className="search-btn">
-                                <SearchIcon />
-                            </button>
-                        </form>
+            {!loadding ? <>
+                <section className="store-hero">
+                    <h1 className="title">All Apps</h1>
+                    <div className="hero-left">
+                        <label htmlFor='search' className="subtitle">Discover, try, and install powerful apps for every need.</label>
+                        <div className="hero-controls">
+                            <form className="search-wrap" action="#">
+                                <input className="search" id='search' placeholder="Search apps, categories or features" aria-label="Search apps" />
+                                <button type='submit' className="search-btn">
+                                    <SearchIcon />
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section className="cards-grid" role="list" aria-label="App results">
+                <section className="cards-grid" role="list" aria-label="App results">
 
-                {appList.map((app) => (
-                    <AppCard key={app.id} app={app} />
-                ))}
+                    {appList.map((app) => (
+                        <AppCard key={app.id} app={app} />
+                    ))}
 
-            </section>
+                </section>
+            </> : <CircularProgress />}
         </div>
     )
 }

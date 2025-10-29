@@ -7,6 +7,7 @@ import Softwares from './pages/Softwares';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import ErrorPage from './pages/404';
+import AppLandingPage from './pages/AppLandingPage';
 
 function App() {
   const router = createBrowserRouter([
@@ -18,6 +19,7 @@ function App() {
         { path: "softwares", element: <Softwares /> },
         { path: "about", element: <About /> },
         { path: "contact", element: <Contact /> },
+        { path: "apps/:slug", element: <AppLandingPage /> },
         { path: "*", element: <ErrorPage /> },
       ]
     }

@@ -1,6 +1,8 @@
 import React from 'react'
 import './AppCard.css'
 import { Link } from 'react-router-dom'
+import WindowIcon from '@mui/icons-material/Window';
+import AndroidIcon from '@mui/icons-material/Android';
 
 const AppCard = ({ app }) => {
     return (
@@ -11,6 +13,10 @@ const AppCard = ({ app }) => {
                     src={app.img}
                     alt={`${app.name} App Icon`}
                 />
+                <div className="app-platforms">
+                    {app.platforms.includes('Windows') && <WindowIcon titleAccess="Available for Windows" style={{ color: "skyblue" }} />}
+                    {app.platforms.includes('Android') && <AndroidIcon titleAccess="Available for Android" style={{ color: "#3DDC84" }} />}
+                </div>
             </div>
             <div className="card-body">
                 <h3 className="app-title">{app.name}</h3>
@@ -21,7 +27,7 @@ const AppCard = ({ app }) => {
                     <div className="card-meta">
                         <span className="size">{app.size}</span>
                     </div>
-                    <Link to={`/apps/${app.id}`} >
+                    <Link to={`/apps/${app.slug}`} >
                         <button className="btn-primary">Details</button>
                     </Link>
                 </div>
