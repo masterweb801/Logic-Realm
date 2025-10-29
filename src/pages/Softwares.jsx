@@ -5,7 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import CircularProgress from '@mui/material/CircularProgress';
 
 
-const Softwares = () => {
+const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
     const [appList, setAppList] = useState([]);
     const [filteredAppList, setFilteredAppList] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -21,7 +21,7 @@ const Softwares = () => {
         return name.replace(re, '<strong>$1</strong>');
     };
 
-    const getApps = async () => {
+    const getApps = useCallback(async () => {
         setLoading(true);
         let url = `${import.meta.env.VITE_API_URL}/api/routes/getAllApps.php`
         let response = await fetch(url, {
@@ -32,8 +32,9 @@ const Softwares = () => {
         });
         let data = await response.json();
         setAppList(data.response_data);
+        setContextSoftwares(data.response_data);
         setLoading(false);
-    }
+    }, [setContextSoftwares]);
 
     const handleSearch = useCallback(() => {
         if (cache[query.toLowerCase()]) {
@@ -57,9 +58,16 @@ const Softwares = () => {
     }, [query, handleSearch]);
 
     useEffect(() => {
+        if (contextSoftwares.length > 0) {
+            setAppList(contextSoftwares);
+        } else {
+            getApps();
+        }
+    }, [contextSoftwares, getApps]);
+
+    useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        getApps();
-    }, [])
+    }, []);
     return (
         <div className="softwares-page">
             {!loading ? <>

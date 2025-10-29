@@ -8,15 +8,17 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import ErrorPage from './pages/404';
 import AppLandingPage from './pages/AppLandingPage';
+import { useState } from 'react';
 
 function App() {
+  const [contextSoftwares, setContextSoftwares] = useState([])
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
-        { path: "softwares", element: <Softwares /> },
+        { path: "softwares", element: <Softwares contextSoftwares={contextSoftwares} setContextSoftwares={setContextSoftwares} /> },
         { path: "about", element: <About /> },
         { path: "contact", element: <Contact /> },
         { path: "apps/:slug", element: <AppLandingPage /> },
