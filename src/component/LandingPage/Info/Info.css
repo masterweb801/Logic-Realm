@@ -1,0 +1,38 @@
+.app-info {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.app-info h3 {
+    color: #111827;
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.app-info .info-details {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.info-details .det-items {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+}
+
+.info-details .det-items:first-child {
+    margin-top: 0;
+}
+
+.info-details .det-items span:first-child {
+    color: #4b5563;
+}
+
+.info-details .det-items span:last-child {
+    color: #111827;
+    font-weight: 500;
+}

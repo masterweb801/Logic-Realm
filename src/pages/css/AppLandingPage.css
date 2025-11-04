@@ -1,0 +1,47 @@
+.app-landing-page {
+    font: 'Inter', sans-serif;
+    min-height: 100vh;
+    gap: 2rem;
+    padding: 120px 0;
+    background-color: var(--background-alt);
+}
+
+.app-landing-container {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem;
+}
+
+.app-landing-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.aplan-con section,
+.aplan-con-2 section {
+    margin-top: 2rem;
+}
+
+.aplan-con section:first-child,
+.aplan-con-2 section:first-child {
+    margin-top: 0;
+}
+
+@media (min-width: 1024px) {
+    .app-landing-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .aplan-con {
+        grid-column: span 2 / span 2;
+    }
+}
+
+
+@media screen and (max-width: 970px) {
+    .app-landing-page {
+        padding-top: 20px;
+    }
+}
