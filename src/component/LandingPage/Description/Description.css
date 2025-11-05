@@ -19,7 +19,8 @@
 }
 
 .desc-prose p {
-    color: #4a5568;
+    color: #374151;
+    line-height: 1.625;
 }
 
 .desc-prose p.desc-p {
@@ -38,7 +39,7 @@
 }
 
 .desc-prose ul {
-    color: #4a5568;
+    color: #374151;
 }
 
 .desc-prose ul li {

@@ -1,50 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Description.css'
 import CheckIcon from '@mui/icons-material/Check';
 
-const Description = () => {
+
+const Description = ({ descP, descS, features }) => {
+    const [flist, setFlist] = useState([])
+    let True = true
+
+    useEffect(() => {
+        if (features) {
+            let cleaned = features.replace(/&quot;/g, '"');
+            let json = JSON.parse(cleaned)
+            if (json?.response.length > 0) {
+                setFlist(json.response);
+            }
+        } else {
+            setFlist([]);
+        }
+    }, [features])
+
     return (
         <section className="description-section">
             <h2>About this app</h2>
             <div className="desc-prose">
-                <p className="desc-p">
-                    TaskFlow Pro revolutionizes personal and team productivity with its intuitive interface and
-                    powerful features. Built for professionals, students, and teams who demand excellence, this
-                    application seamlessly integrates task management, project planning, and collaboration tools
-                    into one cohesive platform.
-                </p>
-                <p className="desc-s">
-                    Experience unprecedented control over your workflow with smart scheduling, automated
-                    reminders, and real-time collaboration features that keep everyone aligned and productive.
-                </p>
+                <p className="desc-p">{descP}</p>
+                <p className="desc-s">{descS}</p>
 
-                <h3>Key Features</h3>
-                <ul>
-                    <li>
-                        <CheckIcon />
-                        <span>Smart task prioritization with AI-powered suggestions</span>
-                    </li>
-                    <li>
-                        <CheckIcon />
-                        <span>Real-time collaboration and team synchronization</span>
-                    </li>
-                    <li>
-                        <CheckIcon />
-                        <span>Cross-platform synchronization across all devices</span>
-                    </li>
-                    <li >
-                        <CheckIcon />
-                        <span>Advanced analytics and productivity insights</span>
-                    </li>
-                    <li>
-                        <CheckIcon />
-                        <span>Customizable workflows and automation rules</span>
-                    </li>
-                    <li>
-                        <CheckIcon />
-                        <span>Secure cloud storage with offline access</span>
-                    </li>
-                </ul>
+                {flist.length > 0 ? <>
+                    <h3>Key Features</h3>
+                    <ul>
+                        {flist.map((feature, key) => <li key={key}>
+                            <CheckIcon />
+                            <span>{feature}</span>
+                        </li>)}
+                    </ul>
+                </> : <></>}
             </div>
         </section>
     )

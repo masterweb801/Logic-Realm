@@ -6,28 +6,27 @@ import AndroidIcon from '@mui/icons-material/Android';
 
 const AppCard = ({ app }) => {
     return (
-        <article className="app-card-modern" role="listitem" itemID={app.id}>
+        <article className="app-card-modern" role="listitem" itemID={app?.id}>
             <div className="card-media">
                 <img
                     className="app-icon"
-                    src={app.img}
-                    alt={`${app.name} App Icon`}
+                    src={app?.img}
                 />
                 <div className="app-platforms">
-                    {app.platforms.includes('Windows') && <WindowIcon titleAccess="Available for Windows" style={{ color: "skyblue" }} />}
-                    {app.platforms.includes('Android') && <AndroidIcon titleAccess="Available for Android" style={{ color: "#3DDC84" }} />}
+                    {app?.platforms.includes('Windows') && <WindowIcon titleAccess="Available for Windows" style={{ color: "skyblue" }} />}
+                    {app?.platforms.includes('Android') && <AndroidIcon titleAccess="Available for Android" style={{ color: "#3DDC84" }} />}
                 </div>
             </div>
             <div className="card-body">
-                <h3 className="app-title">{app.name}</h3>
+                <h3 className="app-title">{app?.name}</h3>
                 <p className="app-desc">
-                    {app.sdesc}
+                    {app?.sdesc}
                 </p>
                 <div className="card-actions">
                     <div className="card-meta">
-                        <span className="size">{app.size}</span>
+                        <span className="size">{app?.size}</span>
                     </div>
-                    <Link to={`/apps/${app.slug}`} >
+                    <Link to={`/apps/${app?.slug}`} >
                         <button className="btn-primary">Details</button>
                     </Link>
                 </div>

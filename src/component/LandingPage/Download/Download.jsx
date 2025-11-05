@@ -12,23 +12,28 @@ const WindIcon = () => {
     </svg>
 };
 
-const Download = () => {
+const Download = ({ platforms = "" }) => {
     return (
         <section className="download-section">
             <h2>Download Now</h2>
             <div className="dl-btnGroup">
-                <button className='windo'>
+                {platforms.includes("Windows") && <button className='windo'>
                     <WindIcon />
                     <span>Download for Windows</span>
-                </button>
-                <button className='andro'>
+                </button>}
+                {platforms.includes("Android") && <button className='andro'>
                     <Android />
                     <span>Download for Android</span>
-                </button>
+                </button>}
             </div>
             <div className="btnBottom">
                 <p>Version 2.1.4 • Free Download</p>
-                <p>Compatible with Windows 10+ and Android 8+</p>
+                <p>
+                    Compatible with&nbsp;
+                    {platforms.includes("Windows") && <>Windows 10+</>}
+                    {platforms.includes("Windows") && platforms.includes("Android") && <>&nbsp;and&nbsp;</>}
+                    {platforms.includes("Android") && <>Android 8+</>}
+                </p>
             </div>
         </section>
     )

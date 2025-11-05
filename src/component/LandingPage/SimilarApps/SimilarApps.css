@@ -1,0 +1,29 @@
+.similar-apps-section {
+    margin-top: 3rem;
+}
+
+.similar-apps-section h2 {
+    margin-bottom: 2rem;
+    color: #111827;
+    font-weight: 700;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+}
+
+.similar-apps-section .similar-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .similar-apps-section .similar-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .similar-apps-section .similar-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
