@@ -1,5 +1,5 @@
 import './Navbar.css'
-import React, { useEffect, useState } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/icon.png'
 import MenuIcon from '@mui/icons-material/Menu';
@@ -7,18 +7,25 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 
 const Navbar = () => {
-    const [darkMode, setDarkMode] = useState(false);
+    const getInitialMode = () => {
+        try {
+            const saved = localStorage.getItem('docMode');
+            if (saved === 'dark') return true;
+            if (saved === 'light') return false;
+            return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        } catch {
+            return false;
+        }
+    };
 
-    useEffect(() => {
-        document.documentElement.setAttribute(
-            'data-theme',
-            darkMode ? 'dark' : 'light'
-        );
+    const [darkMode, setDarkMode] = useState(getInitialMode);
+
+    useLayoutEffect(() => {
+        const theme = darkMode ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        try { localStorage.setItem('docMode', theme); } catch { /* ignore storage errors */ }
     }, [darkMode]);
 
-    const handleThemeChange = (e) => {
-        setDarkMode(e.target.checked);
-    };
     return (
         <nav className="navbar">
             <div className="logo-container">
@@ -48,7 +55,7 @@ const Navbar = () => {
                         className="checkbox"
                         id="checkbox"
                         checked={darkMode}
-                        onChange={handleThemeChange}
+                        onChange={(e) => setDarkMode(Boolean(e.target.checked))}
                     />
                     <label htmlFor="checkbox" className="checkbox-label">
                         <LightModeIcon />
