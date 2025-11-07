@@ -25,7 +25,7 @@ const GemIcon = (props) => (
 );
 
 const ValueCard = ({ icon, title, description }) => (
-    <div className="value-card">
+    <div className="values-card">
         <div className="icon-wrapper">
             {icon}
         </div>
@@ -39,6 +39,7 @@ const ValueCard = ({ icon, title, description }) => (
 export default function About() {
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.title = 'About | Logic Realm';
     }, [])
     return (
         <div className="about-page">

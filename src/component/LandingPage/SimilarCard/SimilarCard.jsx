@@ -1,17 +1,16 @@
 import React from 'react'
 import './SimilarCard.css'
+import { Link } from 'react-router-dom'
 
-const SimilarCard = () => {
+const SimilarCard = ({ app }) => {
     return (
-        <div className="similar-card">
+        <Link className="similar-card" to={`/apps/${app?.slug}`}>
             <div className="similar-container">
-                <img
-                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/960559287b-322276defebcb476bf76.png"
-                    alt="green time tracking app icon simple modern design" />
-                <h3>TimeTracker</h3>
-                <p>Precise time tracking and productivity analytics</p>
+                <img src={app?.img} />
+                <h3>{app?.name}</h3>
+                <p>{app?.sdesc}</p>
             </div>
-        </div>
+        </Link>
     )
 }
 

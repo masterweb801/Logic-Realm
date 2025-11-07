@@ -67,6 +67,7 @@ const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.title = 'Softwares | Logic Realm';
     }, []);
     return (
         <div className="softwares-page">
@@ -76,7 +77,7 @@ const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
                     <div className="hero-left">
                         <label htmlFor='search' className="subtitle">Discover, try, and install powerful apps for every need.</label>
                         <div className="hero-controls">
-                            <form className="search-wrap" action="#">
+                            <form className="search-wrap" action="#" onSubmit={(e) => { e.preventDefault() }}>
                                 <input
                                     className="search"
                                     id='search'

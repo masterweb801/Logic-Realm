@@ -5,11 +5,10 @@ import CheckIcon from '@mui/icons-material/Check';
 
 const Description = ({ descP, descS, features }) => {
     const [flist, setFlist] = useState([])
-    let True = true
 
     useEffect(() => {
         if (features) {
-            let cleaned = features.replace(/&quot;/g, '"');
+            let cleaned = features.replace(/&quot;/g, '"').replace(/&amp;/g, '&');
             let json = JSON.parse(cleaned)
             if (json?.response.length > 0) {
                 setFlist(json.response);

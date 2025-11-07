@@ -35,6 +35,8 @@ const ErrorPage = () => {
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
+        document.title = 'Not Found | Logic Realm';
+
         document.addEventListener("mousemove", eyeball);
         const eyeballEl = eyeballRef.current;
         if (eyeballEl) {

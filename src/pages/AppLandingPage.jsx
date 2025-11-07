@@ -19,7 +19,6 @@ const AppLandingPage = () => {
 
         if (!background) setLoading(true);
 
-
         try {
             let url = `${import.meta.env.VITE_API_URL}/api/routes/getAppDetails.php`
             let response = await fetch(url, {
@@ -36,6 +35,7 @@ const AppLandingPage = () => {
                 const existing = JSON.parse(localStorage.getItem("allSoftwares") || "{}");
                 existing[slug] = data.response_data;
                 localStorage.setItem("allSoftwares", JSON.stringify(existing));
+                document.title = `${data.response_data.name} | Logic Realm`
             } else {
                 console.warn('No response_data for slug:', slug, data);
             }
@@ -59,11 +59,9 @@ const AppLandingPage = () => {
             console.error('Failed to read cache, fetching from API:', err);
         }
         getAppData(slug, { background: true });
-    }, [slug]);
 
-    useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, []);
+    }, [slug]);
 
     return (
         <div className="app-landing-page">
@@ -86,6 +84,7 @@ const AppLandingPage = () => {
                         <div className="aplan-con-2">
                             <Download
                                 platforms={appDetails.platforms}
+                                dlink={appDetails.dlink}
                             />
                             <Info
                                 size={appDetails.size}

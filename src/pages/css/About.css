@@ -145,7 +145,7 @@
     text-align: left;
 }
 
-.value-card {
+.values-card {
     background-color: #ffffff;
     padding: 1.5rem;
     border-radius: 0.75rem;
@@ -157,11 +157,11 @@
     box-sizing: border-box;
 }
 
-.value-card:hover {
+.values-card:hover {
     box-shadow: 0 10px 15px var(--separator-line);
 }
 
-.value-card .icon-wrapper {
+.values-card .icon-wrapper {
     flex-shrink: 0;
     color: var(--primary);
     display: flex;
@@ -169,7 +169,7 @@
     justify-content: center;
 }
 
-.value-card .icon-wrapper svg {
+.values-card .icon-wrapper svg {
     width: 2rem;
     height: 2rem;
     display: block;
@@ -177,14 +177,14 @@
     flex-shrink: 0;
 }
 
-.value-card h3 {
+.values-card h3 {
     font-size: 1.125rem;
     font-weight: 700;
     color: #040316;
     margin: 0;
 }
 
-.value-card p {
+.values-card p {
     color: var(--secondary);
     margin-top: 0.25rem;
     font-size: 1rem;

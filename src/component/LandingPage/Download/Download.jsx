@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Download.css'
 import { Android } from '@mui/icons-material';
+import HandymanIcon from '@mui/icons-material/Handyman';
+import { Link } from 'react-router-dom';
 
 
 const WindIcon = () => {
@@ -12,19 +14,43 @@ const WindIcon = () => {
     </svg>
 };
 
-const Download = ({ platforms = "" }) => {
+const Download = ({ platforms = "", dlink }) => {
+    const [downLink, setDownLink] = useState({})
+
+    useEffect(() => {
+        if (dlink) {
+            let cleaned = dlink?.replace(/&quot;/g, '"');
+            let json = JSON.parse(cleaned);
+            if (json.android || json.windows) {
+                setDownLink(json);
+            }
+        }
+    }, [dlink])
     return (
         <section className="download-section">
             <h2>Download Now</h2>
             <div className="dl-btnGroup">
-                {platforms.includes("Windows") && <button className='windo'>
-                    <WindIcon />
-                    <span>Download for Windows</span>
-                </button>}
-                {platforms.includes("Android") && <button className='andro'>
-                    <Android />
-                    <span>Download for Android</span>
-                </button>}
+                {platforms.includes("Windows") && downLink.windows && <Link to={downLink?.windows} target='_blank'>
+                    <button className='windo'>
+                        <WindIcon />
+                        <span>Download for Windows</span>
+                    </button>
+                </Link>}
+                {platforms.includes("Android") && downLink.android && <>
+                    <Link to={downLink.android} target='_blank'>
+                        <button className='andro'>
+                            <Android />
+                            <span>Download for Android</span>
+                        </button>
+                    </Link>
+
+                    {downLink.driver && <Link to={downLink.driver} target='_blank' >
+                        <button className='windo' style={{ marginTop: "1rem" }}>
+                            <HandymanIcon style={{ height: "1.25rem" }} />
+                            <span>Download Driver</span>
+                        </button>
+                    </Link>}
+                </>}
             </div>
             <div className="btnBottom">
                 <p>Version 2.1.4 • Free Download</p>

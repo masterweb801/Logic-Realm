@@ -10,6 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.title = 'Logic Realm';
   }, [])
   return (
     <div className="homepage">

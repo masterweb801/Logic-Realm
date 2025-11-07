@@ -11,6 +11,7 @@ const Contact = () => {
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.title = 'Contact | Logic Realm';
     }, [])
 
     return (
