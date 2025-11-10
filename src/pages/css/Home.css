@@ -236,7 +236,7 @@
     object-fit: cover;
     margin: 0 auto 1rem auto;
     border-radius: 20%;
-    box-shadow: 0 5px 9px var(--card-border-subtle);
+    box-shadow: 3px 5px 20px var(--card-border-subtle);
 }
 
 .project h4 {

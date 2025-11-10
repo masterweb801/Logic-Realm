@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const SimilarCard = ({ app }) => {
     return (
-        <Link className="similar-card" to={`/apps/${app?.slug}`}>
+        <Link className="similar-card" to={`/softwares/${app?.slug}`}>
             <div className="similar-container">
                 <img src={app?.img} />
                 <h3>{app?.name}</h3>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Description.css'
 import CheckIcon from '@mui/icons-material/Check';
 import ReactMarkdown from 'react-markdown';
+import FlagIcon from '@mui/icons-material/Flag';
 
 
 const Description = ({ descP, descS, features, steps }) => {
@@ -59,7 +60,7 @@ const Description = ({ descP, descS, features, steps }) => {
                         <ol type='1' className='force-markers'>
                             {slist.map((step, key) => (
                                 <li key={key}>
-                                    <CheckIcon />
+                                    <FlagIcon />
                                     <div className="li-inner">
                                         <ReactMarkdown>
                                             {step}

@@ -94,7 +94,7 @@ const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
                     type="submit"
                     disabled={state.submitting}
                     style={{
-                        background: "var(--accent)",
+                        background: "#0016E0",
                         color: "white",
                         padding: "10px 20px",
                         border: "none",
