@@ -26,7 +26,7 @@ const AppCard = ({ app }) => {
                     <div className="card-meta">
                         <span className="size">{app?.size}</span>
                     </div>
-                    <Link to={`/apps/${app?.slug}`} >
+                    <Link to={`/softwares/${app?.slug}`} >
                         <button className="btn-primary">Details</button>
                     </Link>
                 </div>

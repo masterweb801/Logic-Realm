@@ -14,7 +14,7 @@ const WindIcon = () => {
     </svg>
 };
 
-const Download = ({ platforms = "", dlink }) => {
+const Download = ({ platforms = "", dlink, vers }) => {
     const [downLink, setDownLink] = useState({})
 
     useEffect(() => {
@@ -53,7 +53,7 @@ const Download = ({ platforms = "", dlink }) => {
                 </>}
             </div>
             <div className="btnBottom">
-                <p>Version 2.1.4 • Free Download</p>
+                <p>{vers && <>Version 2.1.4 • </>}Free Download</p>
                 <p>
                     Compatible with&nbsp;
                     {platforms.includes("Windows") && <>Windows 10+</>}

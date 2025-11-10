@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './css/AppLandingPage.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import Header from '../component/LandingPage/Header/Header.jsx';
@@ -8,6 +8,8 @@ import Screenshots from '../component/LandingPage/SS/Screenshots.jsx';
 import Download from '../component/LandingPage/Download/Download.jsx';
 import Info from '../component/LandingPage/Info/Info.jsx';
 import SimilarApps from '../component/LandingPage/SimilarApps/SimilarApps.jsx';
+import IconButton from '@mui/material/IconButton';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const AppLandingPage = () => {
     const { slug } = useParams();
@@ -78,8 +80,9 @@ const AppLandingPage = () => {
                                 descP={appDetails.descP}
                                 descS={appDetails.descS}
                                 features={appDetails.features}
+                                steps={appDetails.steps}
                             />
-                            <Screenshots />
+                            {/* <Screenshots /> */}
                         </div>
                         <div className="aplan-con-2">
                             <Download
@@ -96,6 +99,19 @@ const AppLandingPage = () => {
                     <SimilarApps slug={slug} />
                 </div>
             }
+            <Link to='/softwares' className='backBtn'>
+                <IconButton
+                    aria-label="Go back"
+                    style={{
+                        position: "fixed",
+                        top: "6rem",
+                        left: "2rem",
+                        background: "#6E89FF",
+                        color: "white"
+                    }}>
+                    <ArrowBackIcon />
+                </IconButton>
+            </Link>
         </div>
     )
 }

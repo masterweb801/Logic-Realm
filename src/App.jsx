@@ -21,7 +21,7 @@ function App() {
         { path: "softwares", element: <Softwares contextSoftwares={contextSoftwares} setContextSoftwares={setContextSoftwares} /> },
         { path: "about", element: <About /> },
         { path: "contact", element: <Contact /> },
-        { path: "apps/:slug", element: <AppLandingPage /> },
+        { path: "softwares/:slug", element: <AppLandingPage /> },
         { path: "*", element: <ErrorPage /> },
       ]
     }
