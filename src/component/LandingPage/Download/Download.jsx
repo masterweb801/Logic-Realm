@@ -29,7 +29,6 @@ const Download = ({ platforms = "", dlink, vers, github }) => {
                 setDownLink(json);
             }
         }
-        console.log(GitHubIcon)
     }, [dlink])
     return (
         <section className="download-section">

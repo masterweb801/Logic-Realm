@@ -4,7 +4,7 @@ import './css/AppLandingPage.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import Header from '../component/LandingPage/Header/Header.jsx';
 import Description from '../component/LandingPage/Description/Description.jsx';
-import Screenshots from '../component/LandingPage/SS/Screenshots.jsx';
+// import Screenshots from '../component/LandingPage/SS/Screenshots.jsx';
 import Download from '../component/LandingPage/Download/Download.jsx';
 import Info from '../component/LandingPage/Info/Info.jsx';
 import SimilarApps from '../component/LandingPage/SimilarApps/SimilarApps.jsx';

@@ -27,7 +27,6 @@ const Description = ({ descP, descS, features, steps }) => {
             let json = JSON.parse(cleaned)
             if (json?.response.length > 0) {
                 setSlist(json.response);
-                console.log(json.response)
             }
         } else {
             setSlist([]);
@@ -38,8 +37,8 @@ const Description = ({ descP, descS, features, steps }) => {
         <section className="description-section">
             <h2>About this app</h2>
             <div className="desc-prose">
-                <p className="desc-p">{descP}</p>
-                <p className="desc-s">{descS}</p>
+                <p className="desc-p">{descP?.replace(/&amp;/g, "&")?.replace(/&#039;/g, "'")}</p>
+                <p className="desc-s">{descS?.replace(/&amp;/g, "&")?.replace(/&#039;/g, "'")}</p>
 
                 {flist.length > 0 && (
                     <>

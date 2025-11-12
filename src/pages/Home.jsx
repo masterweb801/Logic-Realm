@@ -85,7 +85,7 @@ const Home = () => {
       <section className="portfolio">
         <h2>Featured Projects</h2>
         <div className="projects-grid">
-          <Link to="/softwares/photo-point" className="project" target='_blank'>
+          <Link to="/softwares/photo-point" className="project">
             <div className="img-bg">
               <img
                 src="https://raw.githubusercontent.com/masterweb801/Photo-Point/refs/heads/main/icon.ico"
@@ -96,7 +96,7 @@ const Home = () => {
             <h4>Photo Point</h4>
             <p>A software to convert PPTX to Image.</p>
           </Link>
-          <Link to="/softwares/typo" className="project" target='_blank'>
+          <Link to="/softwares/typo" className="project">
             <div className="img-bg">
               <img
                 src="https://github.com/masterweb801/Typo/blob/main/app/src/main/ic_launcher-playstore.png?raw=true"
@@ -107,7 +107,7 @@ const Home = () => {
             <h4>Typo</h4>
             <p>A mobile app for wireless typing.</p>
           </Link>
-          <Link to="/softwares/asfa" className="project" target='_blank'>
+          <Link to="/softwares/asfa" className="project">
             <div className="img-bg">
               <img
                 src="https://github.com/masterweb801/ASFA/blob/main/icon-png.png?raw=true"
