@@ -88,6 +88,8 @@ const AppLandingPage = () => {
                             <Download
                                 platforms={appDetails.platforms}
                                 dlink={appDetails.dlink}
+                                vers={appDetails.vers}
+                                github={appDetails.github}
                             />
                             <Info
                                 size={appDetails.size}
