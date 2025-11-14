@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useForm, ValidationError } from '@formspree/react';
+import styles from './ContactForm.module.css'
 
 const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
-    const [state, handleSubmit] = useForm("xovpezen");
+    const [state, handleSubmit] = useForm(import.meta.env.VITE_API_EMAIL);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [company, setCompany] = useState("");
     const [message, setMessage] = useState("");
 
     useEffect(() => {
@@ -13,6 +15,7 @@ const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
             setSubmitting(false);
             setName("");
             setEmail("");
+            setCompany("");
             setMessage("");
 
             setTimeout(() => {
@@ -29,82 +32,83 @@ const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
     }, [state.succeeded, state.errors, setSuccess, setError, setSubmitting]);
 
     return (
-        <div className="contact-page">
-            <h2>Contact Us</h2>
-            <form onSubmit={(e) => {
-                setSubmitting(true);
-                handleSubmit(e);
-            }}>
-                <div style={{ marginBottom: "15px" }}>
-                    <label htmlFor="name">
-                        Name:
-                    </label>
-                    <input
-                        id="name"
-                        type="text"
-                        name="name"
-                        required
-                        autoComplete="name"
-                        style={{ width: "100%", padding: "8px", marginTop: "5px" }}
-                        value={name}
-                        onChange={(e) => { setName(e.target.value) }}
-                    />
+        <div className={styles.container}>
+            <div className={styles["form-container"]}>
+                <div className={styles["left-container"]}>
+                    <div className={styles["left-inner-container"]}>
+                        <h2>Let's Chat</h2>
+                        <p>Whether you have a question, want to start a project or simply want to connect.</p>
+                        <br />
+                        <p>Feel free to send me a message in the contact form</p>
+                    </div>
                 </div>
-
-                <div style={{ marginBottom: "15px" }}>
-                    <label htmlFor="email">
-                        Email:
-                    </label>
-                    <input
-                        id="email"
-                        type="email"
-                        name="email"
-                        required
-                        autoComplete="email"
-                        style={{ width: "100%", padding: "8px", marginTop: "5px" }}
-                        value={email}
-                        onChange={(e) => { setEmail(e.target.value) }}
-                    />
-                    <ValidationError
-                        prefix="Email"
-                        field="email"
-                        errors={state.errors}
-                    />
+                <div className={styles["right-container"]}>
+                    <div className={styles["right-inner-container"]}>
+                        <form onSubmit={(e) => {
+                            setSubmitting(true);
+                            handleSubmit(e);
+                        }}>
+                            <h2 className={styles["lg-view"]} style={{ color: '#000' }}>Contact</h2>
+                            <h2 className={styles["sm-view"]}>Let's Chat</h2>
+                            <p style={{ color: '#000' }}>* Required</p>
+                            <input
+                                id='name'
+                                type="text"
+                                name='name'
+                                placeholder="Name *"
+                                autoComplete="name"
+                                required
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            <input
+                                type="email"
+                                placeholder="Email *"
+                                id="email"
+                                name="email"
+                                required
+                                autoComplete="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            <ValidationError
+                                prefix="Email"
+                                field="email"
+                                errors={state.errors}
+                            />
+                            <input
+                                id='company'
+                                type="text"
+                                name='company'
+                                placeholder="Company"
+                                value={company}
+                                onChange={(e) => setCompany(e.target.value)}
+                            />
+                            <textarea
+                                id="message"
+                                placeholder="Message"
+                                name="message"
+                                required
+                                rows="5"
+                                value={message}
+                                onChange={(e) => setMessage(e.target.value)}
+                            ></textarea>
+                            <ValidationError
+                                prefix="Message"
+                                field="message"
+                                errors={state.errors}
+                            />
+                            <button
+                                type="submit"
+                                disabled={state.submitting}
+                                style={{ cursor: state.submitting ? "not-allowed" : "pointer" }}
+                            >
+                                Submit
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div style={{ marginBottom: "15px" }}>
-                    <label htmlFor="message">
-                        Message:
-                    </label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        required
-                        rows="5"
-                        style={{ width: "100%", padding: "8px", marginTop: "5px", resize: "none" }}
-                        value={message}
-                        onChange={(e) => { setMessage(e.target.value) }}
-                    />
-                    <ValidationError
-                        prefix="Message"
-                        field="message"
-                        errors={state.errors}
-                    />
-                </div>
-                <button
-                    type="submit"
-                    disabled={state.submitting}
-                    style={{
-                        background: "#0016E0",
-                        color: "white",
-                        padding: "10px 20px",
-                        border: "none",
-                        borderRadius: "10px",
-                        cursor: state.submitting ? "not-allowed" : "pointer"
-                    }}
-                >
-                    Submit
-                </button>
-            </form>
+            </div>
         </div>
     );
 }

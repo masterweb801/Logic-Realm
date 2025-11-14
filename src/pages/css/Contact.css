@@ -1,19 +1,14 @@
 .contact-form-page {
-    width: 100vw;
-    height: 550px;
+    background: linear-gradient(90deg, #BE8CEF 0%, #3d2ee8d4 100%);
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
-    justify-content: end;
-    padding-bottom: 40px;
-    background: linear-gradient(to right, #c490fc, #25bdbf);
-    color: #fff;
-}
-
-.contact-form-page .contact-page {
-    width: 500px;
-    margin: 0 20px;
-    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    min-height: 100vh;
+    padding-top: 9%;
+    padding-bottom: 5%;
 }
 
 .alertmsg {
@@ -55,22 +50,12 @@
 }
 
 @media screen and (max-width: 700px) {
+    .contact-form-page {
+        padding-top: 0;
+        margin-top: -5%;
+    }
+
     .popup {
         width: 70%;
-    }
-}
-
-@media (max-width: 720px) {
-    .contact-form-page {
-        align-items: center;
-        justify-content: center;
-        padding-bottom: 0;
-        background: var(--background);
-    }
-
-    .contact-form-page .contact-page {
-        background: linear-gradient(to right, #c490fc, #25bdbf);
-        border-radius: 15px;
-        width: 87.5vw;
     }
 }
