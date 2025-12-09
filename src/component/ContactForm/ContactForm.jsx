@@ -36,7 +36,7 @@ const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
             <div className={styles["form-container"]}>
                 <div className={styles["left-container"]}>
                     <div className={styles["left-inner-container"]}>
-                        <h2>Let's Chat</h2>
+                        <h2 className={styles["h2"]}>Let's Chat</h2>
                         <p>Whether you have a question, want to start a project or simply want to connect.</p>
                         <br />
                         <p>Feel free to send me a message in the contact form</p>
@@ -44,13 +44,16 @@ const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
                 </div>
                 <div className={styles["right-container"]}>
                     <div className={styles["right-inner-container"]}>
-                        <form onSubmit={(e) => {
-                            setSubmitting(true);
-                            handleSubmit(e);
-                        }}>
+                        <form
+                            onSubmit={(e) => {
+                                setSubmitting(true);
+                                handleSubmit(e);
+                            }}
+                            className={styles["form"]}
+                        >
                             <h2 className={styles["lg-view"]} style={{ color: '#000' }}>Contact</h2>
                             <h2 className={styles["sm-view"]}>Let's Chat</h2>
-                            <p style={{ color: '#000' }}>* Required</p>
+                            <p style={{ color: '#000' }} className={styles["p"]}>* Required</p>
                             <input
                                 id='name'
                                 type="text"
@@ -60,6 +63,7 @@ const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
                                 required
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
+                                className={styles["input"]}
                             />
                             <input
                                 type="email"
@@ -70,6 +74,7 @@ const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
                                 autoComplete="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                                className={styles["input"]}
                             />
                             <ValidationError
                                 prefix="Email"
@@ -83,6 +88,7 @@ const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
                                 placeholder="Company"
                                 value={company}
                                 onChange={(e) => setCompany(e.target.value)}
+                                className={styles["input"]}
                             />
                             <textarea
                                 id="message"
@@ -92,6 +98,7 @@ const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
                                 rows="5"
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
+                                className={styles["textarea"]}
                             ></textarea>
                             <ValidationError
                                 prefix="Message"
@@ -102,6 +109,7 @@ const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
                                 type="submit"
                                 disabled={state.submitting}
                                 style={{ cursor: state.submitting ? "not-allowed" : "pointer" }}
+                                className={styles["button"]}
                             >
                                 Submit
                             </button>

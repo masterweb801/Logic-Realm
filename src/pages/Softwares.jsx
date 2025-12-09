@@ -23,7 +23,7 @@ const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
 
     const getApps = useCallback(async () => {
         setLoading(true);
-        let url = `${import.meta.env.VITE_API_URL}/api/routes/getAllApps.php`
+        let url = `${import.meta.env.VITE_API_URL}api/routes/getAllApps.php`
         let response = await fetch(url, {
             method: "POST",
             headers: {
