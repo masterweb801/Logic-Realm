@@ -1,9 +1,9 @@
-import './Navbar.css'
-import { useState, useLayoutEffect } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
-import Logo from '../../assets/icon.png'
+import './Navbar.css';
+import { useState, useLayoutEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import Logo from '../../assets/icon.png';
 import MenuIcon from '@mui/icons-material/Menu';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
+import BedtimeIcon from '@mui/icons-material/Bedtime';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import ClearIcon from '@mui/icons-material/Clear';
 
@@ -58,8 +58,8 @@ const Navbar = () => {
                         onChange={(e) => setDarkMode(Boolean(e.target.checked))}
                     />
                     <label htmlFor="checkbox" className="checkbox-label">
-                        <LightModeIcon />
-                        <DarkModeIcon />
+                        <LightModeIcon style={{ height: "1.5rem" }} />
+                        <BedtimeIcon style={{ height: "1.5rem" }} />
                     </label>
                 </div>
 
