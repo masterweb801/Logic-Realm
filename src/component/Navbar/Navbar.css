@@ -7,16 +7,21 @@
   padding-left: 1em;
   padding-right: 1em;
   box-sizing: border-box;
-  display: block;
   box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.15),
     0px 10px 10px rgba(0, 0, 0, 0.1);
   border-radius: 9px;
   background-color: #fff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   position: fixed;
   z-index: 99;
+}
+
+.logo-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .navbar .logo-section {
@@ -44,11 +49,14 @@
   display: none;
 }
 
+.mobBtn {
+  justify-self: right;
+}
+
 .navbar ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-left: 4em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,8 +84,10 @@
   transition-duration: 0.3s;
 }
 
-.modeTogLab {
-  display: none;
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .toggle .checkbox {
@@ -86,13 +96,8 @@
 }
 
 .toggle .checkbox-label {
-  background-color: #111;
-  color: #111;
-  width: 50px;
-  height: 26px;
-  border-radius: 50px;
+  padding: 1rem;
   position: relative;
-  padding: 5px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -100,30 +105,31 @@
 }
 
 .toggle svg {
-  width: 1.15rem;
-}
-
-.toggle svg:first-child {
-  color: #f1c40f;
-}
-
-.toggle svg:nth-child(2) {
-  color: #f39c12;
-}
-
-.toggle .checkbox-label .ball {
-  background-color: #fff;
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  color: #000;
   position: absolute;
-  left: 4px;
-  top: 3px;
-  border-radius: 50%;
-  transition: transform 0.2s linear;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease-in-out;
+
+  &:first-child {
+    opacity: 1;
+  }
+
+  &:last-child {
+    opacity: 0;
+  }
 }
 
-.checkbox:checked+.checkbox-label .ball {
-  transform: translateX(22px);
+.toggle .checkbox:checked~.checkbox-label svg {
+  &:first-child {
+    opacity: 0;
+  }
+
+  &:last-child {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 970px) {
@@ -133,7 +139,6 @@
     left: 0;
     width: 100vw;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     z-index: 101;
@@ -149,23 +154,35 @@
 
   .logo-container {
     display: flex;
+    align-self: flex-start;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     z-index: 101;
+    height: 100%;
+  }
+
+  .mobBtn {
+    display: flex;
+    align-self: flex-end;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 100%;
   }
 
   .navbar .menu-toggle {
-    display: block;
-    position: relative;
+    display: flex;
+    align-items: center;
     font-size: 16pt;
-    padding: 0 2rem;
-    cursor: pointer;
+    height: 100%;
     color: #000;
   }
 
-  .modeTogLab {
-    display: block;
+  .navbar .menu-toggle label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
 
   .navbar ul {
@@ -203,13 +220,6 @@
     text-align: center;
     margin-right: -100%;
     transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-
-  .toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
   }
 
   .navbar ul li a.act,

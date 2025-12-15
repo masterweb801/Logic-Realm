@@ -7,7 +7,7 @@ const SimilarApps = ({ slug }) => {
 
     const getSimilarApps = async (slug) => {
         try {
-            let url = `${import.meta.env.VITE_API_URL}/api/routes/getSimilarApps.php`;
+            let url = `${import.meta.env.VITE_API_URL}api/routes/getSimilarApps.php`;
             let response = await fetch(url, {
                 method: "POST",
                 headers: {

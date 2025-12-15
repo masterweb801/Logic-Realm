@@ -22,7 +22,7 @@ const AppLandingPage = () => {
         if (!background) setLoading(true);
 
         try {
-            let url = `${import.meta.env.VITE_API_URL}/api/routes/getAppDetails.php`
+            let url = `${import.meta.env.VITE_API_URL}api/routes/getAppDetails.php`
             let response = await fetch(url, {
                 method: "POST",
                 headers: {

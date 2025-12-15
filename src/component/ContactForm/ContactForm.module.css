@@ -12,7 +12,7 @@
     max-height: 480px;
 }
 
-h2 {
+.h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
@@ -62,8 +62,8 @@ h2 {
     line-height: 22px;
 }
 
-input,
-textarea {
+.input,
+.textarea {
     background-color: #eee;
     border: none;
     padding: 12px 15px;
@@ -73,12 +73,12 @@ textarea {
     resize: none;
 }
 
-input:focus,
-textarea:focus {
+.input:focus,
+.textarea:focus {
     outline: 1px solid #00b4cf;
 }
 
-button {
+.button {
     border-radius: 20px;
     border: 1px solid #00b4cf;
     background-color: #00b4cf;
@@ -92,11 +92,11 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.button:hover {
     opacity: 0.7;
 }
 
-form p {
+.form .p {
     text-align: left;
 }
 

@@ -1,12 +1,21 @@
-import './Navbar.css'
-import React, { useState, useLayoutEffect } from 'react'
-import { NavLink } from 'react-router-dom'
-import Logo from '../../assets/icon.png'
+import './Navbar.css';
+import { useState, useLayoutEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import Logo from '../../assets/icon.png';
 import MenuIcon from '@mui/icons-material/Menu';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
+import BedtimeIcon from '@mui/icons-material/Bedtime';
 import LightModeIcon from '@mui/icons-material/LightMode';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const location = useLocation();
+
+    useLayoutEffect(() => {
+        setIsOpen(false);
+    }, [location]);
+
     const getInitialMode = () => {
         try {
             const saved = localStorage.getItem('docMode');
@@ -36,20 +45,11 @@ const Navbar = () => {
                         <p style={{ color: "var(--primary)" }}>Realm</p>
                     </div>
                 </div>
-                <div className="menu-toggle">
-                    <label htmlFor="menuToggle">
-                        <MenuIcon />
-                    </label>
-                </div>
             </div>
-            <input type="checkbox" name="menuToggle" className="menuToggle" id="menuToggle" />
-            <ul>
-                <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/">Home</NavLink></li>
-                <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/softwares">Softwares</NavLink></li>
-                <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/about">About</NavLink></li>
-                <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/contact">Contact</NavLink></li>
-                <li className='toggle' id='themeToggle'>
-                    <label htmlFor="checkbox" className='modeTogLab'>Toggle Mode</label>
+
+            <div className="mobBtn">
+
+                <div className='toggle' id='themeToggle'>
                     <input
                         type="checkbox"
                         className="checkbox"
@@ -58,11 +58,28 @@ const Navbar = () => {
                         onChange={(e) => setDarkMode(Boolean(e.target.checked))}
                     />
                     <label htmlFor="checkbox" className="checkbox-label">
-                        <LightModeIcon />
-                        <DarkModeIcon />
-                        <span className="ball"></span>
+                        <LightModeIcon style={{ height: "1.5rem" }} />
+                        <BedtimeIcon style={{ height: "1.5rem" }} />
                     </label>
-                </li>
+                </div>
+
+                <div className="menu-toggle">
+                    <label htmlFor="menuToggle" onClick={() => setIsOpen(!isOpen)}>
+                        {!isOpen
+                            ? <MenuIcon /> :
+                            <ClearIcon />
+                        }
+                    </label>
+                </div>
+            </div>
+
+            <input type="checkbox" name="menuToggle" className="menuToggle" id="menuToggle" checked={isOpen} onChange={() => { }} />
+
+            <ul>
+                <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/">Home</NavLink></li>
+                <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/softwares">Softwares</NavLink></li>
+                <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/about">About</NavLink></li>
+                <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/contact">Contact</NavLink></li>
             </ul>
         </nav>
     )
