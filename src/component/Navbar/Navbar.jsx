@@ -1,11 +1,12 @@
 import './Navbar.css';
-import { useState, useLayoutEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { motion as Motion } from 'motion/react';
 import Logo from '../../assets/icon.png';
 import MenuIcon from '@mui/icons-material/Menu';
-import BedtimeIcon from '@mui/icons-material/Bedtime';
-import LightModeIcon from '@mui/icons-material/LightMode';
 import ClearIcon from '@mui/icons-material/Clear';
+import { useState, useLayoutEffect } from 'react';
+import BedtimeIcon from '@mui/icons-material/Bedtime';
+import { NavLink, useLocation } from 'react-router-dom';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +37,12 @@ const Navbar = () => {
     }, [darkMode]);
 
     return (
-        <nav className="navbar">
+        <Motion.nav
+            className="navbar"
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+        >
             <div className="logo-container">
                 <div className="logo-section">
                     <img className='main-icon' src={Logo} />
@@ -81,7 +87,7 @@ const Navbar = () => {
                 <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/about">About</NavLink></li>
                 <li><NavLink className={(e) => e.isActive ? "act" : ""} to="/contact">Contact</NavLink></li>
             </ul>
-        </nav>
+        </Motion.nav>
     )
 }
 

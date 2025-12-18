@@ -1,4 +1,5 @@
-import './Loading.css';
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 
 const Loading = () => {
     return (
@@ -8,14 +9,20 @@ const Loading = () => {
                 top: 0,
                 left: 0,
                 display: 'flex',
+                flexDirection: 'column',
+                gap: '1rem',
                 justifyContent: 'center',
                 alignItems: 'center',
                 height: '100vh',
                 width: '100vw',
-                backgroundColor: '#fff',
+                backgroundColor: '#00160d',
                 zIndex: 9999,
-            }}>
-            <div className="super-fast-spinner"></div>
+            }}
+        >
+            <h1 style={{ color: 'white' }}>Loading...</h1>
+            <Box sx={{ width: '80%' }}>
+                <LinearProgress color='success' />
+            </Box>
         </div>
     )
 }
