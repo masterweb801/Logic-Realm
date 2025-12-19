@@ -1,3 +1,4 @@
+import { motion as Motion } from 'motion/react';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 
@@ -19,7 +20,14 @@ const Loading = () => {
                 zIndex: 9999,
             }}
         >
-            <h1 style={{ color: 'white' }}>Loading...</h1>
+            <Motion.h1
+                style={{ color: 'white' }}
+                initial={{ opacity: 1.0, scale: 1.05 }}
+                animate={{ opacity: 0.7, scale: .95 }}
+                transition={{ duration: 0.5, repeat: Infinity }}
+            >
+                Loading...
+            </Motion.h1>
             <Box sx={{ width: '80%' }}>
                 <LinearProgress color='success' />
             </Box>

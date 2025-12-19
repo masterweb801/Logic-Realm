@@ -11,13 +11,13 @@ const ScrollCard = ({ children, direction, className }) => {
 
   const x = useTransform(
     scrollYProgress,
-    [0, 0.25],
+    [0, 0.27],
     [direction === 'left' ? -200 : direction === 'right' ? 200 : 0, 0]
   );
 
   const y = useTransform(
     scrollYProgress,
-    [0, 0.25],
+    [0, 0.27],
     [direction === 'bottom' ? 100 : 0, 0]
   );
 

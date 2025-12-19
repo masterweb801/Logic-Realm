@@ -32,7 +32,12 @@ const Home = () => {
             variants={textVarients}
             initial="hidden"
             animate="visible"
-            transition={{ delay: 1 }}
+            transition={{
+              delay: 1,
+              type: "spring",
+              stiffness: 400,
+              damping: 10
+            }}
           >
             We build the software your business deserves
           </Motion.h1>
@@ -40,17 +45,31 @@ const Home = () => {
             variants={textVarients}
             initial="hidden"
             animate="visible"
-            transition={{ delay: 1.2 }}
+            transition={{
+              delay: 1.2,
+              type: "spring",
+              stiffness: 400,
+              damping: 10
+            }}
           >
             Custom software development, modern web & mobile solutions, and ongoing support — we partner with you every step of the way.
           </Motion.p>
           <Link to="/contact">
             <Motion.button
               className="cta-button"
-              variants={textVarients}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: 1.4 }}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                transition: { delay: 1.4 }
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 10
+              }}
             >
               Start a Project
             </Motion.button>
