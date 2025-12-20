@@ -31,7 +31,7 @@
 }
 
 .navbar .main-icon {
-  height: 50px;
+  height: 55px;
   width: auto;
   aspect-ratio: 1/1;
   padding-right: 10px;
@@ -147,7 +147,9 @@
   }
 
   .navbar .main-icon {
-    height: 35px;
+    height: 45px;
+    width: auto;
+    aspect-ratio: 1/1;
   }
 
   .navbar .logo {

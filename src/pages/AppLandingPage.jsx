@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
 import './css/AppLandingPage.css';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import { Link, useParams } from 'react-router-dom';
+import Info from '../component/LandingPage/Info/Info.jsx';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import LinearProgress from '@mui/material/LinearProgress';
+import { useEffect, useState, Suspense, lazy } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Header from '../component/LandingPage/Header/Header.jsx';
-import Description from '../component/LandingPage/Description/Description.jsx';
-// import Screenshots from '../component/LandingPage/SS/Screenshots.jsx';
 import Download from '../component/LandingPage/Download/Download.jsx';
-import Info from '../component/LandingPage/Info/Info.jsx';
-import SimilarApps from '../component/LandingPage/SimilarApps/SimilarApps.jsx';
-import IconButton from '@mui/material/IconButton';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+// import Screenshots from '../component/LandingPage/SS/Screenshots.jsx';
+import Description from '../component/LandingPage/Description/Description.jsx';
+
+const SimilarApps = lazy(() => import('../component/LandingPage/SimilarApps/SimilarApps.jsx'));
 
 const AppLandingPage = () => {
     const { slug } = useParams();
@@ -98,7 +101,14 @@ const AppLandingPage = () => {
                             />
                         </div>
                     </div>
-                    <SimilarApps slug={slug} />
+                    <Suspense
+                        fallback={
+                            <Box sx={{ width: '100%', height: '1rem', marginTop: '2rem' }}>
+                                <LinearProgress color='info' style={{ height: '0.75rem' }} />
+                            </Box>
+                        }>
+                        <SimilarApps slug={slug} />
+                    </Suspense>
                 </div>
             }
             <Link to='/softwares' className='backBtn'>

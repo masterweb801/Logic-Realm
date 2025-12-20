@@ -45,7 +45,7 @@ const Navbar = () => {
         >
             <div className="logo-container">
                 <div className="logo-section">
-                    <img className='main-icon' src={Logo} />
+                    <img className='main-icon' src={Logo} alt="Logic Realm Logo" fetchPriority='high' />
                     <div className="logo">
                         <p style={{ color: "var(--accent)" }}>Logic</p>&nbsp;
                         <p style={{ color: "var(--primary)" }}>Realm</p>

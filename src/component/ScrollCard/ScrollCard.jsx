@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion as Motion, useScroll, useTransform } from 'framer-motion';
 
-const ScrollCard = ({ children, direction, className }) => {
+const ScrollCard = ({ children, direction, className, scroll = 0.27 }) => {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -11,13 +11,13 @@ const ScrollCard = ({ children, direction, className }) => {
 
   const x = useTransform(
     scrollYProgress,
-    [0, 0.27],
+    [0, scroll],
     [direction === 'left' ? -200 : direction === 'right' ? 200 : 0, 0]
   );
 
   const y = useTransform(
     scrollYProgress,
-    [0, 0.27],
+    [0, scroll],
     [direction === 'bottom' ? 100 : 0, 0]
   );
 

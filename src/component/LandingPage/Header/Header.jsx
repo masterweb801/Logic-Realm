@@ -8,6 +8,8 @@ const Header = ({ img, name, desc }) => {
                 <div className="app-icon-container">
                     <img
                         src={img}
+                        alt={`${name} app icon`}
+                        fetchPriority='high'
                     />
                 </div>
                 <div className="app-header-details">
