@@ -1,5 +1,5 @@
-import { motion as Motion } from 'motion/react';
 import Box from '@mui/material/Box';
+import { motion as Motion } from 'motion/react';
 import LinearProgress from '@mui/material/LinearProgress';
 
 const Loading = () => {

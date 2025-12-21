@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
 import './Download.css'
+import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { Android } from '@mui/icons-material';
-import HandymanIcon from '@mui/icons-material/Handyman';
+import React, { useEffect, useState } from 'react'
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { Link } from 'react-router-dom';
+import HandymanIcon from '@mui/icons-material/Handyman';
 
 
 const WindIcon = () => {

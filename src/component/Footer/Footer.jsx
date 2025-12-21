@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
 import './Footer.css'
 import Lexaun from '../../assets/lexaun.png'
+import React, { useState, useEffect } from 'react'
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 const Footer = () => {

@@ -5,8 +5,8 @@ import { motion as Motion } from 'motion/react'
 import DesignTeam from '../assets/design-team.svg'
 import SoftDev from '../assets/hero-software-dev.svg'
 import MobileDev from '../assets/mobile-development.svg'
-import EnterpriseSoftware from '../assets/enterprise-software.svg'
 import ScrollCard from '../component/ScrollCard/ScrollCard.jsx'
+import EnterpriseSoftware from '../assets/enterprise-software.svg'
 
 const Home = () => {
   const textVarients = {

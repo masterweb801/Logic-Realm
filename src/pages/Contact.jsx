@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
 import './css/Contact.css'
-import ContactForm from '../component/ContactForm/ContactForm'
+import React, { useState, useEffect } from 'react'
 import SimpleAlert from '../component/Alert/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
+import ContactForm from '../component/ContactForm/ContactForm';
 
 const Contact = () => {
     const [submitting, setSubmitting] = useState(false);

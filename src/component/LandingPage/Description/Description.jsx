@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import './Description.css'
-import CheckIcon from '@mui/icons-material/Check';
+import './Description.css';
 import ReactMarkdown from 'react-markdown';
 import FlagIcon from '@mui/icons-material/Flag';
+import CheckIcon from '@mui/icons-material/Check';
+import React, { useEffect, useState } from 'react';
 
 
 const Description = ({ descP, descS, features, steps }) => {

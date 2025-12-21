@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react'
 import './css/404.css'
+import { useEffect, useRef } from 'react'
 
 
 const ErrorPage = () => {

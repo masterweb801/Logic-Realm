@@ -1,6 +1,6 @@
+import styles from './ContactForm.module.css'
 import React, { useState, useEffect } from 'react'
 import { useForm, ValidationError } from '@formspree/react';
-import styles from './ContactForm.module.css'
 
 const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
     const [state, handleSubmit] = useForm(import.meta.env.VITE_API_EMAIL);

@@ -1,6 +1,6 @@
 import './Navbar.css';
-import { motion as Motion } from 'motion/react';
 import Logo from '../../assets/icon.svg';
+import { motion as Motion } from 'motion/react';
 import MenuIcon from '@mui/icons-material/Menu';
 import ClearIcon from '@mui/icons-material/Clear';
 import { useState, useLayoutEffect } from 'react';

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
 import './SimilarApps.css'
+import React, { useEffect, useState } from 'react'
 import SimilarCard from '../SimilarCard/SimilarCard'
 
 const SimilarApps = ({ slug }) => {

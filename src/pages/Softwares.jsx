@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useCallback } from 'react'
 import './css/Softwares.css'
 import AppCard from '../component/AppCard/AppCard'
 import SearchIcon from '@mui/icons-material/Search';
+import { useState, useEffect, useCallback } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 
 
