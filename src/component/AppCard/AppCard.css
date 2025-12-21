@@ -12,7 +12,6 @@
 }
 
 .app-card-modern:hover {
-    transform: translateY(-5px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
 
@@ -42,6 +41,7 @@
     width: 128px;
     aspect-ratio: 1 / 1;
     border-radius: 16px;
+    object-fit: cover;
 }
 
 .card-body {
