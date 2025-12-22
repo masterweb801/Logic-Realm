@@ -33,7 +33,7 @@ const Home = () => {
             initial="hidden"
             animate="visible"
             transition={{
-              delay: 1,
+              delay: 0.6,
               type: "spring",
               stiffness: 400,
               damping: 10
@@ -46,7 +46,7 @@ const Home = () => {
             initial="hidden"
             animate="visible"
             transition={{
-              delay: 1.2,
+              delay: 0.8,
               type: "spring",
               stiffness: 400,
               damping: 10
@@ -61,7 +61,7 @@ const Home = () => {
               animate={{
                 opacity: 1,
                 x: 0,
-                transition: { delay: 1.4 }
+                transition: { delay: 1 }
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -87,7 +87,7 @@ const Home = () => {
               opacity: 1,
               y: 0,
             }}
-            transition={{ delay: 0.8 }}
+            transition={{ delay: 0.7 }}
           />
         </div>
       </section>

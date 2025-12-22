@@ -25,17 +25,19 @@
     right: 0;
     background: rgba(0, 0, 0, 0.7);
     transition: opacity 500ms;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .popup {
-    margin-top: 50vh;
-    margin-left: 50vw;
+    margin: 0;
     padding: 20px;
     background: #fff;
     border-radius: 15px;
     width: 10rem;
     position: relative;
-    transform: translate(-50%, -50%);
 }
 
 .popup .content {

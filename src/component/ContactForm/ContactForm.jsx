@@ -1,5 +1,6 @@
+import { useState, useEffect } from 'react'
 import styles from './ContactForm.module.css'
-import React, { useState, useEffect } from 'react'
+import { motion as Motion } from 'motion/react';
 import { useForm, ValidationError } from '@formspree/react';
 
 const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
@@ -32,18 +33,29 @@ const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
     }, [state.succeeded, state.errors, setSuccess, setError, setSubmitting]);
 
     return (
-        <div className={styles.container}>
+        <div className={styles["container"]}>
             <div className={styles["form-container"]}>
-                <div className={styles["left-container"]}>
+                <Motion.div
+                    className={styles["left-container"]}
+                    initial={{ x: -50, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.7, duration: 0.6 }}
+                >
                     <div className={styles["left-inner-container"]}>
                         <h2 className={styles["h2"]}>Let's Chat</h2>
                         <p>Whether you have a question, want to start a project or simply want to connect.</p>
                         <br />
                         <p>Feel free to send me a message in the contact form</p>
                     </div>
-                </div>
+                </Motion.div>
+
                 <div className={styles["right-container"]}>
-                    <div className={styles["right-inner-container"]}>
+                    <Motion.div
+                        className={styles["right-inner-container"]}
+                        initial={{ x: 50, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.7 }}
+                    >
                         <form
                             onSubmit={(e) => {
                                 setSubmitting(true);
@@ -105,16 +117,18 @@ const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
                                 field="message"
                                 errors={state.errors}
                             />
-                            <button
+                            <Motion.button
                                 type="submit"
                                 disabled={state.submitting}
                                 style={{ cursor: state.submitting ? "not-allowed" : "pointer" }}
                                 className={styles["button"]}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
                             >
                                 Submit
-                            </button>
+                            </Motion.button>
                         </form>
-                    </div>
+                    </Motion.div>
                 </div>
             </div>
         </div>
