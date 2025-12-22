@@ -171,21 +171,21 @@ const Home = () => {
           <Motion.li
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.65 }}
+            transition={{ delay: 0.5 }}
           >
             <strong>Agile Methodology</strong> - Fast iterations, transparent process.
           </Motion.li>
           <Motion.li
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.75 }}
+            transition={{ delay: 0.6 }}
           >
             <strong>Dedicated Team</strong> - Experienced engineers, designers & QA.
           </Motion.li>
           <Motion.li
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.85 }}
+            transition={{ delay: 0.7 }}
           >
             <strong>Continuous Support</strong> - We don`t just build, we maintain & evolve.
           </Motion.li>
@@ -261,18 +261,23 @@ const Home = () => {
         >
           Let`s talk about your next project and how we can help you bring it to life.
         </Motion.p>
-        <Motion.div
-          variants={h2Varients}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView="visible"
-          transition={{ delay: 0.5 }}
-        >
-          <Link to="/contact">
-            <button className="cta-button">
-              Book a Free Consultation
-            </button>
-          </Link>
-        </Motion.div>
+        <Link to="/contact">
+          <Motion.button
+            className="cta-button"
+            variants={h2Varients}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 10
+            }}
+          >
+            Book a Free Consultation
+          </Motion.button>
+        </Link>
       </section>
     </div>
   )

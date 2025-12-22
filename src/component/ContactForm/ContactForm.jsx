@@ -98,6 +98,7 @@ const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
                                 type="text"
                                 name='company'
                                 placeholder="Company"
+                                autoComplete='company'
                                 value={company}
                                 onChange={(e) => setCompany(e.target.value)}
                                 className={styles["input"]}
