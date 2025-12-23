@@ -1,9 +1,9 @@
 import './Header.css'
-import React from 'react'
+import { motion as Motion } from 'motion/react'
 
-const Header = ({ img, name, desc }) => {
+const Header = ({ img, name, desc, variants }) => {
     return (
-        <section className="app-header">
+        <Motion.section className="app-header" variants={variants}>
             <div className="app-header-container">
                 <div className="app-icon-container">
                     <img
@@ -17,7 +17,7 @@ const Header = ({ img, name, desc }) => {
                     <p>{desc}</p>
                 </div>
             </div>
-        </section>
+        </Motion.section>
     )
 }
 

@@ -1,11 +1,12 @@
 import './Description.css';
 import ReactMarkdown from 'react-markdown';
+import { useEffect, useState } from 'react';
+import { motion as Motion } from 'motion/react'
 import FlagIcon from '@mui/icons-material/Flag';
 import CheckIcon from '@mui/icons-material/Check';
-import React, { useEffect, useState } from 'react';
 
 
-const Description = ({ descP, descS, features, steps }) => {
+const Description = ({ descP, descS, features, steps, variants }) => {
     const [flist, setFlist] = useState([]);
     const [slist, setSlist] = useState([]);
 
@@ -34,7 +35,7 @@ const Description = ({ descP, descS, features, steps }) => {
     }, [steps]);
 
     return (
-        <section className="description-section">
+        <Motion.section className="description-section" variants={variants}>
             <h2>About this app</h2>
             <div className="desc-prose">
                 <p className="desc-p">{descP?.replace(/&amp;/g, "&")?.replace(/&#039;/g, "'")}</p>
@@ -71,7 +72,7 @@ const Description = ({ descP, descS, features, steps }) => {
                     </>
                 )}
             </div>
-        </section>
+        </Motion.section>
     )
 }
 

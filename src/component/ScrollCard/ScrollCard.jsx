@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion as Motion, useScroll, useTransform } from 'framer-motion';
 
-const ScrollCard = ({ children, direction, className, scroll = 0.27 }) => {
+const ScrollCard = ({ children, direction, className, scroll = 0.27, hoverScale = 1.02 }) => {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -27,7 +27,7 @@ const ScrollCard = ({ children, direction, className, scroll = 0.27 }) => {
     <Motion.li
       ref={ref}
       style={{ x, y, opacity }}
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: hoverScale }}
       className={className}
     >
       {children}

@@ -3,8 +3,8 @@ import './css/colors.css'
 import Layout from "./Layout"
 import { lazy, useState } from 'react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from './pages/Home';
 
-const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const ErrorPage = lazy(() => import('./pages/404'));
 const Contact = lazy(() => import('./pages/Contact'));

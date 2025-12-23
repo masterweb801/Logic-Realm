@@ -1,8 +1,9 @@
 import './Download.css'
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import { useEffect, useState } from 'react'
 import { Android } from '@mui/icons-material';
-import React, { useEffect, useState } from 'react'
+import { motion as Motion } from 'motion/react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import HandymanIcon from '@mui/icons-material/Handyman';
 
@@ -18,7 +19,7 @@ const WindIcon = () => {
     </span>
 };
 
-const Download = ({ platforms = "", dlink, vers, github }) => {
+const Download = ({ platforms = "", dlink, vers, github, variants }) => {
     const [downLink, setDownLink] = useState({})
 
     useEffect(() => {
@@ -31,28 +32,41 @@ const Download = ({ platforms = "", dlink, vers, github }) => {
         }
     }, [dlink])
     return (
-        <section className="download-section">
+        <Motion.section className="download-section" variants={variants}>
             <h2>Download Now</h2>
             <div className="dl-btnGroup">
                 {platforms.includes("Windows") && downLink.windows && <Link to={downLink?.windows} target='_blank'>
-                    <button className='windo'>
+                    <Motion.button
+                        className='windo'
+                        whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)" }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                    >
                         <WindIcon />
                         <span>Download for Windows</span>
-                    </button>
+                    </Motion.button>
                 </Link>}
                 {platforms.includes("Android") && downLink.android && <>
                     <Link to={downLink.android} target='_blank'>
-                        <button className='andro'>
+                        <Motion.button
+                            className='andro'
+                            whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)" }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                        >
                             <Android />
                             <span>Download for Android</span>
-                        </button>
+                        </Motion.button>
                     </Link>
 
                     {downLink.driver && <Link to={downLink.driver} target='_blank' >
-                        <button className='windo' style={{ marginTop: "1rem" }}>
+                        <Motion.button
+                            className='windo'
+                            style={{ marginTop: "1rem" }}
+                            whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)" }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                        >
                             <HandymanIcon style={{ height: "1.25rem" }} />
                             <span>Download Driver</span>
-                        </button>
+                        </Motion.button>
                     </Link>}
                 </>}
             </div>
@@ -70,7 +84,7 @@ const Download = ({ platforms = "", dlink, vers, github }) => {
                     </Button>
                 </Link>}
             </div>
-        </section>
+        </Motion.section>
     )
 }
 
