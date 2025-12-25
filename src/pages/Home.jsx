@@ -79,6 +79,7 @@ const Home = () => {
           <Motion.img
             src={SoftDev}
             alt="Software development illustration"
+            fetchpriority="high"
             initial={{
               opacity: 0,
               y: -20,
@@ -201,7 +202,7 @@ const Home = () => {
         >
           Featured Projects
         </Motion.h2>
-        <div className="projects-grid">
+        <ul className="projects-grid">
           <Link to="/softwares/photo-point">
             <ScrollCard className={"project"} direction={"left"}>
               <div className="img-bg">
@@ -241,7 +242,7 @@ const Home = () => {
               <p>Access System From Anywhere.</p>
             </ScrollCard>
           </Link>
-        </div>
+        </ul>
       </section>
 
       <section className="contact-cta even-section" id="contact-sec">
