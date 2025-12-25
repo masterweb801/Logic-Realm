@@ -202,47 +202,53 @@ const Home = () => {
         >
           Featured Projects
         </Motion.h2>
-        <ul className="projects-grid">
+        <div className="projects-grid">
           <Link to="/softwares/photo-point">
-            <ScrollCard className={"project"} direction={"left"}>
+            <ScrollCard className={"project"} direction={"left"} li={false}>
               <div className="img-bg">
                 <img
                   src="https://cdn.jsdelivr.net/gh/masterweb801/Photo-Point@main/icon.ico"
                   alt="Icon for Photo Point software"
                   className="project-icon"
+                  fetchPriority='low'
+                  loading='lazy'
                 />
               </div>
-              <h4>Photo Point</h4>
+              <h3>Photo Point</h3>
               <p>A software to convert PPTX to Image.</p>
             </ScrollCard>
           </Link>
           <Link to="/softwares/typo">
-            <ScrollCard className={"project"} direction={"bottom"}>
+            <ScrollCard className={"project"} direction={"bottom"} li={false}>
               <div className="img-bg">
                 <img
                   src="https://cdn.jsdelivr.net/gh/masterweb801/Typo@main/app/src/main/ic_launcher-playstore.png"
                   alt="Icon for Typo mobile app"
                   className="project-icon"
+                  fetchPriority='low'
+                  loading='lazy'
                 />
               </div>
-              <h4>Typo</h4>
+              <h3>Typo</h3>
               <p>A mobile app for wireless typing.</p>
             </ScrollCard>
           </Link>
           <Link to="/softwares/asfa">
-            <ScrollCard className={"project"} direction={"right"}>
+            <ScrollCard className={"project"} direction={"right"} li={false}>
               <div className="img-bg">
                 <img
                   src="https://cdn.jsdelivr.net/gh/masterweb801/ASFA@main/icon-png.png"
                   alt="Icon for ASFA"
                   className="project-icon"
+                  fetchPriority='low'
+                  loading='lazy'
                 />
               </div>
-              <h4>ASFA</h4>
+              <h3>ASFA</h3>
               <p>Access System From Anywhere.</p>
             </ScrollCard>
           </Link>
-        </ul>
+        </div>
       </section>
 
       <section className="contact-cta even-section" id="contact-sec">

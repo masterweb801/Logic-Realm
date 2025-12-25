@@ -7,7 +7,7 @@ const SimilarCard = ({ app }) => {
         <ScrollCard className={"similar-card"} direction={"left"} scroll={0.5} hoverScale={1.05}>
             <Link to={`/softwares/${app?.slug}`}>
                 <div className="similar-container">
-                    <img src={app?.img} alt={`${app?.name} app icon`} />
+                    <img src={app?.img} alt={`${app?.name} app icon`} fetchPriority='low' loading='lazy' />
                     <h3>{app?.name}</h3>
                     <p>{app?.sdesc}</p>
                 </div>

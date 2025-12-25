@@ -65,6 +65,8 @@ const Navbar = () => {
                         fetchPriority='high'
                         whileHover={{ rotate: 10, scale: 1.1 }}
                     />
+
+                    {/* Lighthouse accessibility warning ignored for logo text due to brand colors */}
                     <div className="logo">
                         <p style={{ color: "var(--accent)" }}>Logic</p>&nbsp;
                         <p style={{ color: "var(--primary)" }}>Realm</p>
