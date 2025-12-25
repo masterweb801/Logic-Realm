@@ -1,6 +1,6 @@
 import './Footer.css'
 import { useState, useEffect } from 'react'
-import Lexaun from '../../assets/lexaun.png'
+import Lexaun from '../../assets/lexaun.webp'
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 const Footer = () => {
@@ -54,7 +54,7 @@ const Footer = () => {
                 <div className="footer-powered">
                     <span>Powered by</span>
                     <a className='l-link' href="http://lexaun.rf.gd/" target='_blank'>
-                        <img src={Lexaun} className="footer-logo" /> &nbsp;
+                        <img src={Lexaun} className="footer-logo" alt='Lexaun Limited Logo' fetchPriority='low' /> &nbsp;
                         <span className="footer-company">Lexaun Limited</span>
                     </a>
                 </div>

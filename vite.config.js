@@ -13,6 +13,7 @@ export default defineConfig({
 
           if (id.includes('@mui')) return 'vendor-mui';
           if (id.includes('motion')) return 'vendor-motion';
+          if (id.includes('react-router')) return 'vendor-react-router';
           if (id.includes('react')) return 'vendor-react';
 
           return 'vendor-core';
