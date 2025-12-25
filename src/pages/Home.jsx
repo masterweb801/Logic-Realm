@@ -206,7 +206,7 @@ const Home = () => {
             <ScrollCard className={"project"} direction={"left"}>
               <div className="img-bg">
                 <img
-                  src="https://raw.githubusercontent.com/masterweb801/Photo-Point/refs/heads/main/icon.ico"
+                  src="https://cdn.jsdelivr.net/gh/masterweb801/Photo-Point@main/icon.ico"
                   alt="Icon for Photo Point software"
                   className="project-icon"
                 />
@@ -219,7 +219,7 @@ const Home = () => {
             <ScrollCard className={"project"} direction={"bottom"}>
               <div className="img-bg">
                 <img
-                  src="https://github.com/masterweb801/Typo/blob/main/app/src/main/ic_launcher-playstore.png?raw=true"
+                  src="https://cdn.jsdelivr.net/gh/masterweb801/Typo@main/app/src/main/ic_launcher-playstore.png"
                   alt="Icon for Typo mobile app"
                   className="project-icon"
                 />
@@ -232,7 +232,7 @@ const Home = () => {
             <ScrollCard className={"project"} direction={"right"}>
               <div className="img-bg">
                 <img
-                  src="https://github.com/masterweb801/ASFA/blob/main/icon-png.png?raw=true"
+                  src="https://cdn.jsdelivr.net/gh/masterweb801/ASFA@main/icon-png.png"
                   alt="Icon for ASFA"
                   className="project-icon"
                 />

@@ -20,11 +20,10 @@ const AppCard = ({ app }) => {
             }}
         >
             <div className="card-media">
-                <Motion.img
+                <img
                     className="app-icon"
                     src={app?.img}
                     alt={`${app?.name} app icon`}
-                    layout
                 />
                 <div className="app-platforms">
                     {app?.platforms.includes('Windows') && <WindowIcon titleAccess="Available for Windows" style={{ color: "skyblue" }} />}

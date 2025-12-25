@@ -9,15 +9,13 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('@mui')) {
-              return 'vendor-mui';
-            }
-            if (id.includes('motion')) {
-              return 'vendor-motion';
-            }
-            return 'vendor';
-          }
+          if (!id.includes('node_modules')) return;
+
+          if (id.includes('@mui')) return 'vendor-mui';
+          if (id.includes('motion')) return 'vendor-motion';
+          if (id.includes('react')) return 'vendor-react';
+
+          return 'vendor-core';
         },
       },
     },
