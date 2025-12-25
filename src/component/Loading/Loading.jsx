@@ -15,6 +15,7 @@ const Loading = () => {
             width: '100vw',
             backgroundColor: '#fff',
             zIndex: 9999,
+            cursor: "wait"
         }}>
             <div className="loader"></div>
         </div>
