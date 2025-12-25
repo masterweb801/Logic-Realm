@@ -105,7 +105,7 @@ const ContactForm = ({ setSubmitting, setSuccess, setError }) => {
                             />
                             <textarea
                                 id="message"
-                                placeholder="Message"
+                                placeholder="Message *"
                                 name="message"
                                 required
                                 rows="5"
