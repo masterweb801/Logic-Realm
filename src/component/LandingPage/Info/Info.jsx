@@ -1,9 +1,9 @@
-import React from 'react'
 import './Info.css'
+import { motion as Motion } from 'motion/react'
 
-const Info = ({ size, platforms, category }) => {
+const Info = ({ size, platforms, category, variants }) => {
     return (
-        <section className="app-info">
+        <Motion.section className="app-info" variants={variants}>
             <h3>App Information</h3>
             <div className="info-details">
                 <div className='det-items'>
@@ -23,7 +23,7 @@ const Info = ({ size, platforms, category }) => {
                     <span>{size}</span>
                 </div>
             </div>
-        </section>
+        </Motion.section>
     )
 }
 

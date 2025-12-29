@@ -1,15 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
 import './css/AppLandingPage.css';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import { Link, useParams } from 'react-router-dom';
+import Info from '../component/LandingPage/Info/Info.jsx';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import LinearProgress from '@mui/material/LinearProgress';
+import { useEffect, useState, Suspense, lazy } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Header from '../component/LandingPage/Header/Header.jsx';
-import Description from '../component/LandingPage/Description/Description.jsx';
-// import Screenshots from '../component/LandingPage/SS/Screenshots.jsx';
 import Download from '../component/LandingPage/Download/Download.jsx';
-import Info from '../component/LandingPage/Info/Info.jsx';
-import SimilarApps from '../component/LandingPage/SimilarApps/SimilarApps.jsx';
-import IconButton from '@mui/material/IconButton';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+// import Screenshots from '../component/LandingPage/SS/Screenshots.jsx';
+import Description from '../component/LandingPage/Description/Description.jsx';
+import { motion as Motion } from 'motion/react';
+
+const SimilarApps = lazy(() => import('../component/LandingPage/SimilarApps/SimilarApps.jsx'));
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.15,
+            delayChildren: 0.2
+        }
+    }
+};
+
+const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: { duration: 0.5, ease: "easeOut" }
+    }
+};
 
 const AppLandingPage = () => {
     const { slug } = useParams();
@@ -67,40 +91,6 @@ const AppLandingPage = () => {
 
     return (
         <div className="app-landing-page">
-            {loading ? <CircularProgress />
-                : <div className='app-landing-container'>
-                    <Header
-                        img={appDetails.img}
-                        name={appDetails.name}
-                        desc={appDetails.sdesc}
-                    />
-                    <div className="app-landing-grid">
-                        <div className="aplan-con">
-                            <Description
-                                descP={appDetails.descP}
-                                descS={appDetails.descS}
-                                features={appDetails.features}
-                                steps={appDetails.steps}
-                            />
-                            {/* <Screenshots /> */}
-                        </div>
-                        <div className="aplan-con-2">
-                            <Download
-                                platforms={appDetails.platforms}
-                                dlink={appDetails.dlink}
-                                vers={appDetails.vers}
-                                github={appDetails.github}
-                            />
-                            <Info
-                                size={appDetails.size}
-                                platforms={appDetails.platforms}
-                                category={appDetails.category}
-                            />
-                        </div>
-                    </div>
-                    <SimilarApps slug={slug} />
-                </div>
-            }
             <Link to='/softwares' className='backBtn'>
                 <IconButton
                     aria-label="Go back"
@@ -114,6 +104,57 @@ const AppLandingPage = () => {
                     <ArrowBackIcon />
                 </IconButton>
             </Link>
+
+            {loading ? <CircularProgress /> :
+                <Motion.div
+                    className='app-landing-container'
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                >
+                    <Header
+                        img={appDetails.img}
+                        name={appDetails.name}
+                        desc={appDetails.sdesc}
+                        variants={itemVariants}
+                    />
+                    <div className="app-landing-grid">
+                        <div className="aplan-con">
+                            <Description
+                                descP={appDetails.descP}
+                                descS={appDetails.descS}
+                                features={appDetails.features}
+                                steps={appDetails.steps}
+                                variants={itemVariants}
+                            />
+                            {/* <Screenshots /> */}
+                        </div>
+                        <div className="aplan-con-2">
+                            <Download
+                                platforms={appDetails.platforms}
+                                dlink={appDetails.dlink}
+                                vers={appDetails.vers}
+                                github={appDetails.github}
+                                variants={itemVariants}
+                            />
+                            <Info
+                                size={appDetails.size}
+                                platforms={appDetails.platforms}
+                                category={appDetails.category}
+                                variants={itemVariants}
+                            />
+                        </div>
+                    </div>
+                    <Suspense
+                        fallback={
+                            <Box sx={{ width: '100%', height: '1rem', marginTop: '2rem' }}>
+                                <LinearProgress color='info' style={{ height: '0.75rem' }} />
+                            </Box>
+                        }>
+                        <SimilarApps slug={slug} />
+                    </Suspense>
+                </Motion.div>
+            }
         </div>
     )
 }

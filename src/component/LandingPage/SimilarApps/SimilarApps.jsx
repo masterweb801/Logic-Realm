@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
 import './SimilarApps.css'
+import { useEffect, useState } from 'react'
+import { motion as Motion } from 'motion/react'
 import SimilarCard from '../SimilarCard/SimilarCard'
 
 const SimilarApps = ({ slug }) => {
@@ -31,7 +32,13 @@ const SimilarApps = ({ slug }) => {
     }, [slug])
     return (
         <section className="similar-apps-section">
-            <h2>Similar Apps You May Like</h2>
+            <Motion.h2
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+            >
+                Similar Apps You May Like
+            </Motion.h2>
             <div className="similar-grid">
 
                 {appList?.map((app, key) => { return <SimilarCard key={key} app={app} /> })}

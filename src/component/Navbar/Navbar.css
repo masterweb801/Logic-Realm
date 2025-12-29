@@ -31,7 +31,9 @@
 }
 
 .navbar .main-icon {
-  height: 40px;
+  height: 55px;
+  width: auto;
+  aspect-ratio: 1/1;
   padding-right: 10px;
 }
 
@@ -85,6 +87,7 @@
 }
 
 .toggle {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -97,7 +100,7 @@
 
 .toggle .checkbox-label {
   padding: 1rem;
-  position: relative;
+  position: absolute;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -107,19 +110,6 @@
 .toggle svg {
   width: 2rem;
   color: #000;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.3s ease-in-out;
-
-  &:first-child {
-    opacity: 1;
-  }
-
-  &:last-child {
-    opacity: 0;
-  }
 }
 
 .toggle .checkbox:checked~.checkbox-label svg {
@@ -132,7 +122,34 @@
   }
 }
 
+.nav-links-desktop {
+  display: flex;
+  list-style: none;
+}
+
+.checkbox-label div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 970px) {
+  ul.nav-links-desktop {
+    display: none;
+  }
+
+  .navbar ul.nav-links-mobile {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    padding-top: 80px;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+    z-index: 102;
+  }
+
   .navbar {
     position: relative;
     top: 0;
@@ -145,7 +162,9 @@
   }
 
   .navbar .main-icon {
-    height: 35px;
+    height: 45px;
+    width: auto;
+    aspect-ratio: 1/1;
   }
 
   .navbar .logo {
@@ -176,6 +195,7 @@
     font-size: 16pt;
     height: 100%;
     color: #000;
+    z-index: 103;
   }
 
   .navbar .menu-toggle label {
@@ -189,24 +209,21 @@
     flex-direction: column;
     position: fixed;
     background: #324400;
-    width: 100vw;
+    width: 80vw;
     margin-left: 0;
     align-items: center;
     justify-content: center;
     height: calc(100vh - 60px);
     z-index: 100;
-    transform: translate(105%, 55%);
-    transition: transform .5s ease;
     border-radius: 10px;
   }
 
   .navbar ul li {
-    margin: 1em 0;
-    max-width: 80vw;
+    margin: 1rem 0;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding-left: 4rem;
   }
 
   .navbar ul li a,
@@ -226,17 +243,5 @@
   .navbar ul li a:hover {
     background: none;
     color: #d6ff65;
-  }
-
-  #menuToggle:checked~ul {
-    transform: translate(0%, 55%);
-  }
-
-  #menuToggle:checked~ul li a {
-    margin-right: 0;
-  }
-
-  #menuToggle:checked~ul li.toggle {
-    margin-right: 0;
   }
 }

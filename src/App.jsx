@@ -1,14 +1,15 @@
 import './css/App.css'
 import './css/colors.css'
+import Layout from "./Layout"
+import { lazy, useState } from 'react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from './Layout';
 import Home from './pages/Home';
-import Softwares from './pages/Softwares';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import ErrorPage from './pages/404';
-import AppLandingPage from './pages/AppLandingPage';
-import { useState } from 'react';
+
+const About = lazy(() => import('./pages/About'));
+const ErrorPage = lazy(() => import('./pages/404'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Softwares = lazy(() => import('./pages/Softwares'));
+const AppLandingPage = lazy(() => import('./pages/AppLandingPage'));
 
 function App() {
   const [contextSoftwares, setContextSoftwares] = useState([])

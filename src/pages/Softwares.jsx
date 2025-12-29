@@ -1,9 +1,27 @@
-import React, { useState, useEffect, useCallback } from 'react'
 import './css/Softwares.css'
 import AppCard from '../component/AppCard/AppCard'
 import SearchIcon from '@mui/icons-material/Search';
-import CircularProgress from '@mui/material/CircularProgress';
+import ZoomOutIcon from '@mui/icons-material/ZoomOut';
+import { useState, useEffect, useCallback } from 'react';
+import { motion as Motion, AnimatePresence } from 'motion/react';
+import TopProgress from '../component/TopProgress/TopProgress';
 
+const pageTransition = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5 }
+};
+
+const noResultsVariants = {
+    hidden: { opacity: 0, scale: 0.8, y: 20 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        transition: { type: "spring", stiffness: 260, damping: 20 }
+    },
+    exit: { opacity: 0, scale: 0.8, transition: { duration: 0.2 } }
+};
 
 const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
     const [appList, setAppList] = useState([]);
@@ -69,30 +87,47 @@ const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         document.title = 'Softwares | Logic Realm';
     }, []);
-    return (
-        <div className="softwares-page">
-            {!loading ? <>
-                <section className="store-hero">
-                    <h1 className="title">All Apps</h1>
-                    <div className="hero-left">
-                        <label htmlFor='search' className="subtitle">Discover, try, and install powerful apps for every need.</label>
-                        <div className="hero-controls">
-                            <form className="search-wrap" action="#" onSubmit={(e) => { e.preventDefault() }}>
-                                <input
-                                    className="search"
-                                    id='search'
-                                    value={query}
-                                    onChange={(e) => { setQuery(e.target.value) }}
-                                    placeholder="Search apps, categories or features"
-                                    aria-label="Search apps"
-                                    onFocus={() => setSearchFocused(true)}
-                                    onBlur={() => setSearchFocused(false)}
-                                />
-                                <button className="search-btn">
-                                    <SearchIcon />
-                                </button>
-                            </form>
-                            {searchFocused && <div className="search-suggestions">
+    return <Motion.div className="softwares-page" {...pageTransition}>
+        <section className="store-hero">
+            <Motion.h1
+                className="title"
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+            >
+                All Apps
+            </Motion.h1>
+            <div className="hero-left">
+                <label htmlFor='search' className="subtitle">Discover, try, and install powerful apps for every need.</label>
+                <div className="hero-controls">
+                    <Motion.form
+                        className="search-wrap"
+                        action="#"
+                        onSubmit={(e) => { e.preventDefault() }}
+                        animate={{ scale: searchFocused ? 1.02 : 1 }}
+                    >
+                        <input
+                            className="search"
+                            id='search'
+                            value={query}
+                            onChange={(e) => { setQuery(e.target.value) }}
+                            placeholder="Search apps, categories or features"
+                            aria-label="Search apps"
+                            onFocus={() => setSearchFocused(true)}
+                            onBlur={() => setSearchFocused(false)}
+                            autoComplete='off'
+                        />
+                        <button className="search-btn">
+                            <SearchIcon />
+                        </button>
+                    </Motion.form>
+                    <AnimatePresence>
+                        {searchFocused && query != "" && filteredAppList.length > 0 &&
+                            <Motion.div
+                                className="search-suggestions"
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                            >
                                 {filteredAppList.map((item, index) => {
                                     return <button
                                         key={index}
@@ -103,31 +138,55 @@ const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
                                         dangerouslySetInnerHTML={{ __html: highlightName(item.name) }}
                                     />
                                 })}
-                            </div>}
-                        </div>
+                            </Motion.div>}
+                    </AnimatePresence>
+                </div>
+            </div>
+        </section>
+
+
+        {!loading ? <AnimatePresence mode='wait'>
+            {filteredAppList.length > 0 || query === "" ?
+                <Motion.section
+                    key="grid"
+                    className="cards-grid"
+                    role="list"
+                    aria-label="App results"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    layout
+                >
+                    {(query ? filteredAppList : appList).slice(0, 24).map((app) => (
+                        <Motion.div
+                            key={app.slug || app.name}
+                            layout
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            <AppCard app={app} />
+                        </Motion.div>
+                    ))}
+                </Motion.section> :
+                <Motion.div
+                    key="no-results"
+                    className="no-results-container"
+                    variants={noResultsVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    layout
+                >
+                    <div className="illustration-wrapper">
+                        <ZoomOutIcon />
                     </div>
-                </section>
-
-                <section className="cards-grid" role="list" aria-label="App results">
-
-                    {filteredAppList.length > 0 ? filteredAppList.map((app, index) => {
-                        if (index < 24) {
-                            return <AppCard key={index} app={app} />
-                        } else {
-                            return null;
-                        }
-                    }) : appList.map((app, index) => {
-                        if (index < 24) {
-                            return <AppCard key={index} app={app} />
-                        } else {
-                            return null;
-                        }
-                    })}
-
-                </section>
-            </> : <CircularProgress />}
-        </div>
-    )
+                    <h3>No results for "{query}"</h3>
+                    <p>Try checking your spelling or using different keywords.</p>
+                </Motion.div>}
+        </AnimatePresence> : <TopProgress />}
+    </Motion.div>
 }
 
 export default Softwares

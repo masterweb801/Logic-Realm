@@ -27,4 +27,13 @@ body {
 
 main {
     flex: 1;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.loader-full {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
 }
