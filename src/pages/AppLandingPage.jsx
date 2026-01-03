@@ -93,7 +93,8 @@ const AppLandingPage = () => {
         <div className="app-landing-page">
             <Link to='/softwares' className='backBtn'>
                 <IconButton
-                    aria-label="Go back"
+                    aria-label="Go Back"
+                    title='Go Back'
                     style={{
                         position: "fixed",
                         top: "6rem",
