@@ -66,8 +66,7 @@ const imageReveal = {
 
 export default function About() {
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        document.title = 'About | Logic Realm';
+        typeof window !== 'undefined' && (document.title = 'About | Logic Realm');
     }, [])
     return (
         <div className="about-page">

@@ -1,4 +1,3 @@
-import React from 'react'
 import './Screenshots.css'
 
 const Screenshots = () => {

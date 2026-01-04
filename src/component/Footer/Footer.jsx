@@ -5,6 +5,7 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 const Footer = () => {
     const [Scrolled, setScrolled] = useState(false);
     const handleScroll = () => {
+        if (typeof window !== 'undefined') return;
         let height = window.screen.height;
         if (window.scrollY > document.body.scrollHeight - 1.25 * height) {
             setScrolled(false);
@@ -14,10 +15,12 @@ const Footer = () => {
     }
 
     const scrollToTop = () => {
+        if (typeof window !== 'undefined') return;
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     useEffect(() => {
+        if (typeof window === 'undefined') return;
         window.addEventListener('scroll', handleScroll);
     }, []);
 

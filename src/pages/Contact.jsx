@@ -11,8 +11,7 @@ const Contact = () => {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        document.title = 'Contact | Logic Realm';
+        typeof window !== 'undefined' && (document.title = 'Contact | Logic Realm');
     }, [])
 
     return (

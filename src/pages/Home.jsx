@@ -20,8 +20,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.title = 'Logic Realm';
+    typeof window !== 'undefined' && (document.title = 'Logic Realm');
   }, [])
 
   return (

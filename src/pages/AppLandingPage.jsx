@@ -58,10 +58,12 @@ const AppLandingPage = () => {
 
             if (data && data.response_data) {
                 setAppDetails(data.response_data);
-                const existing = JSON.parse(localStorage.getItem("allSoftwares") || "{}");
-                existing[slug] = data.response_data;
-                localStorage.setItem("allSoftwares", JSON.stringify(existing));
-                document.title = `${data.response_data.name} | Logic Realm`
+                if (typeof window !== 'undefined') {
+                    const existing = JSON.parse(localStorage.getItem("allSoftwares") || "{}");
+                    existing[slug] = data.response_data;
+                    localStorage.setItem("allSoftwares", JSON.stringify(existing));
+                    document.title = `${data.response_data.name} | Logic Realm`;
+                }
             } else {
                 console.warn('No response_data for slug:', slug, data);
             }
@@ -76,7 +78,7 @@ const AppLandingPage = () => {
 
     useEffect(() => {
         try {
-            const raw = localStorage.getItem("allSoftwares");
+            const raw = typeof window !== 'undefined' ? localStorage.getItem("allSoftwares") : null;
             const allSoftwares = raw ? JSON.parse(raw) : {};
             if (allSoftwares && allSoftwares[slug]) {
                 setAppDetails(allSoftwares[slug]);
@@ -85,8 +87,6 @@ const AppLandingPage = () => {
             console.error('Failed to read cache, fetching from API:', err);
         }
         getAppData(slug, { background: true });
-
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [slug]);
 
     return (

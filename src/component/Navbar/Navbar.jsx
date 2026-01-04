@@ -17,7 +17,7 @@ const Navbar = () => {
 
     const getInitialMode = () => {
         try {
-            const saved = localStorage.getItem('docMode');
+            const saved = typeof window !== 'undefined' ? localStorage.getItem('docMode') : 'dark';
             if (saved === 'dark') return true;
             if (saved === 'light') return false;
             return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -30,6 +30,7 @@ const Navbar = () => {
 
     useLayoutEffect(() => {
         const theme = darkMode ? 'dark' : 'light';
+        if (typeof document === 'undefined') return;
         document.documentElement.setAttribute('data-theme', theme);
         try { localStorage.setItem('docMode', theme); } catch { /* ignore storage errors */ }
     }, [darkMode]);
