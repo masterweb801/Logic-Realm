@@ -51,7 +51,7 @@ const Footer = () => {
 
             <div className="footer-bottom">
                 <div className="copyr">
-                    <p>© 2025 Logic Realm. All rights reserved.</p>
+                    <p>© 2023 Logic Realm. All rights reserved.</p>
                 </div>
                 <div className="footer-powered">
                     <span>Powered by</span>
