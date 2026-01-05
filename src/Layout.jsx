@@ -7,7 +7,6 @@ import TopProgress from './component/TopProgress/TopProgress';
 function Layout() {
     const location = useLocation();
 
-
     return (
         <div className="app-container">
             <header>

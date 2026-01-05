@@ -1,5 +1,4 @@
 import './Navbar.css';
-import Logo from '../../assets/icon.svg';
 import MenuIcon from '@mui/icons-material/Menu';
 import ClearIcon from '@mui/icons-material/Clear';
 import { useState, useLayoutEffect } from 'react';
@@ -18,7 +17,7 @@ const Navbar = () => {
 
     const getInitialMode = () => {
         try {
-            const saved = localStorage.getItem('docMode');
+            const saved = typeof window !== 'undefined' ? localStorage.getItem('docMode') : 'dark';
             if (saved === 'dark') return true;
             if (saved === 'light') return false;
             return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -31,6 +30,7 @@ const Navbar = () => {
 
     useLayoutEffect(() => {
         const theme = darkMode ? 'dark' : 'light';
+        if (typeof document === 'undefined') return;
         document.documentElement.setAttribute('data-theme', theme);
         try { localStorage.setItem('docMode', theme); } catch { /* ignore storage errors */ }
     }, [darkMode]);
@@ -57,10 +57,10 @@ const Navbar = () => {
             transition={{ type: "spring", stiffness: 120, damping: 20 }}
         >
             <div className="logo-container">
-                <div className="logo-section">
+                <div className="logo-section" title="Logic Realm">
                     <Motion.img
                         className='main-icon'
-                        src={Logo}
+                        src='/icon.svg'
                         alt="Logic Realm Logo"
                         fetchPriority='high'
                         whileHover={{ rotate: 10, scale: 1.1 }}
@@ -76,7 +76,7 @@ const Navbar = () => {
 
             <div className="mobBtn">
 
-                <div className='toggle' id='themeToggle'>
+                <div className='toggle' id='themeToggle' title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}>
                     <div
                         className="checkbox-label"
                         onClick={() => setDarkMode(!darkMode)}

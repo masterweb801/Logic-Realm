@@ -9,6 +9,7 @@ const AppCard = ({ app }) => {
         <Motion.article
             className="app-card-modern"
             role="listitem"
+            title={app?.name}
             itemID={app?.id}
             layout
             initial={{ opacity: 0, scale: 0.9 }}

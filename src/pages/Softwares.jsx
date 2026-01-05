@@ -24,12 +24,12 @@ const noResultsVariants = {
 };
 
 const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
-    const [appList, setAppList] = useState([]);
-    const [filteredAppList, setFilteredAppList] = useState([]);
-    const [loading, setLoading] = useState(false);
     const [query, setQuery] = useState("");
-    const [searchFocused, setSearchFocused] = useState(false);
     const [cache, setCache] = useState({});
+    const [appList, setAppList] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [filteredAppList, setFilteredAppList] = useState([]);
+    const [searchFocused, setSearchFocused] = useState(false);
 
     const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -70,7 +70,6 @@ const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
     }, [appList, cache, query]);
 
     useEffect(() => {
-
         const time = setTimeout(handleSearch, 400);
         return () => clearTimeout(time);
     }, [query, handleSearch]);
@@ -84,8 +83,7 @@ const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
     }, [contextSoftwares, getApps]);
 
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        document.title = 'Softwares | Logic Realm';
+        typeof window !== 'undefined' && (document.title = 'Softwares | Logic Realm');
     }, []);
     return <Motion.div className="softwares-page" {...pageTransition}>
         <section className="store-hero">

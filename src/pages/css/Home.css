@@ -272,20 +272,7 @@
     color: var(--text);
 }
 
-@media screen and (max-width: 970px) {
-    .homepage {
-        padding-top: 0;
-    }
-
-    .hero {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 0 1rem;
-        height: 100vh;
-    }
-
+@media screen and (max-width: 1080px) {
     .hero-image {
         position: absolute;
         opacity: .1;
@@ -299,6 +286,21 @@
         width: 100%;
         aspect-ratio: 1 / 1;
         z-index: 99;
+    }
+}
+
+@media screen and (max-width: 970px) {
+    .homepage {
+        padding-top: 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 1rem;
+        height: 100vh;
     }
 
     .hero-content {

@@ -20,8 +20,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.title = 'Logic Realm';
+    typeof window !== 'undefined' && (document.title = 'Logic Realm');
   }, [])
 
   return (
@@ -203,7 +202,7 @@ const Home = () => {
           Featured Projects
         </Motion.h2>
         <div className="projects-grid">
-          <Link to="/softwares/photo-point">
+          <Link to="/softwares/photo-point" title="Photo Point">
             <ScrollCard className={"project"} direction={"left"} li={false}>
               <div className="img-bg">
                 <img
@@ -218,7 +217,7 @@ const Home = () => {
               <p>A software to convert PPTX to Image.</p>
             </ScrollCard>
           </Link>
-          <Link to="/softwares/typo">
+          <Link to="/softwares/typo" title='Typo'>
             <ScrollCard className={"project"} direction={"bottom"} li={false}>
               <div className="img-bg">
                 <img
@@ -233,7 +232,7 @@ const Home = () => {
               <p>A mobile app for wireless typing.</p>
             </ScrollCard>
           </Link>
-          <Link to="/softwares/asfa">
+          <Link to="/softwares/asfa" title="ASFA">
             <ScrollCard className={"project"} direction={"right"} li={false}>
               <div className="img-bg">
                 <img

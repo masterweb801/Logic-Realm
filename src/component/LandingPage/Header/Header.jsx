@@ -3,7 +3,7 @@ import { motion as Motion } from 'motion/react'
 
 const Header = ({ img, name, desc, variants }) => {
     return (
-        <Motion.section className="app-header" variants={variants}>
+        <Motion.section className="app-header" variants={variants} title={name}>
             <div className="app-header-container">
                 <div className="app-icon-container">
                     <img
