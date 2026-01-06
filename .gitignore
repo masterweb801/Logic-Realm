@@ -27,3 +27,5 @@ dist-ssr
 test.html
 
 google8d23e3d015b5f31d.html
+.env
+.env.*
