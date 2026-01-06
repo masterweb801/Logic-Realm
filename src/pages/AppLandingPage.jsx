@@ -40,10 +40,8 @@ const AppLandingPage = () => {
     const [loading, setLoading] = useState(false)
     const [appDetails, setAppDetails] = useState({})
 
-    const getAppData = async (slug, { background = false } = {}) => {
+    const getAppData = async (slug) => {
         if (!slug) return null;
-
-        if (!background) setLoading(true);
 
         try {
             let url = `${import.meta.env.VITE_API_URL}api/routes/getAppDetails.php`
@@ -71,22 +69,26 @@ const AppLandingPage = () => {
         } catch (err) {
             console.error('Failed to fetch app details:', err);
         } finally {
-            if (!background) setLoading(false);
+            setLoading(false);
         }
 
     }
 
     useEffect(() => {
+        setLoading(true);
         try {
             const raw = typeof window !== 'undefined' ? localStorage.getItem("allSoftwares") : null;
             const allSoftwares = raw ? JSON.parse(raw) : {};
             if (allSoftwares && allSoftwares[slug]) {
                 setAppDetails(allSoftwares[slug]);
+                setLoading(false);
             }
         } catch (err) {
             console.error('Failed to read cache, fetching from API:', err);
+        } finally {
+            getAppData(slug);
+
         }
-        getAppData(slug, { background: true });
     }, [slug]);
 
     return (

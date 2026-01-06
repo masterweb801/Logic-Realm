@@ -49,9 +49,11 @@ const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
             }
         });
         let data = await response.json();
-        setAppList(data.response_data);
-        setContextSoftwares(data.response_data);
-        setLoading(false);
+        if (data && data.response_data) {
+            setAppList(data.response_data);
+            setContextSoftwares(data.response_data);
+            setLoading(false);
+        }
     }, [setContextSoftwares]);
 
     const handleSearch = useCallback(() => {
