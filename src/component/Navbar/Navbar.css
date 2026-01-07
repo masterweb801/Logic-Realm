@@ -64,6 +64,14 @@
   align-items: center;
 }
 
+.navbar ul.nav-links-desktop {
+  display: flex;
+}
+
+.navbar ul.nav-links-mobile {
+  display: none;
+}
+
 .navbar ul li {
   text-decoration: none;
 }
@@ -134,7 +142,7 @@
 }
 
 @media screen and (max-width: 970px) {
-  ul.nav-links-desktop {
+  .navbar ul.nav-links-desktop {
     display: none;
   }
 
@@ -209,7 +217,9 @@
     flex-direction: column;
     position: fixed;
     background: #324400;
+    min-width: 17.5rem;
     width: 80vw;
+    max-width: 27rem;
     margin-left: 0;
     align-items: center;
     justify-content: center;
@@ -223,7 +233,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    padding-left: 4rem;
+    padding: 0 4rem;
   }
 
   .navbar ul li a,
