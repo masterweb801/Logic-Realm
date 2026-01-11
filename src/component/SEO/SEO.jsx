@@ -7,12 +7,13 @@ const SEO = ({
     type = "website",
     image = "/seo/home_page.png"
 }) => {
-    const title = name && name !== "Logic Realm" ? `${name} | Logic Realm` : "Logic Realm";
+    const fullTitle = name && name !== "Logic Realm" ? `${name} | Logic Realm` : "Logic Realm";
+    const title = name && name !== "Logic Realm" ? name : "Logic Realm";
     const url = `https://logicrealm.rf.gd${route}`;
 
     return (
         <Helmet>
-            <title>{title}</title>
+            <title>{fullTitle}</title>
             <meta name="description" content={description} />
             {route && <link rel="canonical" href={url} />}
 
