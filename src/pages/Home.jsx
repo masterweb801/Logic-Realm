@@ -1,6 +1,6 @@
 import './css/Home.css'
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../component/SEO/SEO.jsx'
 import { motion as Motion } from 'motion/react'
 import DesignTeam from '../assets/design-team.svg'
 import SoftDev from '../assets/hero-software-dev.svg'
@@ -19,12 +19,9 @@ const Home = () => {
     visible: { opacity: 1, y: 0 },
   };
 
-  useEffect(() => {
-    typeof window !== 'undefined' && (document.title = 'Logic Realm');
-  }, [])
-
   return (
     <div className="homepage">
+      <SEO name='Logic Realm' route='/' />
       <section className="hero">
         <div className="hero-content">
           <Motion.h1

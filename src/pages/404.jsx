@@ -1,6 +1,6 @@
 import './css/404.css'
 import { useEffect, useRef } from 'react'
-
+import SEO from '../component/SEO/SEO.jsx';
 
 const ErrorPage = () => {
     const eyeRef = useRef(null);
@@ -34,7 +34,6 @@ const ErrorPage = () => {
 
     useEffect(() => {
         if (typeof window === 'undefined') return;
-        document.title = 'Not Found | Logic Realm';
 
         document.addEventListener("mousemove", eyeball);
         const eyeballEl = eyeballRef.current;
@@ -53,6 +52,11 @@ const ErrorPage = () => {
     }, []);
     return (
         <div className='container_404'>
+            <SEO
+                name="Not Found"
+                description="The page you are looking for does not exist."
+                image='/seo/error_page.png'
+            />
             <div className="text_404">
                 <h1>4</h1>
                 <div className="eye" ref={eyeRef}>

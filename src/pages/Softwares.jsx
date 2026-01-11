@@ -1,10 +1,11 @@
 import './css/Softwares.css'
+import SEO from '../component/SEO/SEO.jsx'
 import AppCard from '../component/AppCard/AppCard'
 import SearchIcon from '@mui/icons-material/Search';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 import { useState, useEffect, useCallback } from 'react';
-import { motion as Motion, AnimatePresence } from 'motion/react';
 import TopProgress from '../component/TopProgress/TopProgress';
+import { motion as Motion, AnimatePresence } from 'motion/react';
 
 const pageTransition = {
     initial: { opacity: 0, y: 20 },
@@ -50,8 +51,9 @@ const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
         });
         let data = await response.json();
         if (data && data.response_data) {
-            setAppList(data.response_data);
-            setContextSoftwares(data.response_data);
+            let apps = data.response_data.reverse();
+            setAppList(apps);
+            setContextSoftwares(apps);
             setLoading(false);
         }
     }, [setContextSoftwares]);
@@ -84,10 +86,13 @@ const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
         }
     }, [contextSoftwares, getApps]);
 
-    useEffect(() => {
-        typeof window !== 'undefined' && (document.title = 'Softwares | Logic Realm');
-    }, []);
     return <Motion.div className="softwares-page" {...pageTransition}>
+        <SEO
+            name="Softwares"
+            description="Discover a wide range of custom software applications designed to meet your unique needs. Explore our collection of innovative solutions for web, mobile, and desktop platforms."
+            route="/softwares"
+            image="/seo/softwares_page.png"
+        />
         <section className="store-hero">
             <Motion.h1
                 className="title"

@@ -1,5 +1,6 @@
 import './css/Contact.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import SEO from '../component/SEO/SEO';
 import SimpleAlert from '../component/Alert/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import ContactForm from '../component/ContactForm/ContactForm';
@@ -10,10 +11,6 @@ const Contact = () => {
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
 
-    useEffect(() => {
-        typeof window !== 'undefined' && (document.title = 'Contact | Logic Realm');
-    }, [])
-
     return (
         <Motion.div
             className='contact-form-page'
@@ -22,6 +19,13 @@ const Contact = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
         >
+            <SEO
+                name="Contact"
+                description="Get in touch with us for inquiries, support, or collaboration opportunities."
+                route="/contact"
+                image="/seo/contact_page.png"
+            />
+
             <AnimatePresence>{
                 (error || success) &&
                 <Motion.div

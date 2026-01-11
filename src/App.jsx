@@ -1,9 +1,9 @@
 import './css/App.css'
 import './css/colors.css'
 import Layout from "./Layout"
+import Home from './pages/Home';
 import { lazy, useState } from 'react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from './pages/Home';
 
 const About = lazy(() => import('./pages/About'));
 const ErrorPage = lazy(() => import('./pages/404'));
