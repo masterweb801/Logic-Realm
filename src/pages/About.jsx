@@ -1,5 +1,5 @@
 import './css/About.css';
-import { useEffect } from 'react';
+import SEO from '../component/SEO/SEO.jsx';
 import { motion as Motion } from 'motion/react';
 import ScrollCard from '../component/ScrollCard/ScrollCard.jsx';
 
@@ -65,11 +65,14 @@ const imageReveal = {
 };
 
 export default function About() {
-    useEffect(() => {
-        typeof window !== 'undefined' && (document.title = 'About | Logic Realm');
-    }, [])
     return (
         <div className="about-page">
+            <SEO
+                name="About Us"
+                description="Learn more about Logic Realm, our journey, values, and commitment to delivering innovative digital solutions that empower businesses worldwide."
+                route="/about"
+                image="/seo/about_page.png"
+            />
             <section className="about-hero">
                 <Motion.div
                     className="about-container"

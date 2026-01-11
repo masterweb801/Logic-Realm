@@ -1,5 +1,7 @@
 import './css/AppLandingPage.css';
 import Box from '@mui/material/Box';
+import SEO from '../component/SEO/SEO.jsx';
+import { motion as Motion } from 'motion/react';
 import IconButton from '@mui/material/IconButton';
 import { Link, useParams } from 'react-router-dom';
 import Info from '../component/LandingPage/Info/Info.jsx';
@@ -11,7 +13,6 @@ import Header from '../component/LandingPage/Header/Header.jsx';
 import Download from '../component/LandingPage/Download/Download.jsx';
 // import Screenshots from '../component/LandingPage/SS/Screenshots.jsx';
 import Description from '../component/LandingPage/Description/Description.jsx';
-import { motion as Motion } from 'motion/react';
 
 const SimilarApps = lazy(() => import('../component/LandingPage/SimilarApps/SimilarApps.jsx'));
 
@@ -37,8 +38,9 @@ const itemVariants = {
 
 const AppLandingPage = () => {
     const { slug } = useParams();
-    const [loading, setLoading] = useState(false)
-    const [appDetails, setAppDetails] = useState({})
+    const [loading, setLoading] = useState(false);
+    const [appDetails, setAppDetails] = useState({});
+    const [rendered, setRendered] = useState(false);
 
     const getAppData = async (slug) => {
         if (!slug) return null;
@@ -60,18 +62,15 @@ const AppLandingPage = () => {
                     const existing = JSON.parse(localStorage.getItem("allSoftwares") || "{}");
                     existing[slug] = data.response_data;
                     localStorage.setItem("allSoftwares", JSON.stringify(existing));
-                    document.title = `${data.response_data.name} | Logic Realm`;
                 }
             } else {
                 console.warn('No response_data for slug:', slug, data);
             }
-
         } catch (err) {
             console.error('Failed to fetch app details:', err);
         } finally {
             setLoading(false);
         }
-
     }
 
     useEffect(() => {
@@ -87,12 +86,18 @@ const AppLandingPage = () => {
             console.error('Failed to read cache, fetching from API:', err);
         } finally {
             getAppData(slug);
-
         }
     }, [slug]);
 
     return (
         <div className="app-landing-page">
+            <SEO
+                name={appDetails.name}
+                route={`/softwares/${slug}`}
+                description={appDetails.sdesc}
+                image={`/seo/${slug}_page.png`}
+                key={slug}
+            />
             <Link to='/softwares' className='backBtn'>
                 <IconButton
                     aria-label="Go Back"
