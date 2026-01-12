@@ -40,7 +40,6 @@ const AppLandingPage = () => {
     const { slug } = useParams();
     const [loading, setLoading] = useState(false);
     const [appDetails, setAppDetails] = useState({});
-    const [rendered, setRendered] = useState(false);
 
     const getAppData = async (slug) => {
         if (!slug) return null;
@@ -92,9 +91,10 @@ const AppLandingPage = () => {
     return (
         <div className="app-landing-page">
             <SEO
-                name={appDetails.name}
+                name={`${appDetails?.name} - ${appDetails?.sdesc} | Logic Realm`}
+                oname={`${appDetails?.name} - ${appDetails?.sdesc} by Logic Realm`}
                 route={`/softwares/${slug}`}
-                description={appDetails.sdesc}
+                description={appDetails?.sdesc}
                 image={`/seo/${slug}_page.png`}
                 key={slug}
             />

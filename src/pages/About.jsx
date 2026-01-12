@@ -68,7 +68,8 @@ export default function About() {
     return (
         <div className="about-page">
             <SEO
-                name="About Us"
+                name="About Us - Logic Realm"
+                oname='About Logic Realm - Our Mission & Vision'
                 description="Learn more about Logic Realm, our journey, values, and commitment to delivering innovative digital solutions that empower businesses worldwide."
                 route="/about"
                 image="/seo/about_page.png"

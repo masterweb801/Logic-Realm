@@ -88,7 +88,8 @@ const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
 
     return <Motion.div className="softwares-page" {...pageTransition}>
         <SEO
-            name="Softwares"
+            name="Software Products - Logic Realm"
+            oname="Explore Software Products by Logic Realm"
             description="Discover a wide range of custom software applications designed to meet your unique needs. Explore our collection of innovative solutions for web, mobile, and desktop platforms."
             route="/softwares"
             image="/seo/softwares_page.png"

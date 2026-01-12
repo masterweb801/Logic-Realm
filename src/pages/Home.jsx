@@ -21,7 +21,10 @@ const Home = () => {
 
   return (
     <div className="homepage">
-      <SEO name='Logic Realm' route='/' />
+      <SEO
+        route='/'
+        name='Logic Realm - Modern Web & Mobile Software Solutions'
+      />
       <section className="hero">
         <div className="hero-content">
           <Motion.h1
