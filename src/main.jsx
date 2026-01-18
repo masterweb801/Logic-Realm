@@ -1,14 +1,9 @@
-import { lazy, Suspense } from 'react';
-import { createRoot } from 'react-dom/client'
-import Loading from './component/Loading/Loading';
-import { HelmetProvider } from 'react-helmet-async';
+import { routes } from './App.jsx'
+import { ViteReactSSG } from 'vite-react-ssg';
 
-const App = lazy(() => import('./App.jsx'));
-
-createRoot(document.getElementById('root')).render(
-  <Suspense fallback={<Loading />}>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  </Suspense>,
+export const createRoot = ViteReactSSG(
+  {
+    routes,
+    renderAsync: true,
+  }
 )

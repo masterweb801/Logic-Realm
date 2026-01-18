@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async"
+import { Head as Helmet } from 'vite-react-ssg';
 
 const SEO = ({
     name = "",

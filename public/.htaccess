@@ -2,18 +2,30 @@
 RewriteEngine On
 RewriteBase /
 
-# Force HTTPS (only if SSL available)
+# 1. Force HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-# Allow direct access to the API folder (very important)
+# 2. Allow direct access to API (Don't touch PHP files)
 RewriteCond %{REQUEST_URI} ^/api/
 RewriteRule ^ - [L]
 
-# Allow direct access to existing files and folders
+# 3. Clean URLs: Map /about to /about.html
+# This tells Apache: "If the user asks for /page, and /page.html exists, show it!"
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^/]+)$ $1.html [L]
+
+# 4. Clean URLs for Subfolders: Map /softwares/app to /softwares/app.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^softwares/([^/]+)$ softwares/$1.html [L]
+
+# 5. Allow access to existing assets (images, CSS, JS)
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Route all other requests to index.html (for SPA)
+# 6. Fallback for React Router
+# If it's not a static file, and not a pre-rendered .html file, let React handle it.
 RewriteRule ^ index.html [L]

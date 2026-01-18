@@ -1,38 +1,30 @@
 import './Navbar.css';
 import MenuIcon from '@mui/icons-material/Menu';
 import ClearIcon from '@mui/icons-material/Clear';
-import { useState, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 import BedtimeIcon from '@mui/icons-material/Bedtime';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import { motion as Motion, AnimatePresence } from 'motion/react';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const location = useLocation();
+    const [darkMode, setDarkMode] = useState(true);
 
-    useLayoutEffect(() => {
-        setIsOpen(false);
-    }, [location]);
+    useEffect(() => {
+        const saved = localStorage.getItem('docMode');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    const getInitialMode = () => {
-        try {
-            const saved = typeof window !== 'undefined' ? localStorage.getItem('docMode') : 'dark';
-            if (saved === 'dark') return true;
-            if (saved === 'light') return false;
-            return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        } catch {
-            return false;
-        }
-    };
+        const initialTheme = saved ? saved === 'dark' : prefersDark;
+        setDarkMode(initialTheme);
 
-    const [darkMode, setDarkMode] = useState(getInitialMode);
+        document.documentElement.setAttribute('data-theme', initialTheme ? 'dark' : 'light');
+    }, []);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const theme = darkMode ? 'dark' : 'light';
-        if (typeof document === 'undefined') return;
         document.documentElement.setAttribute('data-theme', theme);
-        try { localStorage.setItem('docMode', theme); } catch { /* ignore storage errors */ }
+        localStorage.setItem('docMode', theme);
     }, [darkMode]);
 
     const menuVariants = {
@@ -62,7 +54,7 @@ const Navbar = () => {
                         className='main-icon'
                         src='/icon.svg'
                         alt="Logic Realm Logo"
-                        fetchPriority='high'
+                        fetchpriority='high'
                         whileHover={{ rotate: 10, scale: 1.1 }}
                     />
 
@@ -114,6 +106,7 @@ const Navbar = () => {
                                 <NavLink
                                     className={(e) => e.isActive ? "act" : ""}
                                     to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                                    onClick={() => setIsOpen(false)}
                                 >
                                     {item}
                                 </NavLink>

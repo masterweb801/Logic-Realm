@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.vite-react-ssg-temp/*
 *.local
 
 # Editor directories and files
@@ -29,3 +30,4 @@ test.html
 google8d23e3d015b5f31d.html
 .env
 .env.*
+*.code-workspace

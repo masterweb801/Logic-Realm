@@ -116,7 +116,7 @@ const Home = () => {
           We offer a complete suite of services to take your product from concept to launch and beyond.
         </Motion.p>
         <ul className="service-cards">
-          <ScrollCard direction={"left"} className={"card"}>
+          <ScrollCard direction={"left"} className={"card"} scroll={0.35}>
             <div className="img-bg-2">
               <img
                 src={MobileDev}
@@ -129,7 +129,7 @@ const Home = () => {
               <p>Full-stack web applications and native/hybrid mobile apps tailored to your business needs.</p>
             </div>
           </ScrollCard>
-          <ScrollCard direction={"bottom"} className={"card"}>
+          <ScrollCard direction={"bottom"} className={"card"} scroll={0.35}>
             <div className="img-bg-2">
               <img
                 src={EnterpriseSoftware}
@@ -142,7 +142,7 @@ const Home = () => {
               <p>Robust systems with scalability, integrations, & automation for enterprise-level operations.</p>
             </div>
           </ScrollCard>
-          <ScrollCard direction={"right"} className={"card"}>
+          <ScrollCard direction={"right"} className={"card"} scroll={0.35}>
             <div className="img-bg-2">
               <img
                 src={DesignTeam}
@@ -203,13 +203,13 @@ const Home = () => {
         </Motion.h2>
         <div className="projects-grid">
           <Link to="/softwares/photo-point" title="Photo Point">
-            <ScrollCard className={"project"} direction={"left"} li={false}>
+            <ScrollCard className={"project"} direction={"left"} li={false} hoverScale={1.05}>
               <div className="img-bg">
                 <img
                   src="https://cdn.jsdelivr.net/gh/masterweb801/Photo-Point@main/icon.ico"
                   alt="Icon for Photo Point software"
                   className="project-icon"
-                  fetchPriority='low'
+                  fetchpriority='low'
                   loading='lazy'
                 />
               </div>
@@ -218,13 +218,13 @@ const Home = () => {
             </ScrollCard>
           </Link>
           <Link to="/softwares/typo" title='Typo'>
-            <ScrollCard className={"project"} direction={"bottom"} li={false}>
+            <ScrollCard className={"project"} direction={"bottom"} li={false} hoverScale={1.05}>
               <div className="img-bg">
                 <img
                   src="https://cdn.jsdelivr.net/gh/masterweb801/Typo@main/app/src/main/ic_launcher-playstore.png"
                   alt="Icon for Typo mobile app"
                   className="project-icon"
-                  fetchPriority='low'
+                  fetchpriority='low'
                   loading='lazy'
                 />
               </div>
@@ -233,13 +233,13 @@ const Home = () => {
             </ScrollCard>
           </Link>
           <Link to="/softwares/asfa" title="ASFA">
-            <ScrollCard className={"project"} direction={"right"} li={false}>
+            <ScrollCard className={"project"} direction={"right"} li={false} hoverScale={1.05}>
               <div className="img-bg">
                 <img
                   src="https://cdn.jsdelivr.net/gh/masterweb801/ASFA@main/icon-png.png"
                   alt="Icon for ASFA"
                   className="project-icon"
-                  fetchPriority='low'
+                  fetchpriority='low'
                   loading='lazy'
                 />
               </div>

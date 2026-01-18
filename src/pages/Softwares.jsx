@@ -1,5 +1,6 @@
-import './css/Softwares.css'
-import SEO from '../component/SEO/SEO.jsx'
+import './css/Softwares.css';
+import SEO from '../component/SEO/SEO.jsx';
+import { API_BASE_URL } from '../config/api.js';
 import AppCard from '../component/AppCard/AppCard'
 import SearchIcon from '@mui/icons-material/Search';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
@@ -24,7 +25,7 @@ const noResultsVariants = {
     exit: { opacity: 0, scale: 0.8, transition: { duration: 0.2 } }
 };
 
-const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
+const Softwares = () => {
     const [query, setQuery] = useState("");
     const [cache, setCache] = useState({});
     const [appList, setAppList] = useState([]);
@@ -41,8 +42,7 @@ const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
     };
 
     const getApps = useCallback(async () => {
-        setLoading(true);
-        let url = `${import.meta.env.VITE_API_URL}api/routes/getAllApps.php`
+        let url = `${API_BASE_URL}api/routes/getAllApps.php`
         let response = await fetch(url, {
             method: "POST",
             headers: {
@@ -53,10 +53,10 @@ const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
         if (data && data.response_data) {
             let apps = data.response_data.reverse();
             setAppList(apps);
-            setContextSoftwares(apps);
+            if (typeof document !== 'undefined') try { localStorage.setItem('contextSoftwares', JSON.stringify(apps)) } catch { };
             setLoading(false);
         }
-    }, [setContextSoftwares]);
+    }, []);
 
     const handleSearch = useCallback(() => {
         if (cache[query.toLowerCase()]) {
@@ -79,12 +79,16 @@ const Softwares = ({ contextSoftwares, setContextSoftwares }) => {
     }, [query, handleSearch]);
 
     useEffect(() => {
-        if (contextSoftwares.length > 0) {
-            setAppList(contextSoftwares);
-        } else {
-            getApps();
+        try {
+            const saved = typeof window !== 'undefined' && localStorage.getItem('contextSoftwares');
+            saved ? setAppList(JSON.parse(saved)) : setLoading(true);
+        } catch (error) {
+            console.error("Failed to parse local storage:", error);
+            setLoading(true);
+        } finally {
+            getApps()
         }
-    }, [contextSoftwares, getApps]);
+    }, [getApps]);
 
     return <Motion.div className="softwares-page" {...pageTransition}>
         <SEO

@@ -1,6 +1,7 @@
 import './css/AppLandingPage.css';
 import Box from '@mui/material/Box';
 import SEO from '../component/SEO/SEO.jsx';
+import { API_BASE_URL } from '../config/api.js'
 import { motion as Motion } from 'motion/react';
 import IconButton from '@mui/material/IconButton';
 import { Link, useParams } from 'react-router-dom';
@@ -45,7 +46,7 @@ const AppLandingPage = () => {
         if (!slug) return null;
 
         try {
-            let url = `${import.meta.env.VITE_API_URL}api/routes/getAppDetails.php`
+            let url = `${API_BASE_URL}api/routes/getAppDetails.php`
             let response = await fetch(url, {
                 method: "POST",
                 headers: {
