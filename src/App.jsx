@@ -1,45 +1,32 @@
 import './css/App.css';
 import './css/colors.css';
-import React from 'react';
 import Layout from "./Layout";
+import Home from './pages/Home';
+import { lazy } from 'react';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-export const routes = [
+const About = lazy(() => import('./pages/About'));
+const ErrorPage = lazy(() => import('./pages/404'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Softwares = lazy(() => import('./pages/Softwares'));
+const AppLandingPage = lazy(() => import('./pages/AppLandingPage'));
+
+const routes = [
   {
     path: "/",
     element: <Layout />,
     children: [
-      {
-        index: true,
-        Component: React.lazy(() => import('./pages/Home')),
-      },
-      {
-        path: "softwares",
-        Component: React.lazy(() => import('./pages/Softwares')),
-      },
-      {
-        path: "about",
-        Component: React.lazy(() => import('./pages/About')),
-      },
-      {
-        path: "contact",
-        Component: React.lazy(() => import('./pages/Contact')),
-      },
-      {
-        path: "softwares/:slug",
-        Component: React.lazy(() => import('./pages/AppLandingPage')),
-        getStaticPaths: () => [
-          'softwares/dv-tube',
-          'softwares/hified',
-          'softwares/sayl',
-          'softwares/asfa',
-          'softwares/typo',
-          'softwares/photo-point',
-        ],
-      },
-      {
-        path: "*",
-        Component: React.lazy(() => import('./pages/404')),
-      },
+      { index: true, element: <Home /> },
+      { path: "softwares", element: <Softwares /> },
+      { path: "about", element: <About /> },
+      { path: "contact", element: <Contact /> },
+      { path: "softwares/:slug", element: <AppLandingPage /> },
+      { path: "*", element: <ErrorPage /> },
     ]
   }
 ]
+
+export default function App() {
+  const router = createBrowserRouter(routes);
+  return <RouterProvider router={router} />
+}

@@ -42,19 +42,23 @@ const Softwares = () => {
     };
 
     const getApps = useCallback(async () => {
-        let url = `${API_BASE_URL}api/routes/getAllApps.php`
-        let response = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
+        try {
+            let url = `${API_BASE_URL}api/routes/getAllApps.php`
+            let response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            });
+            let data = await response.json();
+            if (data && data.response_data) {
+                let apps = data.response_data.reverse();
+                setAppList(apps);
+                if (typeof document !== 'undefined') try { localStorage.setItem('contextSoftwares', JSON.stringify(apps)) } catch { };
+                setLoading(false);
             }
-        });
-        let data = await response.json();
-        if (data && data.response_data) {
-            let apps = data.response_data.reverse();
-            setAppList(apps);
-            if (typeof document !== 'undefined') try { localStorage.setItem('contextSoftwares', JSON.stringify(apps)) } catch { };
-            setLoading(false);
+        } catch (err) {
+            console.error('Failed to fetch app details:', err);
         }
     }, []);
 

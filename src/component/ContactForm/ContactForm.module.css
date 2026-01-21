@@ -108,6 +108,10 @@
     .lg-view {
         display: none;
     }
+
+    h2 {
+        color: #040316;
+    }
 }
 
 @media only screen and (min-width: 600px) {

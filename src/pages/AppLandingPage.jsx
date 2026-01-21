@@ -42,8 +42,8 @@ const AppLandingPage = () => {
     const [loading, setLoading] = useState(false);
     const [appDetails, setAppDetails] = useState({});
 
-    const getAppData = async (slug) => {
-        if (!slug) return null;
+    const getAppData = async (currentSlug) => {
+        if (!currentSlug) return null;
 
         try {
             let url = `${API_BASE_URL}api/routes/getAppDetails.php`
@@ -52,7 +52,7 @@ const AppLandingPage = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ slug })
+                body: JSON.stringify({ slug: currentSlug })
             });
             let data = await response.json();
 
@@ -60,11 +60,11 @@ const AppLandingPage = () => {
                 setAppDetails(data.response_data);
                 if (typeof window !== 'undefined') {
                     const existing = JSON.parse(localStorage.getItem("allSoftwares") || "{}");
-                    existing[slug] = data.response_data;
+                    existing[currentSlug] = data.response_data;
                     localStorage.setItem("allSoftwares", JSON.stringify(existing));
                 }
             } else {
-                console.warn('No response_data for slug:', slug, data);
+                console.warn('No response_data for slug:', currentSlug, data);
             }
         } catch (err) {
             console.error('Failed to fetch app details:', err);
