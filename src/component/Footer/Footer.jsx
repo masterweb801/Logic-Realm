@@ -57,7 +57,7 @@ const Footer = () => {
                 <div className="footer-powered">
                     <span>Powered by</span>
                     <a className='l-link' href="http://lexaun.rf.gd/" target='_blank' title='Lexaun Limited' rel="noreferrer">
-                        <img src='/lexaun.webp' className="footer-logo" alt='Lexaun Limited Logo' fetchPriority='low' loading='lazy' /> &nbsp;
+                        <img src='/lexaun.webp' className="footer-logo" alt='Lexaun Limited Logo' fetchpriority='low' loading='lazy' /> &nbsp;
                         <span className="footer-company">Lexaun Limited</span>
                     </a>
                 </div>

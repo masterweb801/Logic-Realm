@@ -8,8 +8,7 @@ function Layout() {
     const location = useLocation();
 
     useEffect(() => {
-        if (typeof window === 'undefined') return;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [location.pathname]);
 
     return (

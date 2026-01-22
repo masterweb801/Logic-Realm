@@ -20,7 +20,8 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
         >
             <SEO
-                name="Contact"
+                name="Contact Us - Get in Touch"
+                oname='Contact Logic Realm for Software Development Services'
                 description="Get in touch with us for inquiries, support, or collaboration opportunities."
                 route="/contact"
                 image="/seo/contact_page.png"

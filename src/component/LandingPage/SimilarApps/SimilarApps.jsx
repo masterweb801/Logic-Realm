@@ -1,26 +1,27 @@
-import './SimilarApps.css'
-import { useEffect, useState } from 'react'
-import { motion as Motion } from 'motion/react'
-import SimilarCard from '../SimilarCard/SimilarCard'
+import './SimilarApps.css';
+import { useEffect, useState } from 'react';
+import { motion as Motion } from 'motion/react';
+import SimilarCard from '../SimilarCard/SimilarCard';
+import { API_BASE_URL } from '../../../config/api.js';
 
 const SimilarApps = ({ slug }) => {
     const [appList, setAppList] = useState([]);
 
-    const getSimilarApps = async (slug) => {
+    const getSimilarApps = async (currentSlug) => {
         try {
-            let url = `${import.meta.env.VITE_API_URL}api/routes/getSimilarApps.php`;
+            let url = `${API_BASE_URL}api/routes/getSimilarApps.php`;
             let response = await fetch(url, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ slug })
+                body: JSON.stringify({ slug: currentSlug })
             });
             let data = await response.json();
             if (data && data.response_data) {
                 setAppList(data.response_data);
             } else {
-                console.warn('No response_data for slug:', slug, data);
+                console.warn('No response_data for slug:', currentSlug, data);
             }
         } catch (error) {
             console.log(error);

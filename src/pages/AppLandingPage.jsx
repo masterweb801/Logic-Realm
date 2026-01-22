@@ -1,6 +1,7 @@
 import './css/AppLandingPage.css';
 import Box from '@mui/material/Box';
 import SEO from '../component/SEO/SEO.jsx';
+import { API_BASE_URL } from '../config/api.js'
 import { motion as Motion } from 'motion/react';
 import IconButton from '@mui/material/IconButton';
 import { Link, useParams } from 'react-router-dom';
@@ -40,19 +41,18 @@ const AppLandingPage = () => {
     const { slug } = useParams();
     const [loading, setLoading] = useState(false);
     const [appDetails, setAppDetails] = useState({});
-    const [rendered, setRendered] = useState(false);
 
-    const getAppData = async (slug) => {
-        if (!slug) return null;
+    const getAppData = async (currentSlug) => {
+        if (!currentSlug) return null;
 
         try {
-            let url = `${import.meta.env.VITE_API_URL}api/routes/getAppDetails.php`
+            let url = `${API_BASE_URL}api/routes/getAppDetails.php`
             let response = await fetch(url, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ slug })
+                body: JSON.stringify({ slug: currentSlug })
             });
             let data = await response.json();
 
@@ -60,11 +60,11 @@ const AppLandingPage = () => {
                 setAppDetails(data.response_data);
                 if (typeof window !== 'undefined') {
                     const existing = JSON.parse(localStorage.getItem("allSoftwares") || "{}");
-                    existing[slug] = data.response_data;
+                    existing[currentSlug] = data.response_data;
                     localStorage.setItem("allSoftwares", JSON.stringify(existing));
                 }
             } else {
-                console.warn('No response_data for slug:', slug, data);
+                console.warn('No response_data for slug:', currentSlug, data);
             }
         } catch (err) {
             console.error('Failed to fetch app details:', err);
@@ -92,9 +92,10 @@ const AppLandingPage = () => {
     return (
         <div className="app-landing-page">
             <SEO
-                name={appDetails.name}
+                name={`${appDetails?.name} - ${appDetails?.sdesc} | Logic Realm`}
+                oname={`${appDetails?.name} - ${appDetails?.sdesc} by Logic Realm`}
                 route={`/softwares/${slug}`}
-                description={appDetails.sdesc}
+                description={appDetails?.sdesc}
                 image={`/seo/${slug}_page.png`}
                 key={slug}
             />

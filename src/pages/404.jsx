@@ -53,9 +53,10 @@ const ErrorPage = () => {
     return (
         <div className='container_404'>
             <SEO
-                name="Not Found"
+                name="Not Found - Logic Realm"
                 description="The page you are looking for does not exist."
                 image='/seo/error_page.png'
+                noindex={true}
             />
             <div className="text_404">
                 <h1>4</h1>
