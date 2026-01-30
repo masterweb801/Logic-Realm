@@ -20,7 +20,7 @@ export default function RootLayout({
       <body cz-shortcut-listen="true">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
-          <main className="min-h-screen text-black dark:text-white bg-gray-200 dark:bg-gray-800">
+          <main>
             {children}
           </main>
           <Footer />

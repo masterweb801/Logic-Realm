@@ -37,15 +37,15 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="md:fixed md:top-8 md:left-[5vw] md:w-[90vw] w-full h-15 bg-white text-black dark:bg-black dark:text-white px-4 md:rounded-2xl flex items-center shadow-2xl z-50">
+        <nav className="md:fixed md:top-8 md:left-[5vw] md:w-[90vw] w-full h-15 bg-white text-black px-4 md:rounded-2xl flex items-center shadow-2xl z-50">
             <div className="flex items-center justify-start grow gap-2.5" title="Logic Realm">
                 <Motion.div whileHover={{ rotate: 10, scale: 1.1 }}>
                     <Image src="/logo.svg" alt="Logo" width={45} height={45} priority />
                 </Motion.div>
                 <article className="uppercase font-bold font-sans  text-xl flex">
-                    <p className="text-[#0016e0] dark:text-[#007fff]">Logic</p>
+                    <p className="text-[#0016e0]">Logic</p>
                     &nbsp;
-                    <p className="text-[#92ac4d] dark:text-[#d6ff65]">Realm</p>
+                    <p className="text-[#92ac4d]">Realm</p>
                 </article>
             </div>
 
@@ -56,7 +56,7 @@ const Navbar = () => {
                     <Motion.li key={link.label} whileHover={{ scale: 1.05 }} title={link.label}>
                         <Link
                             href={link.href}
-                            className={isActive(link.href) ? "text-[#0016e0] dark:text-[#d6ff65]" : "hover:text-[#92ac4d] dark:hover:text-[#656fff]"}
+                            className={isActive(link.href) ? "text-[#0016e0]" : "hover:text-[#92ac4d]"}
                             passHref
                         >
                             {link.label}
@@ -69,7 +69,7 @@ const Navbar = () => {
                 whileTap={{ scale: 0.8 }}
                 onClick={() => setIsOpen(!isOpen)}
             >
-                {isOpen ? <Image src="/icons/cross.svg" alt="Menu" width={30} height={30} priority /> : <Image src="/icons/menu.svg" className="dark:invert" alt="Menu" width={30} height={30} priority />}
+                {isOpen ? <Image src="/icons/cross.svg" alt="Menu" width={30} height={30} priority /> : <Image src="/icons/menu.svg" alt="Menu" width={30} height={30} priority />}
             </Motion.div>
 
             <AnimatePresence>

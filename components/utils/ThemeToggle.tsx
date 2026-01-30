@@ -32,7 +32,6 @@ const ThemeToggle = () => {
                 >
                     <Image
                         src={isDark ? "/icons/sun.svg" : "/icons/moon.svg"}
-                        className="dark:invert"
                         alt="Toggle Theme"
                         width={30}
                         height={30}
